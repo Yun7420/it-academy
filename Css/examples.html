@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 예제</title>
+</head>
+<body>
+
+  <!-- <h1>파일 업로드 버튼</h1>
+
+  <style>
+    input[type=file] {
+      display: none;
+    }
+
+    label {
+      /* label의 기본속성은 inline이다 */
+      display: inline-block;
+      padding: 0.5rem 0.75rem;
+      font-weight: 600;
+      color: #0bf;
+      border: 2px solid #0bf;
+      /* 모서리를 둥글게 처리한다 */
+      border-radius: 0.25rem;
+      /* 커서가 손가락 모양 */
+      cursor: pointer;
+    }
+
+    label:hover {
+      background-color: #0bf;
+      color: #fff;
+    }
+  </style>
+
+  <label>
+    Choose File(s)
+    <input type="file" name="" id="">
+  </label> -->
+
+  <!-- <h1>움직이는 메뉴버튼</h1>
+
+  <style>
+    .container {
+      width: 50px;
+      height: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .item {
+      /* 부모로부터 속성값을 상속받는다 */
+      width: inherit;
+      height: 5px;
+      background-color: #000;
+      /* 애니메이션 효과 */
+      transition: transform 0.2s;
+    }
+
+    .container:hover .top {
+      transform: translateY(10px) rotate(45deg);
+    }
+
+    .container:hover .bottom {
+      transform: translateY(-10px) rotate(-45deg);
+    }
+  </style>
+
+  <div class="container">
+    <div class="item top"></div>
+    <div class="item bottom"></div>
+  </div> -->
+
+
+  <!-- <h1>알림 배지</h1>
+
+  <style>
+    .container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .bell {
+      width: 2rem;
+    }
+
+    .badge {
+      background-color: #f00;
+      color: #fff;
+      width: 1.25rem;
+      height: 1.25rem;
+      display: flex;
+      /* 정가운데에 위치시킨다 */
+      justify-content: center;
+      align-items: center;
+
+      /* 특정한 값이상이면 결과가 같다 */
+      border-radius: 99px;
+
+      font-size: 0.75rem;
+      font-weight: 600;
+
+      position: absolute;
+      top: 0;
+      right: -0.5rem;
+    }
+  </style>
+
+  <div class="container">
+    <span class="badge">2</span>
+    <svg 
+      class="bell"
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 448 512"
+    >
+      <path d="M224 0c-17.7 0-32 14.3-32 32V49.9C119.5 61.4 64 124.2 64 200v33.4c0 45.4-15.5 89.5-43.8 124.9L5.3 377c-5.8 7.2-6.9 17.1-2.9 25.4S14.8 416 24 416H424c9.2 0 17.6-5.3 21.6-13.6s2.9-18.2-2.9-25.4l-14.9-18.6C399.5 322.9 384 278.8 384 233.4V200c0-75.8-55.5-138.6-128-150.1V32c0-17.7-14.3-32-32-32zm0 96h8c57.4 0 104 46.6 104 104v33.4c0 47.9 13.9 94.6 39.7 134.6H72.3C98.1 328 112 281.3 112 233.4V200c0-57.4 46.6-104 104-104h8zm64 352H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7s18.7-28.3 18.7-45.3z"/>
+    </svg>
+  </div> -->
+
+  <!-- <h1>Pagination</h1>
+
+  <style>
+    .container {
+      display: flex;
+    }
+
+    .item {
+      padding: 0.5rem;
+      cursor: pointer;
+    }
+
+    .item:hover {
+      background-color: #ddd;
+    }
+  </style>
+
+  <div class="container">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">&#10095;</div>
+  </div> -->
+
+
+  <!-- <h1>Dropdown</h1>
+
+  <style>
+    .container {
+      display: inline-block;
+    }
+
+    button {
+      border: none;
+      background-color: #333;
+      color: #fff;
+      padding: 0.5rem 0.75rem;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+      /* li 앞에 점을 제거한다 */
+      list-style: none;
+      width: 200px;
+      border: 1px solid #ddd;
+      background-color: #fff;
+      /* 처음에 안보이는 상태 */
+      display: none;
+      /* 떠있는 형태로 만든다 */
+      position: absolute;
+    }
+
+    a {
+      display: block;
+      padding: 0.5rem;
+      color: #000;
+    }
+
+    a:hover {
+      background-color: #ddd;
+    }
+
+    .container:hover ul {
+      display: block;
+    }
+  </style>
+
+  <div class="container">
+    <button type="button">Dropdown</button>
+    <ul>
+      <li>
+        <a href="#">list item</a>
+      </li>
+      <li>
+        <a href="#">list item</a>
+      </li>
+      <li>
+        <a href="#">list item</a>
+      </li>
+    </ul>
+  </div>
+
+  <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+    Iure ullam ipsa vero doloremque impedit, veritatis aliquid
+    repudiandae, dolorum non nostrum facilis maxime, 
+    eligendi suscipit quaerat at voluptates ipsum! 
+    Dicta, eos.
+  </p> -->
+
+
+
+  <!-- <h1>Toggle Switch</h1>
+
+  <style>
+    label {
+      display: block;
+      background-color: #ddd;
+      width: 56px;
+      height: 32px;
+      position: relative;
+      cursor: pointer;
+      border-radius: 16px;
+      transition: background-color 0.5s;
+    }
+
+    .ball {
+      width: 24px;
+      height: 24px;
+      background-color: #fff;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      border-radius: 12px;
+      transition: transform 0.5s;
+    }
+
+    input[type=checkbox] {
+      display: none;
+    }
+
+    /* +: 바로 다음에 오는 엘리먼트를 선택한다 */
+    input:checked + label .ball {
+      transform: translateX(24px);
+    }
+
+    input:checked + label {
+      background-color: #333;
+    }
+  </style>
+
+  <div class="container">
+    <input type="checkbox" name="" id="option">
+    <label for="option">
+      <div class="ball"></div>
+    </label>
+  </div> -->
+
+  <!-- <style>
+    body {
+      height: 1000px;
+    }
+
+    nav {
+      /* position이 fixed인 경우 필요한 만큼만 넓이를 갖는다 */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      background-color: #333;
+    }
+
+    a {
+      display: block;
+      color: #fff;
+      padding: 0.5rem;
+      /* a태그의 밑줄을 제거한다 */
+      text-decoration: none;
+    }
+
+    a:hover {
+      background-color: #222;
+    }
+
+    main {
+      margin-top: 4rem;
+    }
+  </style>
+
+  <nav>
+    <ul>
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li>
+        <a href="#">About</a>
+      </li>
+      <li>
+        <a href="#">Blog</a>
+      </li>
+      <li>
+        <a href="#">Contact</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Top Navigation</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+      Nostrum officiis natus ratione eligendi, pariatur ex placeat! 
+      Nisi odio voluptate explicabo hic nemo. Mollitia, eligendi commodi! 
+      Recusandae sequi inventore dicta quo.
+    </p>
+  </main> -->
+
+  <!-- <style>
+    body {
+      height: 2000px;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .menu-list {
+      display: flex;
+      background-color: #333;
+    }
+
+    .menu-link {
+      display: block;
+      padding: 0.5rem;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .menu-link:hover {
+      background-color: #222;
+    }
+
+    .dropdown-container {
+      height: 100%;
+    }
+
+    .dropdown-btn {
+      font-size: 1rem;
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      padding: 0.5rem;
+      height: 100%;
+    }
+
+    .dropdown-btn:hover {
+      background-color: #222;
+    }
+
+    .dropdown-content {
+      width: 200px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      position: absolute;
+      display: none;
+    }
+
+    .drop-link {
+      display: block;
+      color: #000;
+      padding: 0.5rem;
+    }
+
+    .drop-link:hover {
+      background-color: #eee;
+    }
+
+    main {
+      margin-top: 4rem;
+    }
+
+    .dropdown-container:hover .dropdown-content {
+      display: block;
+    }
+  </style>
+
+  <nav>
+    <ul class="menu-list">
+      <li>
+        <a href="#" class="menu-link">Link</a>
+      </li>
+      <li>
+        <a href="#" class="menu-link">Link</a>
+      </li>
+      <li>
+        <div class="dropdown-container">
+          <button class="dropdown-btn">Dropdown</button>
+          <ul class="dropdown-content">
+            <li>
+              <a href="#" class="drop-link">Link</a>
+            </li>
+            <li>
+              <a href="#" class="drop-link">Link</a>
+            </li>
+            <li>
+              <a href="#" class="drop-link">Link</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>서브메뉴가 있는 탑메뉴</h1>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+      Praesentium, iusto id. Aut dignissimos quidem voluptatum 
+      ratione quae reprehenderit delectus eligendi, 
+      voluptate minus necessitatibus quaerat! Nostrum numquam 
+      minima quae dignissimos rem.
+    </p>
+  </main> -->
+
+  <!-- <style>
+    nav {
+      /* border: 1px dashed; */
+      width: 24rem;
+      /* 아이템을 감싸지 않는다 */
+      white-space: nowrap;
+      /* auto: overflow가 발생하면 스크롤을 생성한다 */
+      overflow-x: auto;
+    }
+
+    .item {
+      border: none;
+      background-color: #333;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      margin: 0 0.25rem;
+      border-radius: 99px;
+      font-size: 1rem;
+    }
+
+    /* 크롬, 사파리, 오페라에서 스크롤바 숨기기 */
+    nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    nav {
+      /* IE, 엣지 */
+      -ms-overflow-style: none;  
+      /* 파이어폭스 */
+      scrollbar-width: none;  
+    }
+  </style>
+
+  <h1>필터 버튼</h1>
+
+  <nav>
+    <button class="item">Seoul</button>
+    <button class="item">New York</button>
+    <button class="item">Tokyo</button>
+    <button class="item">Amsterdam</button>
+    <button class="item">London</button>
+    <button class="item">Paris</button>
+  </nav> -->
+
+  <!-- <style>
+    body {
+      height: 1000px;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #eee;
+      width: 16rem;
+      height: 100vh;
+      display: none;
+    }
+
+    .logo {
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 0.75rem;
+      color: #000;
+    }
+
+    main {
+      padding: 0 1rem;
+    }
+
+    /* 미디움 사이즈 이상부터 사이드바가 나타난다 */
+    @media (min-width: 768px) {
+      nav {
+        display: block;
+      }
+
+      main {
+        margin-left: 16rem;
+      }
+    }
+  </style>
+
+  <nav>
+    <h1 class="logo">Logo</h1>
+    <ul>
+      <li>
+        <a href="#" class="nav-link">Link</a>
+      </li>
+      <li>
+        <a href="#" class="nav-link">Link</a>
+      </li>
+      <li>
+        <a href="#" class="nav-link">Link</a>
+      </li>
+      <li>
+        <a href="#" class="nav-link">Link</a>
+      </li>
+    </ul>
+  </nav>
+  
+  <main>
+    <h1>Side Bar</h1>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+      Maiores officiis iusto expedita numquam? 
+      Iste unde repudiandae pariatur assumenda? 
+      Veritatis voluptatum dolor cupiditate iste ipsa ab eos reiciendis. 
+      Architecto, doloribus ab.
+    </p>
+  </main> -->
+
+  <!-- <style>
+    body {
+      height: 2000px;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      background-color: #333;
+      color: #fff;
+      padding: 0 1rem;
+      /* 
+        포지션 경쟁이 발생했을 때 값이 클수록 우선순위를 갖는다 
+        기본값: 0
+      */
+      z-index: 1;
+    }
+
+    .side-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 16rem;
+      height: 100vh;
+      border-right: 1px solid #ddd;
+      background-color: #fff;
+    }
+
+    ul {
+      margin-top: 8rem;
+    }
+
+    a {
+      color: #000;
+    }
+
+    main {
+      margin-top: 4rem;
+      margin-left: 16rem;
+      padding: 1rem;
+    }
+  </style>
+
+  <header>
+    <h3>Header</h3>
+  </header>
+
+  <nav class="side-bar">
+    <ul>
+      <li>
+        <a href="#">Link</a>
+      </li>
+      <li>
+        <a href="#">Link</a>
+      </li>
+      <li>
+        <a href="#">Link</a>
+      </li>
+    </ul>
+  </nav>
+  
+  <main>
+    <h1>Dashboard</h1>
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+      Ut modi veritatis neque harum quasi quod dicta sit accusantium. 
+      Incidunt ullam aut esse illo, dignissimos at iusto distinctio 
+      explicabo impedit perspiciatis!
+    </p>
+  </main> -->
+
+  <!-- <style>
+    .container {
+      /* border: 1px dashed; */
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 4rem;
+      height: 4rem;
+      object-fit: cover;
+      border-radius: 2rem;
+    }
+
+    .info {
+      margin-left: 0.5rem;
+    }
+
+    .username {
+      margin: 0;
+    }
+
+    .full-name {
+      color: #888;
+    }
+  </style>
+
+  <h1>아바타</h1>
+
+  <div class="container">
+    <img class="avatar" src="https://tvvmvn.github.io/front-end/img/Timon.webp" alt="">
+    <div class="info">
+      <h3 class="username">Meerkat</h3>
+      <span class="full-name">Timon</span>
+    </div>
+  </div> -->
+
+  <!-- <style>
+    .card {
+      /* border: 1px dashed; */
+
+      /* box-shadow: y축 x축 blur(흐림) spread(퍼짐) color inset */
+      box-shadow: 0 0 10px #ddd;
+      width: 16rem;
+      height: auto;
+    }
+
+    img {
+      width: inherit;
+      height: auto;
+    }
+    .card-inner {
+      /* top left/right bottom */
+      padding: 0 1rem 1rem;
+    }
+
+    .role {
+      color: #888;
+    }
+
+    .contact-btn {
+      border: none;
+      background-color: #eee;
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  </style>
+
+  <h1>카드</h1>
+
+  <div class="card">
+    <img src="https://static.wikia.nocookie.net/disney/images/e/e6/Profile_-_Pumbaa.jpeg/revision/latest?cb=20190312043302" alt="">
+    <div class="card-inner">
+      <h3>Pumbaa</h3>
+      <p class="role">CEO</p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+        Doloribus in corporis illo.
+      </p>
+      <button class="contact-btn">Send an E-mail</button>
+    </div>
+  </div> -->
+
+  <!-- <style>
+    .container {
+      /* border: 1px dashed; */
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    img {
+      width: inherit;
+      height: inherit;
+      object-fit: cover;
+      transition: transform 0.2s;
+    }
+
+    .container:hover img {
+      transform: scale(1.1)
+    }
+  </style>
+
+  <h1>확대되는 이미지</h1>
+
+  <div class="container">
+    <img src="https://i.namu.wiki/i/oMGRC944XdCwbvvFTV_h2e_4Oco6fDSIFOtFXSjYgsEkziZULioJpuHJuAor6GNqvJo8dz9xVPqBuE2lklPLnw.webp" alt="">
+  </div> -->
+
+  <!-- <style>
+    .container {
+      /* border: 1px dashed; */
+      width: 200px;
+      height: 200px;
+      position: relative;
+    }
+
+    img {
+      width: inherit;
+      height: inherit;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: inherit;
+      height: inherit;
+      background-color: rgba(0 0 0 / 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      /* 투명도 0(완전투명) - 1(완전불투명) */
+      opacity: 0;
+      /* 중간값이 있어야 적용된다 */
+      transition: opacity 0.2s;
+    }
+
+    .overlay:hover {
+      opacity: 1;
+    }
+  </style>
+
+  <h1>이미지위에 오버레이</h1>
+
+  <div class="container">
+    <img src="https://i.namu.wiki/i/oMGRC944XdCwbvvFTV_h2e_4Oco6fDSIFOtFXSjYgsEkziZULioJpuHJuAor6GNqvJo8dz9xVPqBuE2lklPLnw.webp" alt="">
+    <div class="overlay">Caption</div>
+  </div> -->
+
+
+  <!-- <h1>Thumbnail</h1>
+
+  <style>
+    .container {
+      /* border: 1px dashed; */
+      width: 200px;
+      height: 200px;
+      position: relative;
+    }
+
+    img {
+      width: inherit;
+      height: inherit;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: inherit;
+      box-sizing: border-box;
+      background-color: rgba(0 0 0 / 0.5);
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+  </style>
+
+  <div class="container bg-image">
+    <img src="https://i.ytimg.com/vi/z51K9zw-iYQ/maxresdefault.jpg" alt="">
+    <div class="overlay">ETA</div>
+  </div> -->
+  
+  <!-- <style>
+    body {
+      margin: 0;
+    }
+    .container {
+      /* border: 1px dashed; */
+      height: 300px;
+      width: auto;
+    }
+
+    .text-composer {
+      max-width: 640px;
+      height: inherit;
+      /* top/bottom left/right */
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch;
+    }
+
+    .bg-image {
+      /* background-image로 그라디언트 효과를 적용할 수 있다 */
+      background-image: linear-gradient(to right, #0ef, #0bf);
+    }
+
+    .text {
+      text-align: center;
+      color: #fff;
+    }
+  </style>
+
+  <h1>메인 이미지</h1>
+
+  <div class="container bg-image">
+    <div class="text-composer">
+      <h1 class="text">Text on main image</h1>
+    </div>
+  </div> -->
+
+  <!-- <style>
+    .container {
+      /* border: 1px dashed; */
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    /* 스몰사이즈 이상부터 옆으로 배열된다 */
+    @media (min-width: 640px) {
+      .container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+
+  <h1>옆으로 배열된 이미지</h1>
+
+  <div class="container">
+    <img src="https://tvvmvn.github.io/front-end/img/Timon.webp" alt="">
+    <img src="https://tvvmvn.github.io/front-end/img/Pumbaa.webp" alt="">
+  </div> -->
+
+
+  <!-- <style>
+    .container {
+      /* border: 1px dashed; */
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      background-color: #eee;
+      padding: 2rem 1rem;
+    }
+
+    img {
+      width: 100%;
+    }
+  </style>
+
+  <h1>Article</h1>
+
+
+  <div class="container">
+    <div class="content">
+      <h1>Title</h1>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+        Doloribus labore distinctio facere earum alias omnis voluptatum itaque? 
+        Adipisci, soluta odio quia, accusantium deleniti incidunt quibusdam 
+        assumenda debitis molestias veritatis vero?
+      </p>
+    </div>
+    <img src="http://tvvmvn.github.io/front-end/img/Timon.webp" alt="">
+  </div> -->
+
+  <!-- <style>
+    body {
+      margin: 0;
+    }
+    .container {
+      height: 700px;
+    }
+    .bg-image {
+      background-image: url('https://image-cdn.hypb.st/https%3A%2F%2Fkr.hypebeast.com%2Ffiles%2F2023%2F07%2Fwatch-newjeans-exciting-music-video-for-new-single-eta-ft.jpg?w=960&cbr=1&q=90&fit=max');
+      background-position: center;
+      background-size: cover;
+    }
+    .text {
+      height: inherit;
+      max-width: 768px;
+      margin: auto;
+      text-align: center;
+      /* border: 1px dashed; */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .title {
+      font-size: 12rem;
+      color: #fff;
+      font-weight: 700!important;
+      margin: 0;
+      line-height: 1em;
+    }
+
+    .btn {
+      background-color: rgba(255 0 0 / 0.5);
+      padding: 0.5rem 0.75rem;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    p {
+      font-weight: 600;
+      color: #fff;
+      font-size: 2rem;
+    }
+  </style>
+
+  <div class="container bg-image">
+    <div class="text">
+      <h1 class="title">New Jeans</h1>
+      <p>What's your ETA? What's your ETA!</p>
+      <a href="#" class="btn">알아보기</a>
+    </div>
+  </div> -->
+
+
+  <!-- <h1>모달</h1>
+
+  <style>
+    /* 오버레이가 뷰포트를 커버하는 형태 */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0 0 0 / 0.2);
+    }
+
+    .modal {
+      background-color: #fff;
+      max-width: 20rem;
+      /* top left/right bottom */
+      margin: 100px auto 0;
+      padding: 1rem;
+      border-radius: 1rem;
+    }
+  </style>
+
+  <div class="overlay">
+    <div class="modal">
+      <h1>Content</h1>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod, asperiores quam? Porro, sit cum maiores odio
+        reprehenderit ea, molestiae quibusdam iusto eos, id molestias quas ipsam temporibus quo quam distinctio!</p>
+    </div>
+  </div> -->
+
+  <!-- <h1>Modal Image</h1>
+
+  <style>
+    .overlay {
+      position: fixed;
+      background-color: rgba(0 0 0 / 0.5);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .modal {
+      width: 20rem;
+      height: 20rem;
+      object-fit: cover;
+      display: block;
+      /* margin x축 auto는 display: block에만 적용된다 */
+      margin: 100px auto 0;
+    }
+  </style>
+
+  <div class="overlay">
+    <img class="modal" src="https://pbs.twimg.com/media/Euv4JWSVEAcmLsb.jpg:large" alt="">
+  </div> -->
+
+  <!-- <style>
+    .search-form {
+      /* border: 1px dashed; */
+      width: 24rem;
+      /* left/right: auto */
+      margin: auto;
+      position: relative;
+    }
+
+    input[type=search] {
+      width: inherit;
+      border: 1px solid #ddd;
+      padding: 0.5rem 2.5rem;
+      font-size: 1rem;
+      border-radius: 99px;
+    }
+
+    input[type=search]:focus {
+      outline: none;
+    }
+
+    svg {
+      width: 1rem;
+      fill: #888;
+      position: absolute;
+      top: 0;
+      left: 1rem;
+      height: 100%;
+    }
+
+    input::-webkit-search-cancel-button{
+      /* 기본 스타일 제거 */
+      -webkit-appearance: none;
+    }
+  </style>
+
+  <h1>검색 폼</h1>
+
+  <form action="" class="search-form">
+    <input type="search" placeholder="Search Google" name="q" autocomplete="off">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+    </svg>
+  </form> -->
+
+  <!-- <style>
+    .login-form {
+      /* border: 1px dashed; */
+      width: 300px;
+      margin: 100px auto 0;
+    }
+
+    .title {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 0.5rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    input[type=text], input[type=password] {
+      padding: 0.5rem;
+      width: 100%;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.5rem;
+      background-color: #333;
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .login-menu {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .link {
+      color: #000;
+    }
+  </style>
+
+  <form action="" class="login-form" autocomplete="off">
+    <h2 class="title">Login Form</h2>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" value="testuser">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" value="shhhh">
+    </div>
+    <div class="form-group">
+      <button type="submit">Login</button>
+    </div>
+    <div class="login-menu">
+      <a href="#" class="link">Sign Up</a>
+      <a href="#" class="link">Forgot Password?</a>
+    </div>
+  </form> -->
+
+  <!-- <style>
+    /* 전체선택자 */
+    * {
+      box-sizing: border-box;
+    }
+
+    .personal-form {
+      /* border: 1px dashed; */
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+
+    .col-span-2 {
+      grid-column-start: span 2;
+    }
+
+    .col-span-3 {
+      grid-column-start: span 3;
+    }
+
+    .col-span-4 {
+      grid-column-start: span 4;
+    }
+
+    .col-span-6 {
+      grid-column-start: span 6;
+    }
+
+    label {
+      display: block;
+    }
+
+    input, select {
+      border: 1px solid #ddd;
+      border-radius: 0.25rem;
+      padding: 0.5rem;
+      width: 100%;
+    }
+  </style>
+
+
+  <h1>개인정보 폼</h1>
+
+  <form action="" class="personal-form" autocomplete="off">
+    <div class="col-span-3">
+      <label for="fname">First name</label>
+      <input type="text" id="fname">
+    </div>
+    <div class="col-span-3">
+      <label for="lname">Last name</label>
+      <input type="text" id="lname">
+    </div>
+    <div class="col-span-4">
+      <label for="email">Email address</label>
+      <input type="text" id="email">
+    </div>
+    <div class="col-span-3">
+      <label for="country">Country</label>
+      <select name="country" id="country">
+        <option value="us">United States</option>
+        <option value="ca">Canada</option>
+        <option value="mx">Mexico</option>
+      </select>
+    </div>
+    <div class="col-span-6">
+      <label for="address">Street Address</label>
+      <input type="text" id="address">
+    </div>
+    <div class="col-span-2">
+      <label for="city">City</label>
+      <input type="text" id="city">
+    </div>
+    <div class="col-span-2">
+      <label for="state">State / Province</label>
+      <input type="text" id="state">
+    </div>
+    <div class="col-span-2">
+      <label for="zip">ZIP / Postal code</label>
+      <input type="text" id="zip">
+    </div>
+  </form> -->
+
+
+  <!-- <style>
+    table {
+      /* 
+        기본값: seperate - 셀 사이에 공간이 존재한다
+        collapse - 셀 사이의 공간을 제거한다
+      */
+      border-collapse: collapse;
+    }
+
+    caption {
+      text-align: left;
+      caption-side: bottom;
+    }
+
+    thead tr {
+      border-bottom: 1px solid;
+    }
+
+    th, td {
+      padding: 0.5rem;
+    }
+
+    td[scope=row] {
+      font-weight: bold;
+    }
+
+    /* 
+      선택자:nth-child() - 특정한 순서의 자식을 선택할 수 있다
+      odd(홀수), even(짝수), n(숫자)
+    */
+    tbody tr:nth-child(odd) {
+      background-color: #eee;
+    }
+
+  </style>
+
+  <h1>Table</h1>
+
+  <table>
+    <caption>* caption</caption>
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Name</th>
+        <th scope="col">Origin</th>
+        <th scope="col">Available</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td scope="row">1</td>
+        <td>Guinness</td>
+        <td>Ireland</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td scope="row">2</td>
+        <td>Heineken</td>
+        <td>Netherlands</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td scope="row">3</td>
+        <td>Budwiser</td>
+        <td>USA</td>
+        <td>Yes</td>
+      </tr>
+    </tbody>
+  </table> -->
+
+  <!-- <style>
+    .container {
+      /* border: 1px dashed; */
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    input[type=radio] {
+      display: none;
+    }
+
+    label {
+      padding: 0.25rem;
+    }
+
+    /* 
+      엘리먼트1 + 엘리먼트2
+      엘리먼트1 바로 밑의 엘리먼트2를 선택한다
+    */
+    input[type=radio]:checked + label {
+      border-bottom: 2px solid #0bf;
+      color: #0bf;
+    }
+
+    .content {
+      flex-basis: 100%;
+      display: none;
+      order: 9;
+    }
+
+    input[type=radio]:checked + label + .content {
+      display: block;
+    }
+  </style>
+
+  <h1>Tab Contents</h1>
+
+  <div class="container">
+    <input type="radio" name="beer" id="tab1" checked>
+    <label for="tab1">Guinness</label>
+    <p class="content">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+      Omnis, officiis doloremque unde optio ex alias non, 
+      reiciendis ducimus quasi tempora nisi itaque et quis 
+      vero aliquid incidunt amet, nesciunt aspernatur.
+    </p>
+
+    <input type="radio" name="beer" id="tab2">
+    <label for="tab2">Heineken</label>
+    <p class="content">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+      Dignissimos nostrum nulla ab dolorem aut fugiat placeat delectus 
+      laudantium non aspernatur quam, doloribus voluptatum porro nemo, 
+      praesentium molestias accusamus ipsam! Blanditiis.
+    </p>
+
+    <input type="radio" name="beer" id="tab3">
+    <label for="tab3">Budwiser</label>
+    <p class="content">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+      Neque consequuntur at ut molestias reprehenderit, hic ea ipsum. 
+      Sed excepturi itaque error nisi reiciendis perferendis numquam 
+      vitae dicta, cupiditate, sit ipsam.
+    </p>
+  </div> -->
+
+  <!-- <style>
+    input[type=radio] {
+      display: none;
+    }
+
+    label {
+      border: 1px solid #ddd;
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      margin-right: 0.25rem;
+      border-radius: 99px;
+    }
+
+    /* 
+      선택된 컬러칩에 아웃라인 적용
+    */
+    input[type=radio]:checked + label {
+      outline: 4px solid #ddd;
+    }
+
+    .white {
+      background-color: #fff;
+    }
+    
+    .gray {
+      background-color: #888;
+    }
+    
+    .black {
+      background-color: #000;
+    }
+  </style>
+
+  <h1>Color options</h1>
+
+  <div class="container">
+    <input type="radio" name="color" id="white" checked>
+    <label for="white" class="white"></label>
+  
+    <input type="radio" name="color" id="gray">
+    <label for="gray" class="gray"></label>
+  
+    <input type="radio" name="color" id="black">
+    <label for="black" class="black"></label>
+  </div> -->
+
+  <!-- <style>
+    .item {
+      /* border: 1px dashed; */
+      border-bottom: 1px solid #ddd;
+      padding: 0.5rem;
+    }
+
+    input[type=checkbox] {
+      display: none;
+    }
+
+    label {
+      display: block;
+      cursor: pointer;
+    }
+
+    /* 
+      선택자::Pseudo-element(가상 엘리먼트)
+      
+      HTML 트리상에서 존재하지 않는다
+    */
+    label::after {
+      content: "+";
+      /* float: 떠있는 형태를 만들 때 사용한다 */
+      float: right;
+      transition: transform 0.2s;
+    }
+
+    /* 탭 내용이 열릴 경우 +가 닫기 버튼으로 바뀐다 */
+    input[type=checkbox]:checked + label::after {
+      transform: rotate(45deg);
+    }
+
+    .content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s;
+    }
+
+    /* 탭 제목을 클릭했을 때 컨텐츠를 나타나게 하는 부분 */
+    input[type=checkbox]:checked + label + .content {
+      max-height: 200px;
+    }
+  </style>
+
+  <h1>아코디언</h1>
+
+  <div class="container">
+    <div class="item">
+      <input type="checkbox" name="" id="tab1">
+      <label for="tab1">Tab 1</label>
+      <div class="content">
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+          Dignissimos reprehenderit quas recusandae temporibus nihil porro 
+          eius molestias soluta illum velit magni deleniti nisi, sit, 
+          voluptatem odit pariatur enim facere blanditiis!
+        </p>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" name="" id="tab2">
+      <label for="tab2">Tab 2</label>
+      <div class="content">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Provident dicta ipsa velit consequuntur voluptate, 
+          at illo quaerat blanditiis earum modi beatae expedita. 
+          Repellat tempore iusto quis laboriosam. Consequuntur, porro laborum.
+        </p>
+      </div>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" name="" id="tab3">
+      <label for="tab3">Tab 3</label>
+      <div class="content">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+        </p>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- <style>
+    #spinner {
+      width: 3rem;
+      height: 3rem;
+      border: 0.5rem solid #ddd;
+      /* 덮어쓰기 */
+      border-top: 0.5rem solid transparent;
+      /* 원 */
+      border-radius: 99px;
+
+      /* 애니메이션 적용 */
+      animation-name: spin;
+      /* 애니메이션이 한번 진행되는데 걸리는 시간 */
+      animation-duration: 1.5s;
+      /* 애니메이션 반복횟수 */
+      animation-iteration-count: infinite;
+      /* 애니메이션 속도 조절 */
+      animation-timing-function: linear;
+    }
+
+    /* 애니메이션 선언 */
+    @keyframes spin {
+      from {
+        transform: rotate(0deg)
+      } to {
+        transform: rotate(360deg)
+      }
+    }
+  </style>
+
+  <h1>Spinner</h1>
+
+  <div id="spinner"></div> -->
+
+</body>
+</html>

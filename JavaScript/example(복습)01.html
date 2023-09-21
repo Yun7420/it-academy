@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 예제 복습(01)</title>
+</head>
+<body>
+    <!-- 1000lines... -->
+
+    <!-- 좋아요 버튼 만들기 예제풀기-->
+    <!-- <style>
+        *{
+            margin:0; padding:0;
+            word-break:break-all;
+        }
+
+        section{
+            width:250px;
+            height:auto;
+            border:1px solid #ccc;
+            border-radius:1rem;
+            overflow:hidden;
+        }
+
+        img{
+            width:100%;
+            height:100px;
+        }
+
+        .text{
+            display:flex;
+            flex-direction:column;
+            justify-content:space-between;
+            gap:1rem;
+
+            padding:0.7rem;
+            box-sizing:border-box;
+        }
+
+        div{
+            display:flex;
+            gap:0.5rem;
+        }
+
+        #btn{
+            width:1.4rem;
+            fill:#ddd;
+            cursor:pointer;
+        }
+    </style>
+    
+    <section>
+        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80" alt="자연 이미지">
+        <div class="text">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <div>
+                <svg id="btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+                <p id="count">99</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var btn =  document.getElementById("btn");
+        var count = document.getElementById("count");    
+        var likes = false;
+
+        btn.addEventListener("click", function(){
+            if(likes){
+                btn.style.fill = "#ddd";
+                // count.textContent = Number(count.textContent) - 1;
+                count.textContent = parseInt(count.textContent) - 1;
+                likes = false;
+            } else {
+                btn.style.fill = "#05f";
+                // count.textContent = Number(count.textContent) + 1;
+                count.textContent = parseInt(count.textContent) + 1;
+                likes = true;
+            };
+        });
+    </script> -->
+
+    <!-- 1000lines... -->
+
+    <!-- 비밀번호보기 버튼 만들기 예제풀기-->
+    <!-- <label for="input">
+        <input id="input" type="password">
+        <button id="btn">SHOW</button>
+    </label>
+
+    <script>
+        var input = document.getElementById("input");
+        var btn = document.getElementById("btn");
+
+        btn.addEventListener("click", function(){
+            if(input.type === "password"){
+                input.type = "text";
+                btn.textContent = "HIDE";
+            } else {
+                input.type = "password";
+                btn.textContent = "SHOW";
+            };
+        });
+    </script> -->
+
+    <!-- 1000lines... -->
+
+    <!-- 더보기 버튼 만들기 예제풀기 -->
+    <!-- <span id="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam quam sint nulla provident, iste nam repellendus iure sunt impedit, laudantium, nihil blanditiis quidem. Asperiores ab quae blanditiis sequi, praesentium voluptates.</span>
+    <button id="btn" onclick="moreText()">더보기</button>
+
+    <script>
+        var container = document.getElementById("container");
+        var btn = document.getElementById("btn");
+        var content = container.textContent;
+
+        container.textContent = container.textContent.substring(0,50);
+        
+        function moreText(){
+            container.textContent = content;
+            btn.remove();
+        };
+    </script> -->
+
+    <!-- 1000lines... -->
+
+    <!-- Top 버튼 만들기 예제풀기 -->
+    <!-- <style>
+        html{
+            min-height:300vh;
+            scroll-behavior:smooth; /* scroll이 부드럽게 이동한다. */
+        }
+
+        #btn{
+            position:fixed;
+            bottom:2rem; right:2rem;
+
+            width:2rem;
+            cursor:pointer;
+            display:none;
+        }
+    </style>
+    
+    <svg id="btn" onclick="topMove()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM385 231c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-71-71V376c0 13.3-10.7 24-24 24s-24-10.7-24-24V193.9l-71 71c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9L239 119c9.4-9.4 24.6-9.4 33.9 0L385 231z"/>
+    </svg>
+
+    <script>
+        var btn = document.getElementById("btn");
+
+        // scroll event
+        window.addEventListener("scroll", function(){
+            var scrollTop = document.documentElement.scrollTop;
+            // scroll 과 viewport 사이의 거리
+            console.log(scrollTop);
+
+            if(scrollTop > 200){
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        })
+
+        // button클릭 시 top으로 이동
+        function topMove(){
+            btn.addEventListener("click", function(){
+                document.documentElement.scrollTop = 0;
+            })
+        }
+    </script> -->
+
+    <!-- 1000lines... -->
+
+    <!-- Transparent NavBar 만들기 예제풀기 -->
+    <!-- <style>
+        body{
+            height:300vh;
+        }
+
+        #header{
+            position:fixed;
+            top:0; left:0;
+
+            width:100vw;
+            padding:1rem 0;
+            text-align:center;
+            transition:all 0.5s;
+        }
+
+        #header.active{
+            background-color:rgba(0, 0, 0, 0.5);
+        }
+    </style>
+    
+    <header id="header">Transparent NavBar 만들기</header>
+
+    <script>
+        var header = document.getElementById("header");
+
+        document.addEventListener("scroll", function(){
+            var scrollTop = document.documentElement.scrollTop;
+
+            if(scrollTop > 100){
+                header.classList.add("active");
+            } else {
+                header.classList.remove("active");
+            }
+        });
+    </script> -->
+
+    <!-- 1000lines... -->
+
+    <!-- 전체메뉴 만들기 예제풀기 -->
+    <!-- <style>
+        *{
+            margin:0; padding:0;
+        }
+
+        header{
+            position:fixed;
+            top:0; left:0;
+
+            width:100%;            
+        }
+
+        #btn{
+            width:2rem;
+            height:2rem;
+            font-size:1.2rem;
+        }
+
+        #nav{            
+            backdrop-filter:blur(5px);
+        }
+
+        #nav.hidden{
+            display:none;
+        }
+
+        main{
+            margin-top:2rem;
+        }
+    </style>
+
+    <header>
+        <button id="btn">&#9776</button>
+        <ul id="nav" class="hidden">
+            <li>MENU</li>
+            <li>MENU</li>
+            <li>MENU</li>
+        </ul>
+    </header>
+    <main>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem magnam consequuntur ex, sunt culpa tempore earum repudiandae asperiores quia debitis consectetur, eligendi obcaecati ipsa id, minus sapiente quo rem necessitatibus.</main>
+
+    <script>
+        var btn = document.getElementById("btn");
+        var nav = document.getElementById("nav");
+
+        btn.addEventListener("click", function(){
+            nav.classList.toggle("hidden");
+        });
+
+        document.addEventListener("click", function(e){
+            if(!(e.target === btn)){
+                nav.classList.add("hidden");
+            };
+        });
+    </script> -->
+
+    <!-- 1000lines... -->
+
+    <!-- Switch NavBar 예제풀기 -->
+    <!-- <style>
+        *{
+            margin:0; padding:0;
+        }
+
+        body{
+            height:200vh;
+        }
+
+        #header{
+            position:fixed;
+            top:0; left:0;
+
+            width:100%;
+            padding:1rem 0;
+            background-color:rgba(0,0,0,0.5);
+
+            text-align:center;
+            transition:all 0.5s;
+        }
+
+        .hidden{
+            display:none;
+        }
+    </style>
+
+    <header id="header">Switch NavBar 예제풀기</header>
+
+    <script>
+        var header = document.getElementById("header");
+        var prevScrollTop = 0;
+
+        // 스크롤을 내릴땐 header가 안보이고, 스크롤을 올릴땐 header가 보인다.
+        window.addEventListener("scroll", function(){
+            scrollTop = document.documentElement.scrollTop;
+
+            // 이전 시점의 변수값
+            console.log("이전 스크롤 탑:", prevScrollTop);
+            console.log("스크롤 탑:", scrollTop);
+
+            if(scrollTop > prevScrollTop){
+                // 스크롤을 내릴때
+                header.classList.add("hidden");
+            } else{
+                // 스크롤을 올릴때
+                header.classList.remove("hidden");
+            };
+
+            prevScrollTop = scrollTop;
+        })
+    </script> -->
+
+    <!-- 1000lines... -->
+
+    <!-- Modal 팝업 예제풀기 -->
+    <!-- <style>
+        *{
+            margin:0; padding:0;
+        }
+
+        #overlay{
+            position:fixed;
+            top:0; left:0;
+
+            width:100%;
+            height:100%;
+            background-color:rgba(0,0,0,0.5);
+        }
+
+        #modal{
+            position:absolute;
+            top:50%; left:50%;
+            transform:translate(-50%,-50%);
+
+            padding:1rem;
+            background-color:#fff;
+            border-radius:1rem;
+        }
+
+        .hidden{
+            display:none;
+        }
+    </style>
+
+    <button id="btn">Open</button>
+
+    <div id="overlay" class="hidden">
+        <div id="modal">
+            <h2>Title</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe cupiditate dolorem tempore rerum? Nesciunt molestiae beatae temporibus fugit. Eligendi error rerum iure asperiores perspiciatis itaque ipsam rem ab nemo libero?</p>
+        </div>
+    </div>
+
+    <script>
+        var btn = document.getElementById("btn");
+        var overlay = document.getElementById("overlay");
+
+        // 버튼을 클릭헀을 때 모달 팝업이 열린다.
+        btn.addEventListener("click", function(){
+            overlay.classList.remove("hidden");
+        });
+
+        // 모달 팝업 영역을 제외한 오버레이 클릭했을 때 모달 팝업이 닫힌다.
+        overlay.addEventListener("click", function(e){
+            if(e.target === overlay){
+                overlay.classList.add("hidden");
+            }
+        });
+    </script> -->
+
+    <!-- 1000lines... -->
+
+    <!-- Modal Gallery 예제풀기 -->
+    <!-- <style>
+        *{
+            margin:0; padding:0;
+        }
+
+        #overlay{
+            position:fixed;
+            top:0; left:0;
+
+            width:100%;
+            height:100%;
+            background-color:rgba(0, 0, 0, 0.5);
+        }
+
+        .hidden{
+            display:none;
+        }
+
+        #thumbnail_modal{
+            position:absolute;
+            top:50%; left:50%;
+            transform:translate(-50%,-50%);
+
+            width:300px;
+            height:300px;
+            background-color:#fff;
+        }
+
+        #thumbnail_box{
+            display:flex;
+        }
+
+        .thumbnail_item{
+            width:100px;
+            height:100px;
+        }
+    </style>
+
+    <div id="overlay" class="hidden">
+        <img id="thumbnail_modal" src="">
+    </div>
+
+    <div id="thumbnail_box">
+        <img class="thumbnail_item" src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80">
+        <img class="thumbnail_item" src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1948&q=80">
+        <img class="thumbnail_item" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80">
+    </div>
+
+    <script>
+        var overlay = document.getElementById("overlay");
+        var modalImg = document.getElementById("thumbnail_modal");
+        var thumbnailItem = document.getElementsByClassName("thumbnail_item");
+
+        for(var i = 0; i < thumbnailItem.length; i++){
+            thumbnailItem[i].addEventListener("click", function(e){
+                overlay.classList.remove("hidden")
+                modalImg.src = e.target.src;
+            });
+        };
+
+        overlay.addEventListener("click", function(e){
+            if(e.target === overlay){
+                overlay.classList.add("hidden");
+            };
+        });
+    </script> -->
+
+    <!-- 1000lines... -->
+
+    <!-- Gallery 예제풀기 -->
+    <!-- <style>
+        * {
+            margin: 0; padding: 0;
+        }
+
+        section {
+            width: 100%;
+            height: 100vh;
+        }
+
+        #main {
+            width: 100%;
+            height: 450px;
+            background-color: #000;
+            object-fit: cover;
+        }
+
+        .thumbnail_box {
+            display: flex;
+            height: calc(100vh - 450px);
+        }
+
+        .thumbnail {
+            flex: 1;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnail.active {
+            border: 3px solid #5e5eff;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+    </style>
+
+    <section>
+        <img id="main" src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80">
+
+        <div class="thumbnail_box">
+            <img class="thumbnail active" onclick="jumpTo(0)"; src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80">
+            <img class="thumbnail" onclick="jumpTo(1)"; src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1948&q=80">
+            <img class="thumbnail" onclick="jumpTo(2)"; src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80">
+        </div>
+    </section>
+
+    <script>
+        var main = document.getElementById("main");
+        var thumbnails = document.getElementsByClassName("thumbnail");
+        var prevIndex = 0;
+
+        function jumpTo(index){
+            main.src = thumbnails[index].src; 
+
+            thumbnails[prevIndex].classList.remove("active");
+            thumbnails[index].classList.add("active");
+            
+            prevIndex = index;
+        }
+    </script> -->
+
+    <!-- 1000lines... -->
+
+    <!-- Photo review 예제풀기 -->
+    <!-- <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        section {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .container {
+            position : relative;
+            width: 100%;
+            height: 500px;
+        }
+
+        .container > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .container > button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+
+            padding:0.5rem;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        .container_text{
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            color: #fff;
+            text-align: center;
+        }
+
+        .thumbnail-container {
+            display:flex;
+
+            width: 100%;
+            height: calc(100vh - 500px);
+        }
+
+        .thumbnail-container > img {
+            flex: 1;
+            object-fit: cover;
+ 
+            cursor: pointer;
+        }
+        
+        .active{
+            border:4px solid #fff;
+        }
+    </style>
+
+    <section>
+        <div class="container">
+            <img id="main" src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80">
+            <button class="prev" onclick="move(-1)">&#10094;</button>
+            <button class="next" onclick="move(1)">&#10095;</button>
+
+            <div class="container_text">
+                <h2>John Doe</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque laudantium nesciunt quasi, alias delectus quibusdam
+                    placeat! Ipsum mollitia quo error ad, explicabo harum voluptas reiciendis ab est, quasi quam pariatur.
+                </p>
+            </div>
+        </div>
+
+        <div class="thumbnail-container">
+            <img class="thumbnail active" onclick="jumpTo(0)" src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80">
+            <img class="thumbnail" onclick="jumpTo(1)" src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1948&q=80">
+            <img class="thumbnail" onclick="jumpTo(2)" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80">
+        </div>
+    </section>
+
+    <script>
+        var main = document.getElementById("main");
+        var thumbnails = document.getElementsByClassName("thumbnail");
+        var index = 0;
+        var previousIndex = 0;
+
+        function move(data){
+            index += data;
+
+            if(index > 2){
+                index = 0;
+            };
+
+            if(index < 0){
+                index = 2;
+            };
+
+            thumbnails[previousIndex].classList.remove("active")
+            thumbnails[index].classList.add("active")
+
+            main.src = thumbnails[index].src;
+
+            previousIndex = index;
+        };
+
+        function jumpTo(data){
+            index = data;
+
+            thumbnails[previousIndex].classList.remove("active")
+            thumbnails[index].classList.add("active")
+
+            main.src = thumbnails[index].src;
+
+            previousIndex = index;
+        }
+    </script> -->
+
+    <!-- 1000lines... -->
+
+    <!-- Carousel 예제풀기 -->
+    <!-- <style>
+        *{
+            margin: 0; padding: 0;
+        }
+
+        ul,
+        ol,
+        li {
+            list-style: none;
+        }
+
+        #slide {
+            position: relative;
+
+            margin: 0px auto;
+            width: 800px;
+            height: 400px;
+            
+            overflow: hidden;
+        }
+
+        #items {
+            display: flex;
+            flex-wrap: nowrap;
+
+            width: 2400px;
+            height: 400px;
+
+            transition: all 0.2s;
+        }
+
+        .item {
+            flex: 1;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-image: linear-gradient(to right, #333, #222);
+            color: #fff;
+        }
+
+        button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+
+            padding: 0.5rem;
+        }
+
+        #prev {
+            left: 5%;    
+        }
+
+        #next {
+            right: 5%;
+        }
+
+        .dots {
+            position: absolute;
+            bottom: 20px; left: 50%;
+            transform: translateX(-50%);
+            
+            display : flex;
+            gap: 0.5rem;
+
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+
+            cursor: pointer;
+        }
+
+        .active {
+            background-color: #fff;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+
+    <div id="slide">
+        <div id="items">
+            <div class="item">1 slide</div>
+            <div class="item">2 slide</div>
+            <div class="item">3 slide</div>
+        </div>
+
+        <button id="prev" class="hidden" onclick="turnOver(-1)">&#10094;</button>
+        <button id="next" onclick="turnOver(1)">&#10095;</button>
+
+        <ul class="dots">
+            <li class="dot active" onclick="dotMove(0)"></li>
+            <li class="dot" onclick="dotMove(1)"></li>
+            <li class="dot" onclick="dotMove(2)"></li>
+        </ul>
+    </div>
+
+    <script>
+        // container and images
+        var slide = document.getElementById("slide");
+        var items = document.getElementById("items");
+        var item = document.getElementsByClassName("item");
+        var itemWidth = 800;
+
+        // buttons 
+        var prev = document.getElementById("prev");
+        var next = document.getElementById("next");
+
+        // index and left
+        var index = 0;
+        var firstIndex = 0;
+        var lastIndex = item.length - 1;
+        var previousIndex = 0;
+        var move = 0;
+
+        // indicator
+        var dot = document.getElementsByClassName("dot");
+        
+        // 터치 기능 관련
+        var x1, x2;
+        var turnOverPoint = 100;
+
+        function turnOver(data){
+            index += data;
+
+            // 이동량
+            move = -(index * itemWidth);
+
+            // 이전 버튼
+            if(index === firstIndex){
+                prev.classList.add("hidden");
+            } else {
+                prev.classList.remove("hidden");
+            };
+
+            // 다음 버튼
+            if(index === lastIndex){
+                next.classList.add("hidden");
+            } else {
+                next.classList.remove("hidden");
+            };
+
+            // indicator
+            dot[previousIndex].classList.remove("active");
+            dot[index].classList.add("active");
+
+            // 실시간으로 업데이트해야하는 스타일의 경우 style 애트리뷰트를 사용할 수 있다
+            items.style.transform = `translateX(${move}px)`;
+
+            previousIndex = index;
+        };
+
+        function dotMove(data){
+            index = data;
+
+            // 이동량
+            move = -(index * itemWidth);
+
+            // 이전 버튼
+            if(index === firstIndex){
+                prev.classList.add("hidden");
+            } else {
+                prev.classList.remove("hidden");
+            };
+
+            // 다음 버튼
+            if(index === lastIndex){
+                next.classList.add("hidden");
+            } else {
+                next.classList.remove("hidden");
+            };
+
+            // indicator
+            dot[previousIndex].classList.remove("active");
+            dot[index].classList.add("active");
+
+            // 실시간으로 업데이트해야하는 스타일의 경우 style 애트리뷰트를 사용할 수 있다
+            items.style.transform = `translateX(${move}px)`;
+
+            previousIndex = index;
+        };
+
+        // 터치 이벤트리스너
+
+        // touchstart: 터치 시작
+        slide.addEventListener("touchstart",touchstartHandler)
+        // touchmove: 터치중
+        slide.addEventListener("touchmove",touchMoveHandler)
+        // touchend: 터치 끝
+        slide.addEventListener("touchend",touchEndHandler)
+
+        function touchstartHandler(e){
+            // 터치 시작 지점의 X좌표 저장
+            // clientX: 뷰포트내에서 손가락의 X좌표
+            x1 = e.touches[0].clientX;
+        };
+
+        function touchMoveHandler(e){
+            // 현재 손가락의 X좌표
+            x2 = e.touches[0].clientX;
+
+            // 손가락을 오른쪽으로 움직일 때
+            var movingToRight = x2 - x1 > 0
+            // 손가락을 왼쪽으로 움직일 때
+            var movingToLeft = x2 - x1 < 0
+
+            // 첫번째 사진에서 이전 이미지를 보려고 시도
+            if(index === firstIndex && movingToRight){
+                return
+            }
+            // 마지막 사진에서 다음 이미지를 보려고 시도
+            if(index === lastIndex && movingToLeft){
+                return
+            }
+
+            // 손가락을 따라서 이미지를 움직인다
+            items.style.transform = `translateX(${move + (x2 - x1)}px)`;
+        };
+
+        function touchEndHandler(){
+            // 터치무브 이벤트가 발생하지 않는 경우
+            if(!x2) return;
+
+            // 다음 이미지로 이동하기 위해 충분히 당겼을 때
+            var drawEnoughToNext = -(x2 - x1) > turnOverPoint;
+            // 이전 이미지로 이동하기 위해 충분히 당겼을 때
+            var drawEnoughToPrev = (x2 - x1) > turnOverPoint;
+
+            // index < lastIndex: 마지막 이미지가 아닌 경우 다음 이미지로 이동
+            if(index < lastIndex && drawEnoughToNext){
+                turnOver(1);
+            }
+            // index > firstIndex: 첫번째 이미지가 아닌 경우 이전 이미지로 이동
+            if(index > firstIndex && drawEnoughToPrev){
+                turnOver(-1);
+            }
+            // 충분히 움직이지 않았을 때 사진을 원래위치로 이동시킨다
+            items.style.transform = `translateX(${move}px)`;
+
+            // 초기화
+            x2 = 0;
+        };
+    </script> -->
+
+    <!-- 1000lines... -->
+
+    <!-- 실시간 유효성 검사 예제풀기 -->
+    <!-- <style>
+        *{
+            margin: 0; padding: 0;
+        }
+        
+        body {
+            padding: 1rem;
+        }
+
+        #pw {
+            width: 100%;
+            padding: 0.5rem;
+            box-sizing: border-box;
+        }
+    </style>
+
+    <label for="pw">
+        <input id="pw" type="password" name="user_password" required>
+    </label>
+
+    <p id="errorMessage"></p>
+
+    <script>
+        var pw = document.getElementById("pw");
+        var errorMessage = document.getElementById("errorMessage");
+
+        pw.addEventListener("keyup", function(e){
+            try{
+                var password = e.target.value;
+
+                /*
+                    정규식(Regular expression)
+                    문자열을 검색할 수 있는 패턴을 제공한다
+
+                    1 사용방법
+                    /[패턴]/
+                */
+
+                var lowerCaseLetters = /[a-z]/
+                var uppperCaseLetters = /[A-Z]/
+                var numbers = /[0-9]/
+
+                if(!password){
+                    throw "비밀번호는 필수입니다."
+                }
+
+                if(!password.match(lowerCaseLetters)){
+                    throw "소문자 하나를 포함해야 합니다"
+                }
+                
+                if(!password.match(uppperCaseLetters)){
+                    throw "대문자 하나를 포함해야 합니다"
+                }
+
+                if(!password.match(numbers)){
+                    throw "숫자 하나를 포함해야 합니다"
+                }
+
+                if(password.length < 8){
+                    throw "8글자 이상이어야 합니다"
+                }
+
+                errorMessage.innerHTML = `<div style="color : green">적절합 패스워드 입니다.</div>`
+
+            } catch(error){
+                errorMessage.innerHTML = `<div style="color : red">${error}</div>`
+            };
+        });
+    </script> -->
+
+    <!-- 1000lines... -->
+
+    <!-- Live Search 예제풀기 -->
+    <!-- <style>
+        * {
+            margin: 0; padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        body {
+            padding: 1rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.5rem;
+            box-sizing: border-box;
+        }
+
+        .items {
+            margin-top: 0.5rem;
+        }
+
+        .hidden{
+            display: none;
+        }
+    </style>
+
+    <input id="input" type="text" placeholder="Search">
+
+    <ul class="items">
+        <li class="item">Guinness</li>
+        <li class="item">Heineken</li>
+        <li class="item">Budwiser</li>
+        <li class="item">Kloud</li>
+        <li class="item">Asahi</li>
+    </ul>
+
+    <script>
+        var input = document.getElementById("input");
+        var items = document.getElementsByClassName("item");
+
+        input.addEventListener("keyup", function(e){
+            inputText = e.target.value.toLowerCase();
+
+            for(var i = 0; i < items.length; i++){
+                var itemsName = items[i].textContent.toLowerCase();
+
+                // 검색어와 각각의 이름을 비교한다
+                console.log(inputText, itemsName);
+
+                if(itemsName.indexOf(inputText) > -1){
+                    items[i].classList.remove("hidden");
+                } else {
+                    items[i].classList.add("hidden");
+                };
+            };
+        });
+    </script> -->
+
+    <!-- 1000lines... -->
+
+    <!-- Newsletter 예제풀기 -->
+    <!-- https://ko.javascript.info/form-elements 참고 -->
+    <!-- <style>
+        * {
+            margin: 0; padding: 0;
+        }
+
+        form {
+            display: flex;
+            width: 100%;
+        }
+
+        input[type = "text"] {
+            width: 100%;
+            padding: 0.5rem;
+        }
+
+        button {
+            width:200px;
+            padding: 0.5rem 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+
+    <form action="/server" id="form">
+        <input type="text" name="email" placeholder="JohnDoe@example.com" autocomplete="off">
+        <button class="btn">구독하기</button>
+    </form>
+
+    <p id="result" class="hidden">구독해주셔서 감사합니다.</p>
+
+    <script>
+        var form = document.getElementById("form");
+
+        // submit 이벤트: 폼을 제출한다
+        form.addEventListener("submit", function(e){
+            // 이벤트의 기본값을 실행하지 않는다
+            // 폼 제출 방지
+            e.preventDefault();
+
+            // 유저가 입력한 이메일에 접근
+            // form.elements[name]: 특정 name을 가진 input에 접근한다
+            var email = form.elements["email"].value;
+
+            if(!email.trim()){
+                alert("이메일을 입력해주세요.")
+                return;
+            };
+
+            // AJAX 요청..
+            // 새로고침이나 페이지 이동없이 서버에 요청하는 기술
+
+            form.classList.add("hidden");
+            result.classList.remove("hidden");
+        });
+    </script> -->
+
+    <!-- 1000lines... -->
+
+    <!-- Contact Form 예제풀기 -->
+    <!-- <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            padding: 1rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.5rem;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 0.5rem 0.75rem;
+        }
+
+        .warning {
+            color: #f00;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+    
+    <form action="/server" id="form">
+        <div>
+            <label for="fname">이름</label>
+            <input type="text" id="fname" name="fname" placeholder="John">
+        </div>
+
+        <div>
+            <label for="lname">성</label>
+            <input type="text" id="lname" name="lname" placeholder="Doe">
+        </div>
+
+        <div>
+            <label for="email">이메일</label>
+            <input type="text" name="email" id="email" placeholder="JohnDoe@example.com">
+        </div>
+
+        <p id="errors" class="warning"></p>
+
+        <button type="submit">제출</button>
+    </form>
+
+    <p id="result" class="hidden">
+        Thank you and we'll contact with you soon
+    </p>
+    
+    <script>
+        var form = document.getElementById("form");
+        var result = document.getElementById("result");
+
+        form.addEventListener("submit", function(e){
+            try {
+                e.preventDefault();
+
+                fname = form.elements["fname"].value;
+                lname = form.elements["lname"].value;
+                email = form.elements["email"].value;
+
+                // 유저가 입력한 값에 접근
+                var error = [];
+
+                // 유저가 입력한 값이 빈값일 경우 에러 배열에 넣기
+                if(!fname.trim()){
+                    error.push("fname을 입력하세요.");
+                };
+
+                if(!lname.trim()){
+                    error.push("lname 입력하세요.");
+                };
+
+                if(!email.trim()){
+                    error.push("email 입력하세요.");
+                };
+
+                // 에러가 존재할 경우 
+                if(error.length > 0){
+                    throw error;
+                };
+
+                // AJAX 요청..
+
+                form.classList.add("hidden");
+                result.classList.remove("hidden");
+
+            } catch(error) {
+
+                document.getElementById("errors").innerHTML = error.join("<br>");
+
+            };
+        });
+    </script> -->
+
+    <!-- 1000lines... -->
+
+    <!-- 테마 선택 예제풀기 -->
+    <!-- <style>
+        * {
+            margin: 0; padding: 0;
+        }
+
+        label {
+            display: block;
+            margin: 1rem 0;
+            padding: 0.5rem 0;
+            width: 120px;
+            background-color: #464cff;
+            border-radius: 0.5rem;
+
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        input {
+            display: none;
+        }
+
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+    
+    <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+        Tenetur minus quibusdam expedita? Quisquam magnam fugiat, 
+        autem fuga dolorem commodi tempora assumenda debitis repellendus quas. 
+        Eos iure quia praesentium quae hic.
+    </p>
+
+    <label for="checkbox">Dark Mode</label>
+    <input type="checkbox" id="checkbox">
+
+    <script>
+        var checkbox = document.getElementById("checkbox");
+
+        // 체크박스의 change이벤트: 체크박스의 체크 상태가 바뀔 때
+        checkbox.addEventListener("change", function(e){
+            // checked: 체크박스의 애트리뷰트, 체크상태를 의미한다
+            var checked = e.target.checked;
+
+            console.log(checked);
+
+            if(checked){
+                // localStorage.setItem(key, value)
+                // 로컬스토리지에 데이터를 저장한다
+                document.body.classList.add("dark-mode");
+                localStorage.setItem("darkTheme", true);
+            } else {
+                // localStorage.removeItem(key)
+                // 로컬스토리지에서 데이터를 제거한다
+                document.body.classList.remove("dark-mode");
+                localStorage.removeItem("darkTheme");
+            };
+        });
+
+        // 페이지가 로드되었을 때
+        // localStorage.getItem(key): 로컬스토리지에서 데이터를 가져온다
+        var isDarkMode = localStorage.getItem("darkTheme");
+
+        if(isDarkMode){
+            document.body.classList.add("dark-mode");
+            checkbox.checked = true;
+        };
+    </script> -->
+
+    <!-- 1000lines... -->
+
+    <!-- Block promotion 예제풀기 -->
+    <!-- <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #promotion {
+            padding: 1rem;
+            background-color: #ddd;
+        }
+
+        #block-btn, #close-btn {
+            padding: 0.5rem 0.75rem;
+        }
+    </style>
+
+    <div id="promotion">
+        <h1>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Eos eveniet maxime iste vitae odit iure totam quaerat, amet, 
+            minus voluptatum quasi non ipsa libero provident illum, 
+            recusandae nesciunt ratione. Tempore!
+        </h1>
+        <button id="close-btn">닫기</button>
+        <button id="block-btn">더이상 보지않기</button>
+    </div>
+
+    <script>
+        var promotion = document.getElementById("promotion");
+        var closeBtn = document.getElementById("close-btn");
+        var blockBtn = document.getElementById("block-btn");
+
+        closeBtn.addEventListener("click", function(){
+            promotion.remove();
+        });
+
+        blockBtn.addEventListener("click", function(){
+            promotion.remove();
+            localStorage.setItem("removeTheme", new Date());
+        });
+
+        isremoveTheme = localStorage.getItem("removeTheme");
+
+        if(isremoveTheme){
+            promotion.remove();
+        };
+    </script> -->
+
+    <!-- 1000lines... -->
+
+    <!-- Drag & Drop 예제풀기 -->
+    <!-- <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #drop-zone {
+            padding: 4rem;
+            border: 4px dashed #ddd;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+    
+    <div id="drop-zone">
+        <p>여기에 파일을 드래그 앤 드랍하세요</p>
+    </div>
+
+    <p id="result" class="hidden">제출되었습니다</p>
+
+    <script>
+        var dropZone = document.getElementById("drop-zone");
+        var result = document.getElementById("result");
+
+        dropZone.addEventListener("dragover", dragOverHandler);
+        dropZone.addEventListener("drop", dropHandler);
+
+        function dragOverHandler(e){
+            // 브라우저가 파일을 여는 것을 방지한다
+            e.preventDefault();
+
+            console.log("드래그 중");
+        };
+
+        function dropHandler(e){
+            // 브라우저가 파일을 여는 것을 방지한다
+            e.preventDefault();
+
+            console.log("드랍 완료");
+
+            // 유저가 업로드한 파일은 이벤트 객체의 dataTransfer.files에 저장된다
+            // FileList를 배열 타입으로 변환한다
+            var files = Array.from(e.dataTransfer.files);
+
+            // AJAX 요청..
+
+            // 완료 메시지
+            dropZone.classList.add("hidden");
+            result.classList.remove("hidden");
+        };
+    </script> -->
+
+    <!-- 1000lines... -->
+
+    <!-- Search history 예제풀기 -->
+    <!-- <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.5rem;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 1rem 0.5rem;
+        }
+    
+        .delete-btn {
+            font-size: 1.5rem;
+            border: none;
+            background-color: transparent;
+        }
+    
+        .hidden {
+            display: none;
+        }
+      </style>
+    
+    <input type="search" placeholder="Search Google" disabled>
+    
+    <ul id="list">
+        <li class="item">
+            <span>1. Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+            <button class="delete-btn" onclick="deleteItem(0)">&times;</button>
+        </li>
+        <li class="item">
+            <span>2. Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+            <button class="delete-btn" onclick="deleteItem(1)">&times;</button>
+        </li>
+        <li class="item">
+            <span>3. Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+            <button class="delete-btn" onclick="deleteItem(2)">&times;</button>
+        </li>
+    </ul>
+
+    <script>
+        // 1번 방법
+        var item = document.getElementsByClassName("item");
+
+        function deleteItem(index){
+            item[index].classList.add("hidden")
+        };
+
+        // 2번 방법
+        var deleteBtn = document.getElementsByClassName("delete-btn");
+
+        for(var i=0; i<deleteBtn.length; i++){
+            deleteBtn[i].addEventListener("click", function(e){                
+                item = e.target.parentElement;
+                item.remove();
+            });
+        };
+    </script> -->
+
+    <!-- 1000lines... -->
+
+    <!-- Pop on scrolling 01 예제풀기 -->
+    <!-- <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .emptySpace {
+            height: 100vh;
+        }
+
+        #container {
+            display: flex;
+            justify-content: space-between;
+
+            transform: translateY(100px);
+            opacity: 0;
+
+            transition: all 0.5s;
+        }
+
+        #container.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .item {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            box-shadow: 0 0 5px 5px #ddd;
+        }
+    </style>
+
+    <div class="emptySpace"></div>
+
+    <div id="container">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+
+    <div class="emptySpace"></div>
+
+    <script>
+        var container = document.getElementById("container");
+
+        window.addEventListener("scroll", function(){
+            // 뷰포트의 높이
+            var vh = window.innerHeight;
+
+            // 뷰포트탑과 엘리먼트 탑 사이의 거리
+            var y = container.getBoundingClientRect().y;
+            
+            // 뷰포트에 충분히 진입했을 때
+            if(y < vh * 0.9){
+                container.classList.add("active");
+            } else {
+                container.classList.remove("active");
+            };
+        });
+    </script> -->
+
+    <!-- 1000lines... -->
+    <!-- Pop on scrolling 02 예제풀기 -->
+    <!-- <style>
+        * {
+            margin: 0; padding: 0;
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .item {
+            transition: all 1s;
+        }
+    </style>
+
+    <section>
+        <h1 class="item">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo necessitatibus repudiandae natus ab omnis autem vel quasi cumque saepe ratione, corporis fugit maxime sint officia pariatur totam perferendis laboriosam consectetur?
+        </h1>
+        <h1 class="item">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo necessitatibus repudiandae natus ab omnis autem vel quasi cumque saepe ratione, corporis fugit maxime sint officia pariatur totam perferendis laboriosam consectetur?
+        </h1>
+        <h1 class="item">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo necessitatibus repudiandae natus ab omnis autem vel quasi cumque saepe ratione, corporis fugit maxime sint officia pariatur totam perferendis laboriosam consectetur?
+        </h1>
+        <h1 class="item">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo necessitatibus repudiandae natus ab omnis autem vel quasi cumque saepe ratione, corporis fugit maxime sint officia pariatur totam perferendis laboriosam consectetur?
+        </h1>
+        <h1 class="item">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo necessitatibus repudiandae natus ab omnis autem vel quasi cumque saepe ratione, corporis fugit maxime sint officia pariatur totam perferendis laboriosam consectetur?
+        </h1>
+        <h1 class="item">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo necessitatibus repudiandae natus ab omnis autem vel quasi cumque saepe ratione, corporis fugit maxime sint officia pariatur totam perferendis laboriosam consectetur?
+        </h1>
+        <h1 class="item">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo necessitatibus repudiandae natus ab omnis autem vel quasi cumque saepe ratione, corporis fugit maxime sint officia pariatur totam perferendis laboriosam consectetur?
+        </h1>
+        <h1 class="item">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo necessitatibus repudiandae natus ab omnis autem vel quasi cumque saepe ratione, corporis fugit maxime sint officia pariatur totam perferendis laboriosam consectetur?
+        </h1>
+        <h1 class="item">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo necessitatibus repudiandae natus ab omnis autem vel quasi cumque saepe ratione, corporis fugit maxime sint officia pariatur totam perferendis laboriosam consectetur?
+        </h1>
+        <h1 class="item">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo necessitatibus repudiandae natus ab omnis autem vel quasi cumque saepe ratione, corporis fugit maxime sint officia pariatur totam perferendis laboriosam consectetur?
+        </h1>
+    </section>
+
+    <script>
+        let item = document.getElementsByClassName("item");
+        
+        window.addEventListener("scroll", function(){
+            let viewportHeight = window.innerHeight;
+
+            for(let i=0; i<item.length; i++){
+                let y = item[i].getBoundingClientRect().y;
+
+                if(y < viewportHeight){
+                    item[i].style.opacity = "1";
+                } else {
+                    item[i].style.opacity = "0";
+                };
+            };
+        });
+    </script> -->
+
+    <!-- 1000lines... -->
+
+    <!-- New Note + 예제풀기 -->ㄴ
+    <!-- <style>
+        * {
+            margin: 0; padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 1rem;
+            background-color: #eee;
+        }
+
+        #container {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0,1fr));
+            gap :1rem;
+        }
+
+        textarea {
+            padding: 1rem;
+            width: 100%;
+            height: 8rem;
+            box-shadow: 0 0 10px #ddd;
+        }
+
+        #add-btn {
+            margin-bottom: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+    
+    <h1>
+        <button id="add-btn">New Note +</button>
+    </h1>
+
+    <div id="container"></div>
+
+    <script>
+        let container = document.getElementById("container");
+        let addBtn = document.getElementById("add-btn");
+        let notes = [];
+
+        // DOMContentLoaded이벤트: 문서가 로드되었을 때
+        document.addEventListener("DOMContentLoaded", getNote);
+        addBtn.addEventListener("click", addNote);
+
+        // 노트를 가져오는 함수
+        function getNote(){
+            notes = getData();
+
+            for(let i=0; i<notes.length; i++){
+                createData(notes[i].id, notes[i].content);
+            };
+        };
+
+        // 노트를 추가하는 함수
+        function addNote(){
+            let newNote = { id : "Number02" , content : "" };
+            notes.push(newNote);
+
+            // 로컬스토리지 동기화
+            setData(notes);
+            // 뷰 업데이트
+            createData(newNote.id, newNote.content);
+        };
+
+        // 노트를 편집하는 함수
+        function editNote(id, content){
+            for(let i=0; i<notes.length; i++){
+                // 전달받은 id와 일치하는 id를 가진 노트객체를 제거한다.
+                // 배열 splice메서드: splice(startIndex, 갯수) - startIndex부터 갯수만큼 아이템을 제거한다.
+                if(notes[i].id === id){
+                    notes[i].content = content;
+                };
+            };
+
+            // 로컬스토리지 동기화
+            setData(notes);
+        };
+
+        // 노트를 삭제하는 함수
+        function deleteNote(id, noteElement){
+            for(let i=0; i<notes.length; i++){
+                if(notes[i].id === id){
+                    notes.splice(i,1);
+                };
+            };
+
+            // 로컬스토리지 동기화
+            setData(notes);
+            // 뷰 업데이트
+            noteElement.remove();
+        };
+
+        // 헬퍼 함수
+
+        // 로컬스토리지 동기화 함수
+        // JSON.stringify(객체): 객체를 JSON포멧으로 변환한다
+        function setData(notes){
+            localStorage.setItem("noteStorage", JSON.stringify(notes));
+        };
+
+        // 로컬스토리지에서 데이터를 가져오는 함수
+        // JSON.parse(JSON): JSON 포멧을 자바스크립트 객체로 변환한다
+        function getData(){
+            return JSON.parse(localStorage.getItem("noteStorage"));
+        };
+
+        // 렌더링 처리하는 함수
+        function createData(id, content){
+            // textarea 엘리먼트 생성
+            let noteElement = document.createElement("textarea");
+            // textarea의 value를 전달받은 content로 업데이트한다
+            noteElement.value = content;
+            // 컨테이너의 첫번째 자식으로 엘리먼트를 추가한다.
+            container.prepend(noteElement);
+
+            // change : 내용이 업데이트되었을 때
+            // this = noteElement
+            noteElement.addEventListener("change", function(){
+                editNote(id, this.value);
+            });
+
+            // dblclick: 더블클릭 했을 때
+            // this = noteElement
+            noteElement.addEventListener("dblclick", function(){
+                deleteNote(id, this);
+            });
+        };
+
+        // 시드 데이터를 생성하는 함수
+        function seedData(){
+            let seed = [ { id : "Number01" , content : "My first Memo" } ];
+            setData(seed);
+        };
+
+        // seedData();
+    </script> -->
+
+    <!-- 1000lines... -->
+
+    <!-- JS Image Editor 예제풀기 -->
+    <!-- <style>
+        * {
+            margin: 0; padding: 0;
+            box-sizing: border-box;
+        }
+
+        section {
+            display: flex;
+            width: 100%;
+        }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0;
+
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            padding: 1rem;
+            width: 300px;
+            height: 100vh;
+        }
+
+        h1 {
+            margin : 1rem 0;
+        }
+
+        input {
+            width: 100%;
+        }
+
+        main {
+            margin-left : 300px;
+            width: 100%;
+            height: 100vh;
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        main::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+
+    <section>
+        <nav>
+            <h1>JS Image Editor</h1>
+
+            <div>
+                <label for="brightness">Brigtness</label>
+                <input type="range" name="brightness" min="0" max="200" value="100" oninput="setFilter(this)">
+                <p>100</p>
+            </div>
+
+            <div>
+                <label for="saturate">Saturate</label>
+                <input type="range" name="saturate" min="0" max="200" value="100" oninput="setFilter(this)">
+                <p>100</p>
+            </div>
+
+            <div>
+                <label for="invert">Invert</label>
+                <input type="range" name="invert" min="0" max="100" value="0" oninput="setFilter(this)">
+                <p>0</p>
+            </div>
+
+            <div>
+                <label for="blur">Blur</label>
+                <input type="range" name="blur" min="0" max="10" value="0" oninput="setFilter(this)">
+                <p>0</p>
+            </div>
+        </nav>
+
+        <main>
+            <canvas id="canvas"></canvas>
+        </main>
+    </section>
+    
+    <script>
+        // 문서에서 그래픽을 표현할 때 사용하는 엘리먼트
+        let canvas = document.getElementById("canvas");
+        // 펜
+        let ctx = canvas.getContext("2d");
+        // 이미지 엘리먼트
+        let imgElement = new Image();
+        // 필터 수집
+        let filter = [];
+        // 필터의 단위
+        let UNIT = {
+            brightness : "%",
+            saturate : "%",
+            invert : "%",
+            blur : "px",
+        };
+        // 필터 수집 변환
+        let filterInString = "";
+
+        // DOMContentLoaded: 문서가 로드되었을 때
+        document.addEventListener("DOMContentLoaded", getImage);
+
+        function getImage(){
+            imgElement.src = "https://images.unsplash.com/photo-1677579016602-d342f911d11c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80";    
+        };
+
+        function render(){
+            // 캔버스에 이미지를 렌더링한다
+            // ctx.drawImage(이미지 엘리먼트, top, left)
+            ctx.drawImage(imgElement, 0, 0);
+        };
+
+        imgElement.addEventListener("load", function(){
+            // 캔버스의 크기를 이미지 크기에 맞춘다
+            canvas.width = imgElement.naturalWidth;
+            canvas.height = imgElement.naturalHeight;
+
+            render();
+        });
+
+        function setFilter(input){
+            let inputName = input.name;
+            let inputValue = input.value;
+
+            // 필터 수집
+            filter[inputName] = inputValue + UNIT[inputName];
+
+            // for in 반복문: 객체 순회용 
+            // for (속성이름 in 객체)의 형태
+            for(let key in filter){
+                console.log(key);
+                filterInString += `${key}(${filter[inputName]})`;
+            };
+
+            // 필터 적용
+            ctx.filter = filterInString;
+
+            // nextElementSibling: 엘리먼트 바로 다음의 엘리먼트
+            input.nextElementSibling.textContent = inputValue;
+
+            render();
+        };
+    </script> -->
+
+    <!-- 1000lines... -->
+
+    <!-- JS SPA 예제풀기 -->
+    <!--
+        1 SPA (Single Page Application)
+        자바스크립트를 사용하여 페이지를 업데이트한다
+        속도가 빠르고 화면전환이 부드럽다
+        기타 개발과정상 장점 등
+
+        2 URL (Uniform Resource Locator)
+        웹사이트/서버의 주소
+
+        예) https://google.com/news/sports?page=1
+
+        1) path
+        리소스의 경로(path)
+
+        예) https://google.com/news/sports - 스포츠 뉴스의 경로
+
+        2) 쿼리 파라미터(query parameter)
+        url에 용량이 작은 데이터를 전송할 때 사용된다
+        path?key=value
+
+        예) ...sports/?page=1
+
+        3) location hash
+        웹페이지 내에서 특정한 장소를 찾을 때 사용된다
+        url#hash
+
+        예) ...sports?page=1#lastArticle
+
+
+        3 라우터 (Router)
+        요청 URL과 적절한 리소스를 연결한다
+    -->
+    
+    <!-- <nav>
+        <ul>
+            <li>
+                <a href="#/">Home</a>
+            </li>
+            <li>
+                <a href="#/posts">Posts</a>
+            </li>
+            <li>
+                <a href="#/contact">Contact</a>
+            </li>
+        </ul>
+    </nav>
+      
+    <div id="main"></div>
+
+    <script>
+        let main = document.getElementById("main");
+        
+        // DOMContentLoaded: 문서가 로드되었을 때
+        document.addEventListener("DOMContentLoaded", hashRoute);
+        // hashchange: hash가 바뀔 때
+        window.addEventListener("hashchange", hashRoute);
+
+        function hashRoute(){
+            // location.hash: location hash값 저장
+            let url = location.hash.substring(1);
+
+            // url 분석
+            let urlData = parseUrl(url);
+            
+            // 라우트 리스트
+            let routes = [
+                // 라우트
+                { path : "/" , element : Home },
+                { path : "/posts" , element : Posts },
+                { path : "/post" , element : Post },
+                { path : "/contact" , element : Contact },
+            ];
+
+            // 라우팅
+            // for of 반복문: 기존의 반복문과 같다
+            // for (아이템 of 배열)
+            for(let route of routes){
+                // 요청한 path와 일치하는 path를 가진 라우트의 element가 호출된다
+                if(route.path === urlData.path){
+                    main.innerHTML = route.element(urlData.query);
+                };
+            };
+        };  
+
+        // url를 분석하는 함수
+        function parseUrl(url){
+            // 쿼리가 있는지 파악
+            let hasQuery = url.indexOf("?") > -1;
+            let path;
+            let query;
+
+            if(hasQuery){
+                // ?앞에 문자열을 추출한다
+                path = url.substring(url.indexOf("?"), -1);
+                // ?부터 뒤에 문자열을 모두 추출한다
+                query = url.substring(url.indexOf("?"));
+            } else {
+                path = url;
+                query = null;
+            };
+
+            return { url, path, query };
+        };
+
+        // 페이지
+        function Home(){
+            return(
+                `
+                    <h1>Home</h1>
+                    <p>Welcome to my blog.</p>
+                `
+            );
+        };
+
+        function Posts(){
+            return(
+                `
+                    <h1>Posts</h1>
+                    <ul>
+                        <li>
+                            <a href="#/post?postId=p1">Second post</a>
+                        </li>  
+                        <li>
+                            <a href="#/post?postId=p0">First post</a>
+                        </li>  
+                    </ul>            
+                `
+            );
+        };
+
+        // query: 서버 요청시에 사용된다
+        function Post(query){
+            return(
+                `
+                    <h1>Post</h1>
+                    <p>${query}</p>      
+                `
+            );
+        };
+
+        function Contact(){
+            return(
+                `
+                    <h1>Contact</h1>
+                    <p>john@example.com</p>
+                `
+            );
+        };
+    </script> -->
+</body>
+</html>

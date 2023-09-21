@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML 기초</title>
+</head>
+<body>
+  <!-- 1000line -->
+
+  <!-- pre 태그 -->
+  <!--pre요소 내의 텍스트는 시스템에서 미리 지정된 고정폭 글꼴(fixed-width font)을 사용하여 표현되며,
+  텍스트에 사용된 여백과 줄바꿈이 모두 그대로 브라우저화면에 나타납니다.-->
+  <pre>
+    pre 요소내의 텍스트는
+
+    고정폭 글꼴(fixed-width font)을 사용하여 표현되며,
+
+    사용된 띄어쓰기와 줄바꿈이 모두 그대로
+
+    브라우저 화면에 나타납니다.
+  </pre>
+
+  <!-- 1000line -->
+
+  <!-- section태그 -->
+  <!-- section 태그는 주제별 영역들을 그룹화 하기위해 사용한다. -->
+  <section>
+    <h1>상품소개</h1>
+    <ul>
+      <li>상품1</li>
+      <li>상품2</li>
+      <li>상품3</li>
+    </ul>
+  </section>
+
+  <!-- 1000line -->
+
+  <!-- article 태그 -->
+  <!-- aricle 태그는 section과 마찬가지로 특정한 영역을 그룹화할 때 사용한다. -->
+  <!-- 단) 해당 페이지에서 다른 페이지나 다른 영역에 언제든지 독립적으로 갖다 붙힐 수 있는 영역을 그룹화한다. -->
+  <article>
+    <h1>상품소개</h1>
+    <ul>
+      <li>포스터1</li>
+      <li>포스터2</li>
+      <li>포스터3</li>
+    </ul>
+  </article>
+  
+  <!-- 1000line -->
+
+  <!-- main 태그 -->
+  <!-- <main> 태그는 해당 문서의 <body> 요소의 주 콘텐츠(main content)를 정의할 때 사용합니다. -->
+  <!-- <main> 요소의 콘텐츠는 해당 문서의 중심 주제 또는 주요 기능과 직접적으로 관련되어 있거나
+  확장되는 콘텐츠로 구성되어야 하며, 문서 전반에 걸쳐 반복되는 내용을 포함해서는 안 됩니다. -->
+  <!-- 하나의 문서에는 단 하나의 <main> 요소만이 존재해야 하며,
+  <main> 요소는 <article>, <aside>, <footer>, <header>, <nav> 요소의 자손 요소가 되어서는 안 됩니다. -->
+  <main>
+    <h1>바나나</h1>
+    <p>바나나는 바나나는 파초과 바나나 속에 속하는 숙근성 영년생 열대과수를 총칭한다.</p>
+    <article>
+        <h2>다이어트 식품</h2>
+        <p>바나나는 탄수화물이 약 27%이고 비타민 A와 C가 풍부하며, 100g당 87kcal의 열량을 갖는다.</p>
+    </article>
+    <article>
+        <h2>다양한 섭취법</h2>
+        <p>바나나는 열매를 주식으로 이용할 뿐 아니라 미성숙한 열매는 채소로 다양한 요리에 응용된다.</p>
+    </article>
+  </main>
+
+  <!-- 1000line -->
+
+  <!-- table 태그 -->
+  <!-- <table> 태그는 HTML 문서에서 표를 만드는 태그입니다. -->
+  <!-- <th>와 <td>는 <tr> 태그 하위에 위치합니다. -->
+  <!-- 
+      thead: table head (제목영역)
+      tbody: table body (본문영역)
+      tr: table row (표의 행)
+      th: table heading (열제목)
+      td: table data (표의 열)
+  -->
+
+  <!-- 추가사항 -->
+  <!-- rowspan(td태그에서 사용하며 열을 확장할떄 사용한다.), colspan(td태그에서 사용하며 행을 확장할떄 사용한다.) -->
+  <table border="1">
+    <thead>
+      <tr>
+        <th>이름</th>
+        <th>원산지</th>
+        <th>판매중</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>기네스</td>
+        <td>아일랜드</td>
+        <td>아니오</td>
+      </tr>
+      <tr>
+        <td>하이네켄</td>
+        <td>네덜란드</td>
+        <td>예</td>
+      </tr>
+      <tr>
+        <td>버드와이저</td>
+        <td>미국</td>
+        <td>예</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 1000line -->
+
+  <!-- form(검색) 태그 -->
+  <!-- form - 클라이언트의 데이터를 서버에 전송하는 역할을 한다 -->
+
+  <!--
+  1 form
+    - action: 전송할 서버상의 주소
+
+  2 input
+    - type: 수집하고자 하는 정보에 따라 다양한 타입이 존재한다
+    - name: 서버가 폼 데이터를 분류하는 기준
+    - placeholder: 입력해야하는 데이터에 대한 안내 등
+
+  3 button - 폼을 제출한다
+  -->
+
+  <!-- 구글 검색 -->
+  <form action="https://www.google.com/search" method="GET">
+    <h1>Google</h1>
+    <input type="search" name="query" id="query" placeholder="구글 검색">
+    <button type="submit">검색</button>
+  </form>
+
+  <!-- 네이버 검색 -->
+  <form action="https://search.naver.com/search.naver" method="GET">
+    <h1>NAVER</h1>
+    <input type="search" name="query" id="query" placeholder="네이버 검색">
+    <button type="submit">검색</button>
+  </form>
+
+  <!-- 1000line -->
+
+  <!-- form(로그인) 태그 -->
+
+  <!--
+  1 form
+    - method: 서버 요청 메서드
+    GET : URL에 폼 데이터를 추가하여 서버로 전달하는 방식입니다.
+    HTTP 요청은 브라우저에 의해 캐시되어 저장된다.
+    쿼리 문자열에 포함되어 전송되므로 길이의 제한이 있습니다.
+    ※보안상 취약점이 존재하므로, 중요한 데이터는 POST방식을 사용하는 것이 좋습니다.
+
+    POST : 폼 데이터를 별도로 첨부하여 서버로 전달하는 방식입니다.
+    HTTP 요청은 브라우저에 의해 캐시되어 저장되지 않으므로, 브라우저 히스토리에 남지 않습니다.
+    POST 방식의 HTTP 요청에 의한 데이터는 쿼리 문자열과는 별도로 전송됩니다.
+    ※데이터의 길이에 대한 제한도 없으며, GET 방식보다 보안성이 높습니다.
+  -->
+
+  <h1>로그인(명시적)</h1>
+  <form action="server_url" method="POST">
+    <div>
+      <label for="username">아이디</label>
+      <input type="text" name="user_name" id="username" placeholder="아이디를 입력하세요.">
+    </div>
+
+    <div>
+      <label for="password">비밀번호</label>
+      <input type="password" name="user_password" id="password" placeholder="비밀번호를 입력하세요.">
+    </div>
+
+    <div>
+      <input type="checkbox" id="remember-check">
+      <label for="remember-check">아이디 저장하기</label>
+    </div>
+
+    <button type="submit">로그인</button>
+  </form>
+
+  <!-- 1000line -->
+
+  <!-- 2 label
+    - for: input과 연결하는 역할
+
+    명시적 작성 방식(label에 for속성과 input id속성을 명시함으로써 연결해준다.)
+    <label for="user_name"></label>
+    <input type="text" name="username" id="user_name" placeholder="아이디를 입력하세요."> 
+  
+    암시적 작성 방식(label안에 input을 넣음으로써 for속성을 명시하지 않더라도 암묵적으로 연결하는 방식이다.)
+    <label><input type="text" name="username" placeholder="아이디를 입력하세요."></label> -->
+
+  <h1>로그인(암묵적)</h1>
+  <form action="server_url" method="POST">
+    <label>
+      아이디<input type="text" name="userName" placeholder="아이디를 입력하세요.">
+    </label>
+
+    <label>
+      비밀번호<input type="password" name="userPassword" placeholder="비밀번호를 입력하세요.">
+    </label>
+      
+    <label>
+      <input type="checkbox">아이디 저장하기
+    </label>
+  
+    <button type="submit">로그인</button>
+  </form>
+
+  <!-- 1000line -->
+
+  <!-- svg 태그 -->
+  <!-- 수학적인 방법으로 그래픽을 표현한다 확대해도 깨지지 않는다
+  로고나 아이콘 등을 표현할 때 사용된다 -->
+  <!-- svg태그안에 들어갈 수 있는 태그 
+  사각형(rect), 정원(circle), 타원(ellipse), 선(line), 다각선(polyline), 다각형(polygon), 패스(path)-->
+  <!-- ex) ellipse(타원)의 cx, cy 속성은 원의 중심점을 정하며 rx, ry속성은 원의 반지름을 나타냅니다.-->
+  
+  <h1>svg (Scalable Vector Graphic)</h1>
+  <svg height="150" width="200">
+    <ellipse cx="100" cy="75" rx="90" ry="60" fill="#333"/>
+    <text x="35" y="90" font-size="45" font-family="Verdana"  fill="#fff" >LOGO</text>
+  </svg>
+
+  <!-- 1000line -->
+</body>
+</html>

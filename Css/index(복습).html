@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http
+  -equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 기초</title>
+</head>
+<body>
+  <!-- 1000line -->
+
+  <!-- <h1>CSS 단위</h1>
+
+  <style>
+    body{
+      font-size:16px;
+    }
+
+    .px{
+      font-size:16px;
+    }
+
+    .rem{
+      font-size:1rem;
+    }
+
+    .em{
+      font-size:1em;
+    }
+
+    .percent{
+      font-size:100%;
+    }
+
+    .vw{
+      font-size:10vw;
+    }
+
+    .vh{
+      font-size:10vh;
+    }
+  </style>
+
+  <h3>px (pixel)</h3>
+  <p>절대값</p>
+  <p class="px">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+  <h3>rem (root element)</h3>
+  <p>루트 엘리먼트(html)에 상대적이다. 1rem = 루트엘리먼트의 폰트사이즈</p>
+  <p class="rem">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+  <h3>em (element)</h3>
+  <p>부모 엘리먼트에 상대적이다. 1em = 부모 엘리먼트의 폰트 사이즈</p>
+  <p class="em">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+  <h3>percent</h3>
+  <p>부모 엘리먼트에 상대적이다. 100% = 부모의 폰트사이즈</p>
+  <p class="percent">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+  <h3>vw (viewport width)</h3>
+  <p>뷰포트 넓이에 상대적이다. 100vw = 뷰포트의 넓이</p>
+  <p class="vw">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+  <h3>vh (viewport height)</h3>
+  <p>뷰포트 높이에 상대적이다. 100vh = 뷰포트의 높이</p>
+  <p class="vh">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> -->
+
+  <!-- 10000line... -->
+
+  <!-- <h1>폰트 사이즈</h1>
+
+  <style>
+    .text-xs {
+      font-size:0.75rem;
+    }
+
+    .text-base {
+      font-size:1rem;
+    }
+
+    .text-2xl {
+      font-size:1.5rem;
+    }
+  </style>
+
+  <h3>font size: 0.75rem</h3>
+  <p class="text-xs">Paragraph</p>
+
+  <h3>font size: 1rem (기본값)</h3>
+  <p class="text-base">Paragraph</p>
+
+  <h3>font size: 1.5rem</h3>
+  <p class="text-2xl">Paragraph</p> -->
+
+  <!-- 10000line... -->
+
+  <!-- <h1>letter spacing (글자 간격)</h1>
+
+  <style>
+    .tracking-tightest {
+      letter-spacing:-0.05em;
+    }
+
+    .tracking-normal {
+      /* 현재 엘리먼트의 폰트사이즈에 상대적이다 */
+      letter-spacing:0em;
+    }
+
+    .tracking-widest {
+      letter-spacing:0.1em;
+    }
+  </style>
+
+  <h3>letter spacing: -0.05em</h3>
+  <p class="tracking-tightest">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+  </p>
+
+  <h3>letter spacing: 0em (기본값)</h3>
+  <p class="tracking-normal">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+  </p>
+
+  <h3>letter spacing: 0.1em</h3>
+  <p class="tracking-widest">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+  </p> -->
+
+  <!-- 10000line... -->
+
+  <!-- <h1>line height (줄 간격)</h1>
+
+  <style>
+    .leading-none {
+      line-height:normal
+    }
+    .leading-8 {
+      line-height:2rem;
+    }
+  </style>
+
+  <h3>line height: normal (기본값)</h3>
+  <p class="leading-none">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    Autem hic odio, dolore unde expedita ad voluptatibus nostrum
+    perspiciatis architecto reiciendis quia, 
+    voluptate ipsum tempore tenetur? Voluptatem est non omnis illum. 
+  </p>
+
+  <h3>line height: 2rem</h3>
+  <p class="leading-8">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Autem hic odio, dolore unde expedita ad voluptatibus nostrum
+    perspiciatis architecto reiciendis quia, 
+    voluptate ipsum tempore tenetur? Voluptatem est non omnis illum. 
+  </p> -->
+
+  <!-- 10000line... -->
+
+  <!-- overflow : 요소의 컨텐츠가 너무 커서 요소의 블록 서식 맥락에 맞출 수 없을 떄의 처리법을
+  지정합니다. -->
+
+  <!--
+    overflow : visible >>> 컨텐츠가 넘친다면 자르지 않고 그대로 표출합니다.
+    overflow : hidden >>> 컨텐츠가 넘친다면 안쪽 여백상자에 맞추기 위해 잘라냅니다.
+    overflow : auto >>> 컨텐츠가 넘친다면 스크롤바를 노출합니다.
+  -->
+
+  <!-- <h1>overflow</h1>
+  <p>넘치는 부분 처리 방법</p>
+
+  <style>
+    .container {
+      border: 1px solid;
+      height: 50px;
+    }
+
+    .overflow-hidden {
+      overflow: hidden;
+    }
+
+    .overflow-auto {
+      overflow: auto;
+    }
+
+    .overflow-visible {
+      overflow: visible;
+    }
+  </style>
+  
+  <h3>overflow: visible (default)</h3>
+  <p>넘치는 부분을 보이게한다</p>
+  <div class="container overflow-visible">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+    Hic maxime soluta provident nihil dolore accusamus, vitae adipisci, 
+    et repudiandae, eum aliquid inventore ratione blanditiis harum officia animi corrupti eligendi facere.
+  </div>
+
+  <h3>overflow: hidden</h3>
+  <p>넘치는 부분을 숨긴다</p>
+  <div class="container overflow-hidden">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+    Hic maxime soluta provident nihil dolore accusamus, vitae adipisci, 
+    et repudiandae, eum aliquid inventore ratione blanditiis harum officia animi corrupti eligendi facere.
+  </div>
+  
+  <h3>overflow: auto</h3>
+  <p>넘치는 경우 스크롤을 생성한다</p>
+  <div class="container overflow-auto">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+    Hic maxime soluta provident nihil dolore accusamus, vitae adipisci, 
+    et repudiandae, eum aliquid inventore ratione blanditiis harum officia animi corrupti eligendi facere.
+  </div> -->
+  
+  <!-- 10000line... -->
+
+  <!-- white space : 스페이스와 탭, 줄바꿈, 자동줄바꿈을 어떻게 처리할지 정하는 속성입니다. -->
+
+  <!-- 
+    normal : 연속된 공백과 줄 바꿈은 메꾸어져서 하나의 공백으로 표시됩니다. 소스 내의 줄 바꿈 문자도
+    공백 문자로 처리되며,필요하다면 긴 줄을 줄바꿈 합니다.
+    nowrap : 부모 요소 안의 가로폭을 넘어가더라도 자동으로 줄바꿈이 일어나게 하고 싶지 않은 경우
+   -->
+
+  <!-- <h1>white space</h1>
+  <p>빈공간 처리 방법</p>
+
+  <style>
+    .container {
+      border: 1px solid;
+    }
+
+    .item {
+      width: 200px; 
+      display: inline-block;
+      background-color: #ddd;
+    }
+
+    .whitespace-normal {
+      /* 감싼다(wrap) */
+      white-space: normal
+    }
+
+    .whitespace-nowrap {
+      /* 감싸지 않는다 */
+      white-space: nowrap;
+    }
+  </style>
+
+
+  <h3>white space: normal (default)</h3>
+
+  <div class="container whitespace-normal">
+    <div class="item">item</div>
+    <div class="item">item</div>
+    <div class="item">item</div>
+  </div>
+
+  <h3>white space: nowrap</h3>
+  
+  <div class="container whitespace-nowrap">
+    <div class="item">item</div>
+    <div class="item">item</div>
+    <div class="item">item</div>
+  </div> -->
+
+    <!-- 10000line... -->
+
+    <!-- object fit 속성은 대체되는 요소의 내용 img, video, object, svg 등 지정된
+    너비와 높이에 맞게 장착되는 방식을 지정한다. -->
+
+    <!-- 
+      object fit : fill (요소를 가득 채울수 있는 크기로 늘어나지만 비율은 유지되지 않는다.)
+      object fit : cover (비율을 유지하면서 늘어나지만 보이지 않는 부분도 생긴다.)
+      object fit : contain (비율을 유지하면서 늘어나며 너비와 높이안에서 가능한 많이 확대된다.)
+     -->
+    <!-- <h1>object fit</h1>
+    <p>이미지 맞춤 처리</p>
+  
+    <style>
+      img {
+        width: 200px;
+        height: 200px;
+        border: 1px solid;
+      }
+  
+      .object-fill {
+        object-fit: fill;
+      }
+  
+      .object-cover {
+        object-fit: cover;
+      }
+
+      .object-contain {
+        object-fit: contain;
+      }
+    </style>
+
+    <h3>object fit: fill (default)</h3>
+    <p>
+      이미지가 주어진 공간을 채운다
+      이미지가 늘어나거나 줄어들 수 있다
+    </p>
+    <img class="object-fill" src="https://images.unsplash.com/photo-1689192092151-5d8984fdd21d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60" alt="이미지 소스">
+  
+    <h3>object fit: cover</h3>
+    <p>
+      이미지가 주어진 공간을 채운다
+      이미지의 원본비율을 유지한다
+      이미지가 잘릴 수 있다
+    </p>
+    <img class="object-cover" src="https://images.unsplash.com/photo-1689192092151-5d8984fdd21d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60" alt="이미지 소스">
+  
+    <h3>object fit: contain</h3>
+    <p>
+      이미지가 원본비율을 유지한다
+    </p>
+    <img class="object-contain" src="https://images.unsplash.com/photo-1689192092151-5d8984fdd21d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60" alt="이미지 소스"> -->
+
+    <!-- 10000line... -->
+
+    <!-- flex-wrap : 컨테이너에서 flex 아이템들을 한 줄로 표시할지
+    행을 되풀이해서 복수행으로 표시할지 여부를 지정합니다. -->
+
+    <!-- 
+      flex-wrap : nowrap(행의 줄바꿈을 하지 않고 한줄로 표시합니다.)
+      flex-wrap : wrap(flex item들이 flex 컨테이너 안에서 표시될 수 있도록 줄바꿈을 합니다.)
+    -->
+
+    <!-- <h1>flex wrap</h1>
+    <p>아이템을 감쌀 것인지 결정</p>
+  
+    <style>
+      .container {
+        border: 1px solid;
+      }
+  
+      .item {
+        background-color: #ddd;
+        width: 200px;
+        padding: 0.5rem;
+      }
+  
+      .flex {
+        display: flex;
+      }
+      
+      .flex-nowrap {
+        flex-wrap: nowrap;
+      }
+  
+      .flex-wrap {
+        flex-wrap: wrap;
+      }
+    </style>
+  
+    <h3>flex wrap: nowrap (기본값)</h3>
+  
+    <div class="container flex flex-nowrap">
+      <div class="item">item</div>
+      <div class="item">item</div>
+      <div class="item">item</div>
+    </div>
+  
+    <h3>flex wrap: wrap</h3>
+  
+    <div class="container flex flex-wrap">
+      <div class="item">item</div>
+      <div class="item">item</div>
+      <div class="item">item</div>
+    </div> -->
+
+  <!-- 10000line... -->
+
+  <!--
+    display : flex 와 grid의 차이 
+    flex 는 1차원으로 수평, 수직 영역 중 하나의 방향으로만 레이아웃을 나눌 수 있습니다.
+    grid 는 2차원으로 수평, 수직을 동시에 영역을 나눌 수 있습니다. 
+  -->
+
+  <!-- 
+    gird-template-columns 속성은 행을 grid-template-rows 는 열을 바꿀 수 있습니다.
+    px, fr 단위를 사용하여 비율형태를 줄 수 있습니다.
+
+    예를들어
+    grid-template-columns : 1fr 1fr 1fr은 1:1:1 비율로 3개 column을 만들겠다는 의미이며
+    grid-template-rows : 1fr 1fr 1fr은 1:1:1 비율로 3개 row을 만들겠다는 의미이다.
+
+    위에 내용을 repeat함수로 표현할 수 있습니다.
+    grid-template-columns : repeat(3,1fr) repeat함수를 사용하여 간단하게 표현할 수 있습니다.
+    grid-template-rows : repeat(3,1fr) repeat함수를 사용하여 간단하게 표현할 수 있습니다.
+
+    다른방법으로는
+    grid-template-columns : 200px 1fr 1fr은 하나의 column은 200px로 고정하며 1:1비율로 column을 만들겠다는 의미이며
+    grid-template-rows : 200px 1fr 1fr은 하나의 rows은 200px로 고정하며 1:1비율로 rows을 만들겠다는 의미이며
+
+    minmax함수는
+    grid-template-rows: repeat(3, minmax(100px, auto)) 의미는 최소한 100px, 최대는 자동으로(auto)늘어나게 입니다.
+    아무리 내용이 적어도 최소한 100px 높이값을 확보하고, 내용물이 늘어날 경우 자동으로 늘어나게 만드는 예시입니다. 
+
+    gap은 셀의 간격을 설정합니다.
+  -->
+
+  <!-- <h1>flex grid</h1>
+  <p>기본개념</p>
+
+  <style>
+    .container{
+      border:1px solid #ccc;
+    }
+
+    .item{
+      padding:0.5rem;
+      background-color:#ddd;
+    }
+
+    .grid{
+      display:grid;
+    }
+
+    .grid-cols-3{
+      /* 컬럼의 갯수 지정 */
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+    }
+
+    .gap-2{
+      /* 아이템 사이의 공간 */
+      gap:0.5rem;
+    }
+  </style>
+  
+  <div class="grid_container grid grid-cols-3 gap-2">
+    <div class="item">item</div>
+    <div class="item">item</div>
+    <div class="item">item</div>
+    <div class="item">item</div>
+    <div class="item">item</div>
+    <div class="item">item</div>
+    <div class="item">item</div>
+    <div class="item">item</div>
+    <div class="item">item</div>
+  </div> -->
+
+  <!-- 10000line... -->
+
+  <!-- 
+    grid-row-start : 그리드 아이템의 행 시작 위치 지정
+    grid-row-end : 그리드 아이템의 행 끝 위치 지정
+
+    grid-column-start : 그리드 아이템의 열 시작 위치 지정
+    grid-column-end : 그리드 아이템의 열 끝 위치 지정
+
+    span 아이템이 몇칸까지 차지할지를 정한다.
+   -->
+
+  <!-- <h1>flex grid</h1>
+  <p>열병합</p>
+
+  <style>
+    .grid_container{
+      border:1px solid #ccc;
+    }
+
+    .item{
+      padding:0.5rem;
+      background-color:#ddd;
+    }
+
+    .grid{
+      display:grid;
+    }
+
+    .gap-2{
+      gap:0.5rem;
+    }
+
+    .grid-cols-3{
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+    }
+
+    .col-span-2{
+      /* 2개의 열 병합 */
+      grid-column-start:span 2;
+    }
+  </style>
+
+  <div class="grid_container grid gap-2 grid-cols-3">
+    <div class="item">item 1</div>
+    <div class="item">item 2</div>
+    <div class="item">item 3</div>
+    <div class="item col-span-2">item 4</div>
+    <div class="item">item 5</div>
+    <div class="item">item 6</div>
+    <div class="item col-span-2">item 7</div>
+  </div> -->
+
+  <!-- 10000line... -->
+  
+  <!--
+    미디어 쿼리는 css에서 어떤 스타일을 선택적으로 적용하고 싶을 떄 사용합니다.
+    (if조건문과 비슷하다고 생각하면 좋을것 같습니다.)
+    
+    @media(조건){
+      스타일
+    }
+    
+    스타일 부분에서는 일반적인 css코드가 들어가고 조건 부분이 만족될 때는 스타일이 적용되고,
+    만족되지 않을떄는 스타일이 무시됩니다.
+
+    좁은 화면
+    mobile 화면처럼 좁은 화면에서만 특정 스타일을 적용하고 싶을 때는
+    화면 최대 넓이를 조건으로 하여 미디어 쿼리를 작성합니다.
+
+    ex) 600px 이하의 좁은 화면에서 css를 적용하고 싶을 때
+
+    @media(max-width:600px){
+      css 스타일
+    }
+
+    넓은 화면
+    pc 화면처럼 넓은 화면에서만 특정 스타일을 적용하고 싶을 때는
+    화면 최소 넓이를 조건으로 하여 미디어 쿼리를 작성합니다.
+
+    ex) 600px 이상의 넓은 화면에서 css를 적용하고 싶을 때
+
+    @media(min-width:600px){
+      css 스타일
+    }
+
+    max-width 와 min-width를 같이 사용 할 수도 있습니다.
+
+    최대 500px까지 css스타일이 적용되길 원할떄
+    @media(max-width:500px){
+      css 스타일
+    }
+
+    최소 501px ~ 최대 1199px까지 css스타일이 적용되길 원할때
+    @media(min-width:501px) and (max-width:1199px){
+      css 스타일
+    }
+
+    최소 1200px까지는 css스타일이 적용되길 원할때
+    @media(min-width:1200px){
+      css 스타일
+    }
+  -->
+  
+  <!-- <h1>media rule</h1>
+  <p>
+    기기에 따라 스타일을 다르게 적용할 수 있다
+  </p>
+
+  <style>
+    .container {
+      border: 1px dashed;
+    }
+
+    .item {
+      background-color: #ddd;
+      padding: 0.5rem;
+    }
+
+    .grid {
+      display: grid;
+    }
+
+    .gap-2 {
+      gap: 0.5rem;
+    }
+
+    .grid-cols-n {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    @media (min-width: 640px) {
+      .grid-cols-n {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 768px) {
+      .grid-cols-n {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .grid-cols-n {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .grid-cols-n {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1536px) {
+      .grid-cols-n {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
+    }
+  </style>
+
+  <h3>기기 구분 기준</h3>
+
+  <ul>
+    <li>Mobile Device(default): ~ 640px</li>
+    <li>Small Device: 641px ~ 767px</li>
+    <li>Medium Device: 768px ~ 1023px</li>
+    <li>Large Device: 1024px ~ 1279px</li>
+    <li>Extra Large Device: 1280px ~ 1535px</li>
+    <li>2 Extra Large Device: 1536px ~ </li>
+  </ul>
+
+  <div class="container grid gap-2 grid-cols-n">
+    <div class="item">item</div>
+    <div class="item">item</div>
+    <div class="item">item</div>
+    <div class="item">item</div>
+    <div class="item">item</div>
+    <div class="item">item</div>
+    <div class="item">item</div>
+    <div class="item">item</div>
+    <div class="item">item</div>
+  </div> -->
+
+  <!-- 1000line -->
+</body>
+</html>

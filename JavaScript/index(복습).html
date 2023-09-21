@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 과 JavaScript 튜토리얼</title>
+</head>
+<body>
+    <!-- 1000 lines... -->
+
+    <!-- <h1>HTML 과 JavaScript 튜토리얼</h1> -->
+
+    <!-- <pre>
+        1. 기초
+        - 윈도우 객체
+
+        2. 선택자
+
+        3. 엘리먼트의 속성과 메서드
+
+        4. 캔버스
+    </pre> -->
+
+    <!-- 1000 lines... -->
+
+    <!-- <h1>Window 객체</h1>
+    <p>웹개발을 위한 도구모음</p> -->
+
+    <!-- <script>
+        console.log(window); // 윈도우(window) 객체에 접근한다.
+    </script> -->
+
+    <!-- <ul>
+        <li>console</li>
+        <li>history</li>
+        <li>location</li>
+        <li>navigator</li>
+        <li>서버 요청</li>
+        <li>storage</li>
+        <li>document</li>
+    </ul> -->
+
+    <!-- <h1>console</h1>
+    <p>브라우저(browser)의 콘솔(console)에 접근할 수 있다.</p>
+
+    <script>
+        window.console.log("log");
+        window.console.info("info");
+        window.console.warn("warn");
+        window.console.error("error");
+        window.console.dir(function(){});
+    </script> -->
+
+    <!-- <h1>history</h1>
+    <p>브라우저(browser) 정보에 관한 기록에 접근할 수 있다.</p>
+
+    <button onclick="Goback()">Goback</button>
+    <button onclick="goforward()">goforward</button>
+
+    <script>
+        console.log(window.history); // history 객체에 접근한다.
+        console.log(history.length); // 사용자가 방문한 페이지 갯수에 접근한다.
+        console.log(history.back); // 웹, 어플리케이션 뒤로가기 버튼 생성 가능
+        console.log(history.forward); // 웹, 어플리케이션 앞으로가기 버튼 생성 가능
+
+        // 뒤로가기, 앞으로가기
+        function Goback(){
+            window.history.back();
+        }
+
+        function goforward(){
+            window.history.forward();
+        }
+    </script> -->
+
+    <!-- <h1>location</h1>
+    <p>현재 URL에 관한 정보에 접근할 수 있다.</p>
+
+    <script>
+        console.log(window.location); // location 객체에 접근한다.
+        console.log(location.href); // 현재 페이지 확인 방법
+        console.log(location.href = "https://www.naver.com/"); // 페이지 이동방법
+        console.log(location.protocol); // url 프로토컬 체계를 나타내는 문자열이다.
+        console.log(location.protocol = "http") // http버전이 존재하면 해당 http버전으로 이동, 없다면 원래 버전으로 이동
+        console.log(location.reload) // 새로고침 : 프로그램내에서 새로고침 기능을 만들 수 있다.
+        // chrome 57 이전 : 매개변수 값이 true일 경우, 해당 페이지 모든 리소스 캐시 삭제
+        // chrome 57 이후 : 해당 페이지에 캐시만 비운다.
+    </script> -->
+
+    <!-- <h1>navigator</h1>
+    <p>브라우저에 대한 정보를 가지고 온다.</p>
+
+    <script>
+        console.log(window.navigator); // navigator 객체에 접근한다.
+        console.log(navigator.language); // 브라우저에 사용되는 언어를 반영한다.
+        console.log(navigator.onLine); // 브라우저가 온라인인지 확인한다.
+        console.log(navigator.geolocation.getCurrentPosition); // 사용자의 지리적 위치(geolocation)를 가져온다.(위치 기반 서비스)
+        console.log(navigator.geolocation.coordinates) // 사용자의 좌표를 가지고 온다.    
+    </script> -->
+
+    <!-- <h1>서버 요청 함수</h1>
+
+    <script>
+        console.log(window.XMLHttpRequest);
+        console.log(fetch);
+    </script> -->
+
+    <!-- <h1>storage</h1>
+    <p>브라우저가 제공하는 저장공간</p>
+
+    <script>
+        console.log(window.document.cookie); // cookie
+        console.log(window.localStorage); // cookie update version (window.document.cookie)보다 더 많이 사용한다.
+        console.log(window.sessionStorage); // cookie update version (window.document.cookie)보다 더 많이 사용한다.
+    </script> -->
+
+    <!-- <h1>document</h1>
+
+    <script>
+        console.log(window.document); // HTML
+    </script> -->
+
+    <!-- 1000 lines... -->
+    
+    <!-- <h1>id 선택자</h1>
+
+    <ul id="content">
+        <li id="foo">foo</li>
+        <li id="bar">bar</li>
+        <li id="baz">baz</li>
+    </ul>
+    
+    <script>
+        var content = document.getElementById('content');
+        var foo = document.getElementById('foo');
+        var bar = document.getElementById('bar');
+        var baz = document.getElementById('baz');
+
+        console.log(content, foo, bar, baz);
+    </script> -->
+
+    <!-- <h1>class 선택자</h1>
+
+    <ul class="content">
+        <li class="item">foo</li>
+        <li class="item">bar</li>
+        <li class="item">baz</li>
+    </ul>
+    
+    <script>
+        var content = document.getElementsByClassName('content');
+        var item = document.getElementsByClassName('item');
+
+        console.log(content, item);
+        console.log(content[0], item[0]);
+        console.log(content[1], item[1]);
+        console.log(content[2], item[2]);
+        console.log(item.length);
+    </script> -->
+
+    <!-- 1000 lines... -->
+
+    <!-- <h1>엘리먼트의 속성과 메서드</h1>
+    <pre>
+        1. innerHTML
+        2. classList
+        3. attribute
+        4. createElement
+    </pre> -->
+
+    <!-- <h1>innerHTML</h1>
+    <p>트리를 문자열 타입으로 저장한다.</p>
+
+    <div id="content">
+        <ul>
+            <li>foo</li>
+            <li>bar</li>
+            <li>baz</li>
+        </ul>
+    </div>
+
+    <script>
+        var content = document.getElementById('content');
+
+        console.log(content);
+        console.log(content.innerHTML);
+        console.log(typeof content.innerHTML); // String
+
+        // innerHTML 업데이트
+        content.innerHTML = 
+        `
+            <ul>
+                <li>기네스</li>
+                <li>하이네캔</li>
+                <li>버드와이저</li>
+            </ul>
+        `
+    </script> -->
+
+    <!-- <h1>classList</h1>
+    <p>엘리먼트의 클래스 리스트를 저장한다.</p>
+
+    <style>
+        .font_yellow{
+            color:yellow;
+        }
+
+        .font_red{
+            color:red;
+        }
+
+        .font_blue{
+            color:blue;
+        }
+
+        .font_green{
+            color:green;
+        }
+    </style>
+
+    <ul>
+        <li id="foo" class="font_yellow">foo</li>
+        <li id="bar" class="font_yellow">bar</li>
+        <li id="baz" class="font_yellow">baz</li>
+    </ul>
+
+    <script>
+        var foo = document.getElementById('foo');
+        var bar = document.getElementById('bar');
+        var baz = document.getElementById('baz');
+
+        console.log(foo.classList);
+        console.log(bar.classList);
+        console.log(baz.classList);
+
+        // class 제거하기
+        foo.classList.remove("font_yellow");
+        bar.classList.remove("font_yellow");
+        baz.classList.remove("font_yellow");
+
+        // class 추가하기
+        foo.classList.add('font_red');
+        bar.classList.add('font_blue');
+        baz.classList.add('font_green');
+    </script> -->
+
+    <!-- <h1>attribute(엘리먼트의 속성)</h1>
+
+    <input type="search" id="input" name="q" placeholder="구글 검색" autocomplete="off">
+
+    <script>
+        var input = document.getElementById('input');
+        
+        console.log(input.type);
+        console.log(input.id);
+        console.log(input.name);
+        console.log(input.placeholder);
+        console.log(input.autocomplete);
+
+        input.placeholder = '네이버 검색';
+        console.log(input.placeholder);
+    </script> -->
+
+    <!-- <h1>createElement</h1>
+    <p>자바스크립트에서 엘리먼트를 만든다.</p>
+
+    <ul id="content">
+        <li>foo</li>
+        <li>bar</li>
+    </ul>
+
+    <script>
+        var content = document.getElementById('content');
+        var item = document.createElement('li'); // 엘리먼트 li 생성
+        item.textContent = "baz"; // 엘리먼트 li text 생성
+        content.prepend(item); // content 맨 앞에 생성한다.
+        content.append(item, "li"); // content 맨 뒤에 생성한다. (텍스트 및 여러 자식요소를 넣을 수 있다. return 값을 반환하지 않는다.)
+        content.appendChild(item); // content 맨 뒤에 생성한다. (단 하나의 자식요소만 넣을 수 있다., return 값을 반환한다.)
+    </script> -->
+
+    <!-- <h1>Q. createElement</h1>
+
+    <ul id="list">
+
+    </ul>
+
+    <script>
+        var arr = ["foo", "bar", "baz"];
+
+        var list = document.getElementById('list');
+        
+        for(var i = 0; i < arr.length; i++){
+            var li = document.createElement('li');
+            li.textContent = arr[i];
+
+            list.appendChild(li);
+        }
+    </script> -->
+
+    <!-- <h1>event 와 event 처리</h1>
+    <pre>
+        이벤트: 웹페이지 내에서 유저의 행위
+        예)  클릭, 스크롤, 터치, 브라우저 크기 조절 등...
+        click : 마우스 버튼을 클릭하고 버튼에서 손가락을 떼면 발생한다.
+        mouseover : 마우스를 HTML요소 위에 올리면 발생한다.
+        mouseout : 마우스가 HTML요소 밖으로 벗얼날 때 발생한다.
+        mousedown : 클릭을 하기 위해 마우스버튼을 누르고 떼기 전에 발생한다. (HTML 요소를 드래그할 때 사용할 수 있다.)
+        mouseup : 마우스버튼을 떼는 그 순간 발생한다
+        (HTML요소를 어딘가에 놓을 때 사용할 수 있다.)
+        mousemove : 마우스가 움직일때마다 발생한다.
+        (마우스 커서가 현재 위치를 계속 기록하는 것에 사용할 수 있다.)
+        focus : HTML요소에 포커스가 갔을때 발생한다.
+        blur : HTML요소가 포커스가 벗어났을때 발생한다.
+        keypress : 키를 누르는 순간에 발생하고 키를 누르고 있는 동안 계속해서
+        발생한다.
+        keydown : 키를 누를 때 발생한다.
+        keyup : 키를 눌렀다가 떼는 순간에 발생한다.
+        load : 웹페이지에서 사용할 모든 파일의 다운로드가 완료되었을때 발생한다.    
+        resize : 브라우저 창의 크기를 조절할떄 발생한다.
+        scroll : 스크롤바를 드래그하거나 키보드(up, down)를 사용하거나 마우스 휠을 사용해서 웹페이지를 스크롤할 때 발생한다. (페이지에 스크롤 바가 없으면 이벤트가 발생하지 않는다.)
+        unload : 링크를 클릭해서 다른 페이지로 이동하거나 브라우저 탭을 닫을 때 혹은 브라우저 창을 닫을때 이벤트가 발생한다.
+        change : 폼 필드의 상태가 변경되었을 때 발생한다. (라디오 버튼을 클릭하거나 셀렉트 박스에서 값을 선택하는 경우를 예로 들 수 있다.)
+    </pre>
+    <button id="btn">버튼</button>
+
+    <script>
+        var btn =  document.getElementById('btn');
+
+        btn.addEventListener("click", function(){
+            alert("Hello JavaScript");
+        });
+    </script> -->
+
+    <!-- 1000 lines... -->
+
+    <!-- <h1>canvas</h1>
+    <p>
+        자바스크립트를 사용해서 HTML에서 그래픽을 표현한다.
+        예) 그래프, 차트, 애니메이션 등... 
+    </p>
+
+    <style>
+        #canvas{
+            background-color:#000;
+        }
+    </style>
+
+    <canvas id="canvas" width="300" height="200"></canvas>
+
+    <script>
+        // 캔버스
+        var canvas = document.getElementById('canvas');
+        // 펜
+        var pen = canvas.getContext("2d");
+
+        // 얼굴
+        pen.fillStyle = '#0af'; // 채우기 색상
+        pen.fillRect(0,100,100,100);
+
+        // 눈
+        pen.fillStyle = '#000';
+        pen.fillRect(20,120,20,20);
+        pen.fillRect(60,120,20,20);
+
+        // 입
+        pen.fillStyle = '#000';
+        pen.fillRect(20,160,10,10);
+        pen.fillRect(70,160,10,10);
+        pen.fillRect(20,170,60,10);
+    </script> -->
+</body>
+</html>
