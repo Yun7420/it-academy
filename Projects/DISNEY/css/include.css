@@ -1,0 +1,86 @@
+@charset "utf-8";
+/* 
+    2023. 09. 23(토) 작업 완료
+    작성자 : 한상윤
+
+    header, footer css 입니다.
+    header style, header font, footer style, footer font 구성
+    include하여 index.html로 보내주는 중입니다.
+*/
+
+/* Include Header =============================== */
+/* Header Style */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(4, 7, 20);
+  z-index: 1;
+}
+
+header ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+header img {
+  width: 80px;
+}
+
+header li:nth-of-type(2) {
+  display: flex;
+  gap: 1rem;
+}
+
+header button {
+  padding: 1rem 1.5rem;
+  border: 0;
+  border-radius: 0.5rem;
+}
+
+header button:nth-of-type(1) {
+  background-color: #016cf9;
+}
+
+header button:nth-of-type(2) {
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 1px solid #fff;
+}
+
+header a {
+  color: #fff;
+}
+
+/* Include Footer =============================== */
+/* Footer Style */
+footer {
+  width: 100%;
+}
+
+.footerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+footer h1 {
+  text-align: center;
+}
+
+footer img {
+  width: 80px;
+}
+
+footer ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer a,
+footer p {
+  text-align: center;
+  color: silver;
+}

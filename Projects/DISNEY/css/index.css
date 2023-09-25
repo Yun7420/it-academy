@@ -1,0 +1,141 @@
+@charset "UTF-8";
+/* 
+    CSS 설명란
+*/
+
+/* Index Html =============================== */
+/* Visual Style */
+/* visual */
+.visual {
+  position: relative;
+
+  height: 700px;
+}
+
+.visualPoster li {
+  position: absolute;
+  top: 0; left: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
+.visualPoster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Main Style */
+/* popularContent01 */
+.popularContent01 {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  
+  text-align: center;
+  color: #fff;
+}
+
+.popularContent01 ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.popularContent01 li {
+  height: 220px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.popularContent01 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* disneyBanner01 */
+.disneyBanner01 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+
+  text-align: center;
+  color: #fff;
+}
+
+.disneyBanner01 li {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.disneyBanner01 li::after {
+  content: "";
+
+  display: block;
+  width: 1px;
+  height:60px;
+  background-color: #fff;
+}
+
+.disneyBanner01 li:last-child::after {
+  content: "";
+  
+  display:none;
+}
+
+.disneyBanner01 div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* disneyBanner02 */
+.disneyBanner02 {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  color: #fff;
+}
+
+.disneyBanner02 div {
+  flex: 0 0 50%;
+  width: 50%;
+}
+
+.disneyBanner02 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* popularContent02 */
+.popularContent02 {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  
+  text-align: center;
+  color: #fff;
+}
+
+.popularContent02 ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.popularContent02 li {
+  height: 220px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.popularContent02 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
