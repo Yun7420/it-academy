@@ -23,7 +23,7 @@ body {
     background-color: #040714;
 
     font-size: 16px;
-    color: #000;
+    color: #fff;
 }
 
 p,
@@ -85,34 +85,46 @@ table{
 }
 
 /* padding setting */
-.p3TopBottom {
+.p3Top {
     padding-top: 3rem;
+}
+
+.p3Bottom {
     padding-bottom: 3rem;
 }
 
-.p3LeftRight {
+.p3Left {
     padding-left: 3rem;
+}
+
+.p3Right {
     padding-right: 3rem;
 }
 
 /* margin setting */
-.m3TopBottom {
+.m3Top {
     margin-top: 3rem;
+}
+
+.m3Bottom {
     margin-bottom: 3rem;
 }
 
-.m3LeftRight {
+.m3Left {
     margin-left: 3rem;
+}
+
+.m3Right {
     margin-right: 3rem;
 }
 
 /* common 텍스트관련 =============================== */
 /* backgoundColor */
 .keyColor {
-  background:#54AAFD;
+  background:#040714;
 }
 .subColor {
-  background:#FAAC56;
+  background:#fff;
 }
 
 /* common fonts =============================== */
@@ -121,4 +133,49 @@ table{
   font-family: 'headB';
   src: url('../fonts/바른공군체Bold.woff') format('woff');
   font-weight: 800;
+}
+
+/* font size setting */
+.font0_8R {
+    font-size: 0.8rem;
+}
+
+.font0_9R {
+    font-size: 0.9rem;
+}
+
+.font1R {
+    font-size: 1rem;
+}
+
+.font1_1R {
+    font-size: 1.1rem;
+}
+
+.font1_2R {
+    font-size: 1.2rem;
+}
+
+.font1_3R {
+    font-size: 1.3rem;
+}
+
+.font1_4R {
+    font-size: 1.4rem;
+}
+
+.font1_5R {
+    font-size: 1.5rem;
+}
+
+.font2R {
+    font-size: 2rem;
+}
+
+.font2_5R {
+    font-size: 2.5rem;
+}
+
+.font3R {
+    font-size: 3rem;
 }

@@ -1,6 +1,10 @@
 @charset "UTF-8";
 /* 
-    CSS 설명란
+    2023. 09. 26(화) 작업 중...
+    작성자 : 한상윤
+
+    메인페이지(index.html)
+    main style로 구성된 css 입니다.
 */
 
 /* Index Html =============================== */
@@ -12,18 +16,129 @@
   height: 700px;
 }
 
-.visualPoster li {
+.visual .poster {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
 
   width: 100%;
   height: 100%;
+
+  opacity: 0;
+
+  transition: all 0.5s;
 }
 
-.visualPoster img {
+.visual .poster.active {
+  opacity: 1;
+}
+
+.visual .poster img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.visual .PrevBtn {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 50px;
+  height: 50px;
+  border: 0;
+  border-radius: 50%;
+  background-color: #fff;
+
+  opacity: 0.5;
+}
+
+.visual .PrevBtn:hover {
+  opacity: 0.8;
+}
+
+.visual .PrevBtn svg {
+  width: 30px;
+  height: 30px;
+}
+
+.visual .NextBtn {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 50px;
+  height: 50px;
+  border: 0;
+  border-radius: 50%;
+  background-color: #fff;
+
+  opacity: 0.5;
+}
+
+.visual .NextBtn:hover {
+  opacity: 0.8;
+}
+
+.visual .NextBtn svg {
+  width: 30px;
+  height: 30px;
+}
+
+.visual .dots {
+  position: absolute;
+  bottom: 6rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 0.2rem;
+
+  width: 1000px;
+}
+
+.visual .dot {
+  flex: 1;
+  height: 0.2rem;
+  background-color: #f9f9f9;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.visual .dot.active {
+  background-color: silver;
+  opacity: 1;
+}
+
+.visual .dot:hover {
+  background-color: silver;
+  opacity: 1;
+}
+
+.visual .posterNames {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  text-align: center;
+  color: #fff;
+}
+
+.visual .posterName {
+  display: none;
+}
+
+.visual .posterName.active {
+  display: block;
 }
 
 /* Main Style */
@@ -32,9 +147,10 @@
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  
+}
+
+.popularContent01 .title {
   text-align: center;
-  color: #fff;
 }
 
 .popularContent01 ul {
@@ -60,10 +176,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1.5rem;
+  gap: 3rem;
 
   text-align: center;
-  color: #fff;
 }
 
 .disneyBanner01 li {
@@ -77,14 +192,14 @@
 
   display: block;
   width: 1px;
-  height:60px;
+  height: 60px;
   background-color: #fff;
 }
 
 .disneyBanner01 li:last-child::after {
   content: "";
-  
-  display:none;
+
+  display: none;
 }
 
 .disneyBanner01 div {
@@ -97,8 +212,7 @@
 .disneyBanner02 {
   display: flex;
   align-items: center;
-  gap: 2rem;
-  color: #fff;
+  gap: 3rem;
 }
 
 .disneyBanner02 div {
@@ -112,14 +226,25 @@
   object-fit: cover;
 }
 
+.disneyBanner02 .title {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 /* popularContent02 */
 .popularContent02 {
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  
+}
+
+.popularContent02 .title {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
   text-align: center;
-  color: #fff;
 }
 
 .popularContent02 ul {
@@ -138,4 +263,113 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* digitalInfo */
+.digitalInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  text-align: center;
+}
+
+.digitalInfo .title {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.digitalInfo ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.digitalInfo li {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.digitalInfo img {
+  width: 100%;
+}
+
+/* faq */
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.faq .title {
+  text-align: center;
+}
+
+.faqInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faqTitle {
+  position: relative;
+
+  padding: 2rem 1.5rem;
+  background-color: #13151d;
+  cursor: pointer;
+}
+
+.faqTitle::after {
+  content: "+";
+
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  transform: translateY(-50%);
+
+  font-size:2rem;
+}
+
+.faqTitle.checked::after {
+  content: "-";
+
+  font-size:3rem;
+}
+
+.faqText {
+  padding: 0 1.5rem;
+  height: 0;
+  background-color: #13151d;
+
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.faqText.show {
+  padding: 0.5rem 1.5rem 2rem;
+  height: auto;
+}
+
+.faqText ul {
+  margin-top: 1.5rem;
+  padding-left: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faqText ul li::before {
+  content: "";
+
+  margin-right: 1rem;
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background-color: silver;
+  border-radius: 50%;
 }
