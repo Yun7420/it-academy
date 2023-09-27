@@ -3,7 +3,29 @@
 */
 
 // main page scroll event
+function mainScroll() {
+  // BoundingHeight을 구할 item 목록
+  let boundingItem = document.getElementsByClassName("boundingItem");
+  // viewport 높이 값
+  let viewportHeight = window.innerHeight;
 
+  // boundingItem 일정 범위 진입 시 opacity 및 위치 복구
+  window.addEventListener("scroll", function () {
+    for (let i = 0; i < boundingItem.length; i++) {
+      let BoundingHeight = boundingItem[i].getBoundingClientRect().y;
+
+      if(BoundingHeight < viewportHeight * 0.9){
+        boundingItem[i].style.opacity = "1";
+        boundingItem[i].style.transform = `translateY(${0}px)`;
+      } else {
+        boundingItem[i].style.opacity = "0"; 
+        boundingItem[i].style.transform = `translateY(${100}px)`;
+      }
+    };
+  });
+};
+
+mainScroll();
 
 // Visual (Slide Auto Play)
 function visual() {
