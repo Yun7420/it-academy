@@ -1,6 +1,10 @@
 @charset "UTF-8";
 /* 
-    CSS 설명란
+  2023. 09. 27(수) 작업 중...
+  작성자 : 한상윤
+
+  모든 페이지 (index.html, subpage.html)에 적용
+  common style로 구성된 css 입니다.
 */
 
 /* common basic =============================== */
@@ -64,10 +68,6 @@ table{
 
 /* common class =============================== */
 .hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    clip: rect(1px, 1px, 1px, 1px);
     overflow: hidden;
 }
 

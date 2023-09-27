@@ -1,10 +1,10 @@
 @charset "UTF-8";
 /* 
-    2023. 09. 26(화) 작업 중...
-    작성자 : 한상윤
+  2023. 09. 27(수) 작업 중...
+  작성자 : 한상윤
 
-    메인페이지(index.html)
-    main style로 구성된 css 입니다.
+  메인페이지(index.html)에 적용
+  main style로 구성된 css 입니다.
 */
 
 /* Index Html =============================== */
@@ -50,7 +50,7 @@
 .visual .PrevBtn {
   position: absolute;
   top: 50%;
-  left: 1rem;
+  left: 3rem;
 
   display: flex;
   justify-content: center;
@@ -77,7 +77,7 @@
 .visual .NextBtn {
   position: absolute;
   top: 50%;
-  right: 1rem;
+  right: 3rem;
 
   display: flex;
   justify-content: center;
@@ -149,12 +149,21 @@
   display: block;
 }
 
-.visualInfo {
-  position: absolute;
-  top: 50%;
-  left: 8rem;
-  transform: translateY(-50%);
+.visualInfoBox {
+  position: relative;
+  margin: 0 auto;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  max-width: 1400px;
+  width: 1400px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.visualInfo {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -190,6 +199,56 @@
   color: #fff;
 }
 
+/* RollingBanner */
+.rolling {
+  display: flex;
+  overflow: hidden;
+}
+
+.rollingList {
+  display: flex;
+}
+
+.rollingList img {
+  width: 200px;
+  opacity: 0.6;
+}
+
+.rollingList.original {
+  animation: rollingOriginalMove 50s linear infinite;
+}
+.rollingList.clone {
+  animation: rollingCloneMove 50s linear infinite;
+}
+
+@keyframes rollingOriginalMove {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-100%);
+  }
+
+  50.01% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes rollingCloneMove {
+  0% {
+    transition: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-200%);
+  }
+}
+
 /* Main Style */
 /* popularContent01 */
 .popularContent01 {
@@ -219,7 +278,6 @@
 .popularContent01 img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
 
 .popularContent01 .posterCover01 {
@@ -260,7 +318,7 @@
 .posterCover01 p {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   overflow: hidden;
 }
 
@@ -347,6 +405,8 @@
 }
 
 .popularContent02 li {
+  position: relative;
+
   height: 220px;
   border-radius: 0.5rem;
   overflow: hidden;
@@ -355,7 +415,48 @@
 .popularContent02 img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+}
+
+.popularContent02 .posterCover02 {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  padding: 2rem;
+  box-sizing: border-box;
+
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  opacity: 0;
+
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.popularContent02 li:hover .posterCover02 {
+  opacity: 1;
+}
+
+.posterCover02 h3 {
+  display: block;
+  width:100%;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.posterCover02 p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 
 /* digitalInfo */
@@ -465,4 +566,52 @@
   height: 4px;
   background-color: silver;
   border-radius: 50%;
+}
+
+/* 바닦 페이지 load시 popup */
+.loadPopupSection {
+  position: fixed;
+  top: 0; left: 0;
+
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  z-index: 1;
+}
+
+.loadPopup {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loadPopup .info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.popupImage {
+  width: 500px;
+  height: 500px;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.popupImage img {
+  width: 100%;
+  height: 100%;
+}
+
+.popupButton {
+  display: flex;
+  justify-content: space-between;
+}
+
+.popupButton button {
+  background-color: transparent;
+  border: 0;
+  color: #fff;
 }

@@ -1,10 +1,10 @@
 @charset "UTF-8";
 /* 
-    2023. 09. 23(토) 작업 완료
-    작성자 : 한상윤
+  2023. 09. 23(토) 작업 완료
+  작성자 : 한상윤
 
-    include(header.html, footer.html)
-    header style, footer style 로 구성된 css 입니다.
+  include(header.html, footer.html)에 적용
+  header style, footer style 로 구성된 css 입니다.
 */
 
 /* Include Header =============================== */
@@ -78,6 +78,12 @@ footer img {
 footer ul {
   display: flex;
   justify-content: space-between;
+}
+
+footer select {
+  border: 0;
+  background-color: transparent;
+  color: silver;
 }
 
 footer a,
