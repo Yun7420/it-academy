@@ -90,6 +90,70 @@
   background-size: cover;
 }
 
+.subPosterPage.fullCount {
+  position: relative;
+
+  width: 100%;
+
+  background: url(../image/subImage/fullCount.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.subPosterPage.mandalorian {
+  position: relative;
+
+  width: 100%;
+
+  background: url(../image/subImage/mandalorian.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.subPosterPage.theBear {
+  position: relative;
+
+  width: 100%;
+
+  background: url(../image/subImage/theBear.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.subPosterPage.nattPaMuseetKahmunrahsAterkomst {
+  position: relative;
+
+  width: 100%;
+
+  background: url(../image/subImage/nattPaMuseetKahmunrahsAterkomst.jpg)
+    no-repeat center;
+  background-size: cover;
+}
+
+.subPosterPage.zootopia {
+  position: relative;
+
+  width: 100%;
+
+  background: url(../image/subImage/zootopia.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.subPosterPage.laVengadora {
+  position: relative;
+
+  width: 100%;
+
+  background: url(../image/subImage/laVengadora.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.subPosterPage.eletemACapakKozott {
+  position: relative;
+
+  width: 100%;
+
+  background: url(../image/subImage/eletemACapakKozott.jpg) no-repeat center;
+  background-size: cover;
+}
+
 .subPosterPage::before {
   content: "";
 
