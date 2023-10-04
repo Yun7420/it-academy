@@ -400,6 +400,10 @@
   gap: 3rem;
 }
 
+.popularContent02 a {
+  color: #fff;
+}
+
 .popularContent02 .title {
   display: flex;
   flex-direction: column;

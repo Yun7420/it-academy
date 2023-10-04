@@ -9,12 +9,84 @@
 
 /* subPage style */
 /* subPosterPage */
-.subPosterPage {
+.subPosterPage.moving {
   position: relative;
 
   width: 100%;
 
   background: url(../image/subImage/moving.png) no-repeat center;
+  background-size: cover;
+}
+
+.subPosterPage.hanRiverPolice {
+  position: relative;
+
+  width: 100%;
+
+  background: url(../image/subImage/hanRiverPolice.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.subPosterPage.elemental {
+  position: relative;
+
+  width: 100%;
+
+  background: url(../image/subImage/elemental.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.subPosterPage.casino {
+  position: relative;
+
+  width: 100%;
+
+  background: url(../image/subImage/casino.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.subPosterPage.arthdalChronicles {
+  position: relative;
+
+  width: 100%;
+
+  background: url(../image/subImage/arthdalChronicles.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.subPosterPage.theFirstResponders {
+  position: relative;
+
+  width: 100%;
+
+  background: url(../image/subImage/theFirstResponders.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.subPosterPage.shadowDetective {
+  position: relative;
+
+  width: 100%;
+
+  background: url(../image/subImage/shadowDetective.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.subPosterPage.theLittleMermaid {
+  position: relative;
+
+  width: 100%;
+
+  background: url(../image/subImage/theLittleMermaid.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.subPosterPage.ahsoka {
+  position: relative;
+
+  width: 100%;
+
+  background: url(../image/subImage/ahsoka.jpg) no-repeat center;
   background-size: cover;
 }
 
@@ -28,7 +100,16 @@
   display: block;
   width: 100%;
   height: 100%;
-  background: radial-gradient(at top right, transparent, rgba(0, 0, 0, 1));
+  background: radial-gradient(at top right, transparent, rgb(26, 29, 41));
+
+  opacity: 1;
+}
+
+.subPosterPage.active::before {
+  background-color: rgb(26, 29, 41);
+
+  opacity: 0.8;
+  transition: all 0.5s;
 }
 
 /* topField */
@@ -56,7 +137,31 @@
   display: inline-block;
   width: 20px;
   height: 20px;
-  background: url(../image/subImage/spectatorRating18.png) center no-repeat;
+  background: url(../image/subImage/spectatorRating15.png) center no-repeat;
+  background-size: cover;
+
+  vertical-align: text-top;
+}
+
+.topField .spectatorRating12::before {
+  content: "";
+
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../image/subImage/spectatorRating12.png) center no-repeat;
+  background-size: cover;
+
+  vertical-align: text-top;
+}
+
+.topField .spectatorRatingAll::before {
+  content: "";
+
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../image/subImage/spectatorRatingAll.png) center no-repeat;
   background-size: cover;
 
   vertical-align: text-top;
@@ -91,6 +196,14 @@
 .bottomField ul {
   display: flex;
   gap: 5rem;
+}
+
+.bottomField ul li {
+  flex: 1;
+}
+
+.bottomField li:nth-of-type(1) {
+  flex: 3;
 }
 
 .bottomField li:nth-of-type(2) {
