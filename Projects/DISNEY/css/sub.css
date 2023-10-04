@@ -258,15 +258,16 @@
 
 .topField button {
   margin: 2rem 0 1rem;
-
   width: 140px;
-  height: 60px;
   background-color: #0072d2;
   border-radius: 0.5rem;
   border: 0;
 }
 
 .topField button a {
+  display: block;
+  width: 100%;
+  padding: 1rem 0;
   color: #fff;
 }
 
