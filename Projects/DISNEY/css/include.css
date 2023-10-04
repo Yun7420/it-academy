@@ -14,26 +14,31 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #040714;
-  z-index: 1;
+  background-color: transparent;
+  z-index: 3;
 
   transition: all 0.5s;
 }
 
-header ul {
+.headerInfo {
+  padding: 1rem 0;
+
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.headerLogoJoin {
+  flex: 1;
+
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0;
+
+  opacity: 0;
 }
 
 header img {
   width: 80px;
-}
-
-header li:nth-of-type(2) {
-  display: flex;
-  gap: 1rem;
 }
 
 header button {
@@ -42,11 +47,11 @@ header button {
   border-radius: 0.5rem;
 }
 
-header button:nth-of-type(1) {
+header .joinBtn {
   background-color: #016cf9;
 }
 
-header button:nth-of-type(2) {
+header .loginBtn {
   background-color: rgba(0, 0, 0, 0.8);
   border: 1px solid #fff;
 }

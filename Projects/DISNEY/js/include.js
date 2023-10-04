@@ -6,23 +6,21 @@
     header.html, footer.html을 불러오는 js 입니다.
 */
 
-window.addEventListener('load', function() {
-    var allElements = document.getElementsByTagName('*');
 
-    Array.prototype.forEach.call(allElements, function(el) {
-        var includePath = el.dataset.includePath;
+/* ========== header,footer 관련 ========== */
+function includeHTML(){
+  var includeArea = $('[data-include]');
+  var self,url;
 
-        if (includePath) {
-            var xhttp = new XMLHttpRequest();
+  $.each(includeArea, function(){
+      self = $(this);
+      url = self.data('include');
+      self.load(url, function(){
+          self.removeAttr('data-include');
+      });
+  });
+};
 
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    el.outerHTML = this.responseText;
-            };
-        };
-
-            xhttp.open('GET', includePath, true);
-            xhttp.send();
-        };
-    });
+document.addEventListener('DOMContentLoaded',function(){
+  includeHTML();
 });

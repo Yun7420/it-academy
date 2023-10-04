@@ -9,25 +9,28 @@
 
 /* common basic =============================== */
 * {
-    margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    position: relative;
+  position: relative;
 
-    margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
 
-    overflow-x: hidden; overflow-y: scroll;
-    
-    width:100%;
-    background-color: #040714;
+  overflow-x: hidden;
+  overflow-y: scroll;
 
-    font-size: 16px;
-    color: #fff;
+  width: 100%;
+  background-color: #040714;
+
+  font-size: 16px;
+  color: #fff;
 }
 
 p,
@@ -41,141 +44,155 @@ h6,
 a,
 li,
 ul {
-    margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 a {
-    text-decoration: none;
-    cursor: pointer;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-button{
-    cursor: pointer;
+button {
+  cursor: pointer;
 }
 
-input[type="submit"], input[type="button"] {
-    cursor: pointer;
+input[type="submit"],
+input[type="button"] {
+  cursor: pointer;
 }
 
-table{
-    border-collapse: separate;
-    border-spacing: 0;
+table {
+  border-collapse: separate;
+  border-spacing: 0;
 }
 
 /* common class =============================== */
 .hidden {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .none {
-    display: none;
+  display: none;
 }
 
 /* common 영역관련 =============================== */
 .inWrapper {
-    position: relative;
-    margin: 0 auto;
-    max-width: 1400px;
-    width: 1400px;
-    box-sizing: border-box;
+  position: relative;
+  margin: 0 auto;
+  max-width: 1400px;
+  width: 1400px;
+  box-sizing: border-box;
 }
 
 /* padding setting */
 .p3Top {
-    padding-top: 3rem;
+  padding-top: 3rem;
+  box-sizing: border-box;
 }
 
 .p3Bottom {
-    padding-bottom: 3rem;
+  padding-bottom: 3rem;
+  box-sizing: border-box;
 }
 
 .p3Left {
-    padding-left: 3rem;
+  padding-left: 3rem;
+  box-sizing: border-box;
 }
 
 .p3Right {
-    padding-right: 3rem;
+  padding-right: 3rem;
+  box-sizing: border-box;
 }
 
 /* margin setting */
 .m3Top {
-    margin-top: 3rem;
+  margin-top: 3rem;
+  box-sizing: border-box;
 }
 
 .m3Bottom {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
+  box-sizing: border-box;
 }
 
 .m3Left {
-    margin-left: 3rem;
+  margin-left: 3rem;
+  box-sizing: border-box;
 }
 
 .m3Right {
-    margin-right: 3rem;
+  margin-right: 3rem;
+  box-sizing: border-box;
 }
 
 /* common 텍스트관련 =============================== */
 /* backgoundColor */
 .keyColor {
-  background:#040714;
+  background: #040714;
 }
 .subColor {
-  background:#fff;
+  background: #fff;
 }
 
 /* common fonts =============================== */
 /* sample fonts */
 @font-face {
-  font-family: 'headB';
-  src: url('../fonts/바른공군체Bold.woff') format('woff');
+  font-family: "headB";
+  src: url("../fonts/바른공군체Bold.woff") format("woff");
   font-weight: 800;
 }
 
 /* font size setting */
 .font0_8R {
-    font-size: 0.8rem;
+  font-size: 0.8rem;
 }
 
 .font0_9R {
-    font-size: 0.9rem;
+  font-size: 0.9rem;
 }
 
 .font1R {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .font1_1R {
-    font-size: 1.1rem;
+  font-size: 1.1rem;
 }
 
 .font1_2R {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .font1_3R {
-    font-size: 1.3rem;
+  font-size: 1.3rem;
 }
 
 .font1_4R {
-    font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 
 .font1_5R {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .font2R {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .font2_5R {
-    font-size: 2.5rem;
+  font-size: 2.5rem;
 }
 
 .font3R {
-    font-size: 3rem;
+  font-size: 3rem;
+}
+
+.font10R {
+  font-size: 10rem;
 }

@@ -18,16 +18,16 @@ function mainScroll() {
     for (let i = 0; i < boundingItem.length; i++) {
       let BoundingHeight = boundingItem[i].getBoundingClientRect().y;
 
-      if(BoundingHeight < viewportHeight * 0.9){
+      if (BoundingHeight < viewportHeight * 0.9) {
         boundingItem[i].style.opacity = "1";
         boundingItem[i].style.transform = `translateY(${0}px)`;
       } else {
-        boundingItem[i].style.opacity = "0"; 
+        boundingItem[i].style.opacity = "0";
         boundingItem[i].style.transform = `translateY(${100}px)`;
-      };
-    };
+      }
+    }
   });
-};
+}
 
 mainScroll();
 
@@ -53,7 +53,7 @@ function visual() {
     dot[firstIndex].classList.add("active");
     // first posterName
     posterName[firstIndex].classList.add("active");
-  };
+  }
 
   firstSlide();
 
@@ -68,7 +68,7 @@ function visual() {
     // posterName 전 후 처리
     posterName[previousIndex].classList.remove("active");
     posterName[currentIndex].classList.add("active");
-  };
+  }
 
   // index 미만 = lastIndex, 초과 = firstIndex
   function overIndex() {
@@ -76,7 +76,7 @@ function visual() {
     if (currentIndex < firstIndex) currentIndex = lastIndex;
     // index 초과일 경우
     if (currentIndex > lastIndex) currentIndex = firstIndex;
-  };
+  }
 
   // 자동 이미지 전환 (3초)
   function autoPlay() {
@@ -87,7 +87,7 @@ function visual() {
     activeSetting();
 
     previousIndex = currentIndex;
-  };
+  }
 
   setInterval(autoPlay, 3000);
 
@@ -104,7 +104,7 @@ function visual() {
 
       previousIndex = currentIndex;
     });
-  };
+  }
 
   prevBtnMove();
 
@@ -121,7 +121,7 @@ function visual() {
 
       previousIndex = currentIndex;
     });
-  };
+  }
 
   nextBtnMove();
 
@@ -139,16 +139,16 @@ function visual() {
 
         previousIndex = currentIndex;
       });
-    };
-  };
+    }
+  }
 
   dotMove();
-};
+}
 
 visual();
 
 // RollingBanner
-function rollingBanner(){
+function rollingBanner() {
   let rolling = document.querySelector(".rolling");
   let rollingList = document.querySelector(".rollingList");
 
@@ -157,11 +157,11 @@ function rollingBanner(){
 
   // clone 복제
   rolling.appendChild(cloneRollingList);
-  
+
   // animation 효과를 위한 class 추가
   rollingList.classList.add("original");
   cloneRollingList.classList.add("clone");
-};
+}
 
 rollingBanner();
 
@@ -174,19 +174,19 @@ function Faq() {
       e.target.classList.toggle("checked");
       e.target.nextElementSibling.classList.toggle("show");
     });
-  };
-};
+  }
+}
 
 Faq();
 
 // 바닦페이지 load 시 팝업 구현
-function loadPopup(){
+function loadPopup() {
   let body = document.querySelector("body");
 
   // load시 body에 overflow hidden 처리
-  function loadBodyBlock(){
+  function loadBodyBlock() {
     body.classList.add("hidden");
-  };
+  }
 
   loadBodyBlock();
 
@@ -195,25 +195,25 @@ function loadPopup(){
   let noImageBtn = document.querySelector(".noImageBtn");
 
   // popup 다시 보지않기
-  neverImageBtn.addEventListener("click", function(){
+  neverImageBtn.addEventListener("click", function () {
     body.classList.remove("hidden");
     loadPopup.remove();
 
     localStorage.setItem("removeLoadPopup", new Date());
   });
 
-  removeLoadPopup = localStorage.getItem("removeLoadPopup")
+  removeLoadPopup = localStorage.getItem("removeLoadPopup");
 
-  if(removeLoadPopup){
+  if (removeLoadPopup) {
     body.classList.remove("hidden");
     loadPopup.remove();
-  };
+  }
 
   // popup 닫기
-  noImageBtn.addEventListener("click", function(){
+  noImageBtn.addEventListener("click", function () {
     body.classList.remove("hidden");
     loadPopup.remove();
   });
-};
+}
 
 loadPopup();

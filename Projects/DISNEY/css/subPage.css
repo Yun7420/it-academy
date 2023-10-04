@@ -6,3 +6,150 @@
   서브페이지(subpage.html)에 적용
   sub style로 구성된 css 입니다.
 */
+
+/* subPage style */
+/* subPosterPage */
+.subPosterPage {
+  position: relative;
+
+  width: 100%;
+
+  background: url(../image/subImage/moving.png) no-repeat center;
+  background-size: cover;
+}
+
+.subPosterPage::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(at top right, transparent, rgba(0, 0, 0, 1));
+}
+
+/* topField */
+.topField {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.topField .spectatorRating18::before {
+  content: "";
+
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../image/subImage/spectatorRating18.png) center no-repeat;
+  background-size: cover;
+
+  vertical-align: text-top;
+}
+
+.topField .spectatorRating15::before {
+  content: "";
+
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../image/subImage/spectatorRating18.png) center no-repeat;
+  background-size: cover;
+
+  vertical-align: text-top;
+}
+
+.topField button {
+  margin: 2rem 0 1rem;
+
+  width: 140px;
+  height: 60px;
+  background-color: #0072d2;
+  border-radius: 0.5rem;
+  border: 0;
+}
+
+.topField button a {
+  color: #fff;
+}
+
+/* bottomField */
+.bottomField > div:nth-of-type(1) {
+  padding: 1rem 0;
+  border-bottom: 1px solid silver;
+  color: silver;
+  font-weight: bolder;
+}
+
+.bottomField h2 {
+  margin: 1rem 0;
+}
+
+.bottomField ul {
+  display: flex;
+  gap: 5rem;
+}
+
+.bottomField li:nth-of-type(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bottomField h3 {
+  color: silver;
+}
+
+.bottomField img {
+  width: 20px;
+  height: 20px;
+}
+
+/* likelyContents */
+.likelyContents {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.likelyContents > div {
+  color: silver;
+  font-weight: bolder;
+}
+
+.likelyContents ul {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  width: 100%;
+  height: 180px;
+}
+
+.likelyContents li {
+  flex: 1;
+  height: 100%;
+  border-radius: 0.5rem;
+
+  box-shadow: 0px 10px 10px #000;
+  outline: 0;
+  transform: scale(1, 1);
+
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.likelyContents li:hover {
+  box-shadow: 0px 20px 20px #000;
+  outline: 3px solid #fff;
+  transform: scale(1.05, 1.05);
+}
+
+.likelyContents li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

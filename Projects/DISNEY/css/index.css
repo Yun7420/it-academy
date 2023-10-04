@@ -50,7 +50,7 @@
 .visual .PrevBtn {
   position: absolute;
   top: 50%;
-  left: 3rem;
+  left: 1rem;
 
   display: flex;
   justify-content: center;
@@ -63,6 +63,8 @@
   background-color: #fff;
 
   opacity: 0.5;
+
+  z-index: 2;
 }
 
 .visual .PrevBtn:hover {
@@ -77,7 +79,7 @@
 .visual .NextBtn {
   position: absolute;
   top: 50%;
-  right: 3rem;
+  right: 1rem;
 
   display: flex;
   justify-content: center;
@@ -90,6 +92,8 @@
   background-color: #fff;
 
   opacity: 0.5;
+
+  z-index: 2;
 }
 
 .visual .NextBtn:hover {
@@ -111,6 +115,8 @@
   gap: 0.2rem;
 
   width: 1000px;
+
+  z-index: 2;
 }
 
 .visual .dot {
@@ -275,6 +281,10 @@
   overflow: hidden;
 }
 
+.popularContent01 a {
+  color: #fff;
+}
+
 .popularContent01 img {
   width: 100%;
   height: 100%;
@@ -308,7 +318,7 @@
 
 .posterCover01 h3 {
   display: block;
-  width:100%;
+  width: 100%;
 
   white-space: nowrap;
   overflow: hidden;
@@ -445,7 +455,7 @@
 
 .posterCover02 h3 {
   display: block;
-  width:100%;
+  width: 100%;
 
   white-space: nowrap;
   overflow: hidden;
@@ -571,18 +581,20 @@
 /* 바닦 페이지 load시 popup */
 .loadPopupSection {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
 
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
 
-  z-index: 1;
+  z-index: 3;
 }
 
 .loadPopup {
   position: absolute;
-  top: 50%; left: 50%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 
