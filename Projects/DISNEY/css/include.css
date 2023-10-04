@@ -42,9 +42,12 @@ header img {
 }
 
 header button {
-  padding: 1rem 1.5rem;
   border: 0;
   border-radius: 0.5rem;
+}
+
+header a {
+  padding: 1rem 1.5rem;
 }
 
 header .joinBtn {

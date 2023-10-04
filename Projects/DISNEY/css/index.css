@@ -194,7 +194,6 @@
 }
 
 .visualInfo button {
-  padding: 1rem 0;
   width: 300px;
   background-color: #016cf9;
   border: 0;
@@ -202,6 +201,8 @@
 }
 
 .visualInfo a {
+  display: block;
+  padding: 1rem 0;
   color: #fff;
 }
 
