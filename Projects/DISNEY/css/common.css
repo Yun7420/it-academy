@@ -84,8 +84,7 @@ table {
 .inWrapper {
   position: relative;
   margin: 0 auto;
-  max-width: 1400px;
-  width: 1400px;
+  width: 95%;
   box-sizing: border-box;
 }
 
@@ -141,13 +140,6 @@ table {
 }
 
 /* common fonts =============================== */
-/* sample fonts */
-@font-face {
-  font-family: "headB";
-  src: url("../fonts/바른공군체Bold.woff") format("woff");
-  font-weight: 800;
-}
-
 /* font size setting */
 .font0_8R {
   font-size: 0.8rem;
@@ -195,4 +187,36 @@ table {
 
 .font5R {
   font-size: 5rem;
+}
+
+/* 반응형 =============================== */
+@media screen and (max-width: 1400px) {
+}
+
+@media screen and (max-width: 1300px) {
+}
+
+@media screen and (max-width: 1200px) {
+}
+
+@media screen and (max-width: 1100px) {
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 900px) {
+}
+
+@media screen and (max-width: 768px) {
+  /* font */
+  .font1R {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+}
+
+@media screen and (max-width: 300px) {
 }
