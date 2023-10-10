@@ -132,13 +132,35 @@ footer p {
 }
 
 @media screen and (max-width: 768px) {
-  /* header */
-  header button a {
-    padding: 0rem 1rem;
-  }
+}
+
+@media screen and (max-width: 600px) {
 }
 
 @media screen and (max-width: 500px) {
+  /* header */
+  header button {
+    height: 45px;
+  }
+
+  header button a {
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  /* header */
+  header img {
+    width: 70px;
+  }
+
+  header button {
+    height: 40px;
+  }
+
+  header button a {
+    padding: 0 0.5rem;
+  }
 }
 
 @media screen and (max-width: 300px) {
