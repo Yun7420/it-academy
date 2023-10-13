@@ -63,6 +63,79 @@
   color: #fff;
 }
 
+/* joinPage */
+.errorMessage {
+  display: none;
+
+  color: #ff554c;
+}
+
+.join a {
+  color: #67bdff;
+}
+
+.join {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.joinInfo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 400px;
+}
+
+.join01 {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input[type="email"] {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: rgb(49, 52, 62);
+  border-radius: 0.5rem;
+  border: 0;
+
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.checkBox {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cautionAndButton {
+  padding: 1rem;
+  background-color: rgb(49, 52, 62);
+  border-radius: 0.5rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.join01Button {
+  width: 100%;
+  padding: 1rem 0;
+  background-color: #016cf9;
+  border-radius: 0.5rem;
+  border: 0;
+
+  color: #fff;
+}
+
 /* subPosterPage */
 .subPosterPage.moving {
   position: relative;
@@ -453,8 +526,6 @@
     flex: inherit;
     width: 48%;
   }
-
-
 }
 
 @media screen and (max-width: 500px) {
@@ -464,8 +535,6 @@
 }
 
 @media screen and (max-width: 400px) {
-
-
 }
 
 @media screen and (max-width: 300px) {
