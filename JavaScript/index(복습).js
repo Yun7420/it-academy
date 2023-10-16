@@ -30,7 +30,7 @@
 
 /* 1000lines */
 
- /*
+/*
   자바스크립트 튜토리얼
 
   1 데이터 타입
@@ -197,7 +197,7 @@
 // console.log(foo.trim()); // bar
 
 // substring(시작인덱스,끝인덱스) : 인덱스값의 범위에 해당하는 문자열을 추출한다.
-// ※시작인덱스부터 끝인덱스전까지 추출한다. 
+// ※시작인덱스부터 끝인덱스전까지 추출한다.
 // var foo = "abcde";
 // console.log(foo); // abcde
 // console.log(foo.substring(2,4)) // cd , 각 해당하는 인덱스 번호 : [2]:c [4]:e
@@ -246,16 +246,16 @@
 */
 // 사칙연산(+, -, *, /)
 // + : 더하기
-// var add = 1 + 1; 
+// var add = 1 + 1;
 // console.log(add); // 2
 // - : 뺴기
-// var substract = 2 - 1; 
+// var substract = 2 - 1;
 // console.log(substract); // 1
 // / : 나누기
-// var divide = 1 / 2; 
+// var divide = 1 / 2;
 // console.log(divide); // 0.5
 // * : 곱하기
-// var multiply = 1 * 2 
+// var multiply = 1 * 2
 // console.log(multiply); // 2
 
 // 증가연산자(++)
@@ -266,7 +266,7 @@
 // 증가연산자 전위
 // var x = 1;
 // var y = ++x
-// console.log(`x:${x}, y:${y}`) 
+// console.log(`x:${x}, y:${y}`)
 /*
   증가연산자 전위
   let x = 1;
@@ -280,7 +280,7 @@
 // 증가연산자 후위
 // var x = 1;
 // var y = x++;
-// console.log(`x:${x}, y:${y}`) 
+// console.log(`x:${x}, y:${y}`)
 /*
   증가연산자 후위
   let x = 1;
@@ -325,7 +325,7 @@
 */
 
 // 제곱연산자(**)
-// var exp =  2 ** 7; // 
+// var exp =  2 ** 7; //
 // console.log(exp); // 128 (2의 7승이다)
 
 // 계수연산자(%)
@@ -349,7 +349,7 @@
 // 더하기 할당 연산자(+=)
 // var n = 1;
 // n += 1; // n = n + 1
-// console.log(n); // 2 
+// console.log(n); // 2
 
 // 빼기 할당 연산자(-=)
 // var n = 1;
@@ -616,8 +616,8 @@
 // var sum = 0;
 // var i = 1;
 // while(i <= 10){
-//   sum += 1/i;  
-  
+//   sum += 1/i;
+
 //   i++
 // }
 // console.log(sum);
@@ -636,7 +636,7 @@
 // console.log(foo); // bar
 
 // var foo = "bar"; // 변수 초기화
-// foo = "baz"; // 변수 재정의 
+// foo = "baz"; // 변수 재정의
 // console.log(foo); // baz
 
 // var foo; // 변수 선언
@@ -822,7 +822,7 @@
 //   if(arr[i][0] === "b"){
 //     console.log(arr[i]);
 //   } // bar, baz
-// } 
+// }
 
 /*
   Q. 맥주 리스트에 미국 맥주를 추가해보세요.
@@ -1250,7 +1250,7 @@
 //   console.log(pi.toPrecision(200));
 
 // } catch (error){
-  
+
 //   console.log(error);
 
 // };
@@ -1266,9 +1266,9 @@
 //   console.log(decodeURI('%'));
 
 // } catch (error){
-  
+
 //   console.log(error);
-  
+
 // };
 
 /*
@@ -1286,7 +1286,7 @@
 //     // 에러를 준다.
 //     // 대표적으로 로그인에서 사용할 수 있다.
 //     throw console.log("미성년자는 술을 살 수 없습니다.")
-    
+
 //   }
 
 //   console.log("직원", "네 여기 있습니다.");
@@ -1338,7 +1338,7 @@
 //     callback(null, "duck");
 
 //   },1000);
-  
+
 // };
 
 // fetchData(function(error, data){
@@ -1349,7 +1349,7 @@
 //   console.log("서버에서 가져온 데이타:", data);
 // });
 
-// // 다음 작업부터 실행된다. (blocking : 대기 및 중단) 
+// // 다음 작업부터 실행된다. (blocking : 대기 및 중단)
 // console.log("다음 작업입니다.");
 
 /*
@@ -1400,3 +1400,90 @@
 
 // console.log(obj); // { bar : "foo" }
 // console.log(typeof obj); //Object
+
+/* 1000lines */
+
+/*
+  자바스크립트 ES6 버전
+  새로운 문법이 등장
+
+  1 let, const
+  2 새로운 메서드
+  3 화살표 함수
+  4 구조분해할당
+  5 스프레드 연산자
+  6 프로미스
+*/
+
+/*
+  let, const, 블록 범위
+
+  1. let
+  2. const
+  3. 블록 범위
+*/
+
+// 1. let
+// 변수 선언 예약어, 재선언이 불가능
+// let foo = "bar";
+// console.log(foo); // bar
+// let foo = "baz";
+// console.log(foo); // 재선언 불가능(오류)
+
+// 2. const (constant)
+// 상수, 선언 후 값을 바꿀 수 없다.
+// const foo = "bar";
+// console.log(foo); // bar
+
+// 3. 블록 범위 (block scope)
+// let과 const는 블록 범위를 가진다.
+// {} (블록)
+// {
+//   var varInBlock = true;
+//   let letInBlock = false;
+//   const constInBlock = false;
+// }
+// console.log(varInBlock); // true (접근 가능)
+// console.log(letInBlock); // 접근 불가
+// console.log(constInBlock); // 접근 불가
+
+/*
+  ES6 등장한 새로운 메서드
+
+  1. Array.map
+  2. Array.filter
+  3. Object.keys
+*/
+
+// 1. Array.map
+// 배열에 특정한 작업을 수행 후 업데이트 된 배열을 리턴한다.
+// 각 item에 10을 곱한 새로운 배열을 만든다.
+// var arr = [10, 20, 30];
+// let updateArr = arr.map(function(item, index, self){
+//   return item * 10;
+// });
+// console.log(updateArr); // 100, 200, 300
+
+// 2. Array.filter
+// 배열에 특정한 작업을 수행 후 업데이트 된 배열을 리턴한다.
+// 필터링 작업
+// var ages = [13, 20, 34, 40];
+// var updateAges = ages.filter(function (item) {
+//   // if (item > 18) {
+//   //   return item;
+//   // };
+
+//   return item > 18; // return + 조건
+// });
+// console.log(updateAges); // 20, 34, 40
+
+// Object.keys
+// 객체의 키를 문자열 배열로 리턴한다.
+var cat = {
+  name : "치즈",
+  home : null,
+  sound : function(){
+    return "야옹";
+  }
+};
+
