@@ -1404,270 +1404,391 @@
 /* 1000lines */
 
 /*
-  자바스크립트 ES6 버전
-  새로운 문법이 등장
+  자바스크립트 ES6 버전 문법
 
-  1 let, const
-  2 새로운 메서드
-  3 화살표 함수
-  4 구조분해할당
-  5 스프레드 연산자
-  6 프로미스
+  1. let, const, 블록범위 {}
+  2. Array.map, Array.filter, Object.keys, Object.values()
+  3. 화살표 함수
+  4. 구조분해할당
+  5. 스프레드 연산자
+  6. 프로미스
 */
 
 /*
-  let, const, 블록 범위
+  1. let, const, 블록범위
 
-  1. let
-  2. const
-  3. 블록 범위
+  1) let
+  2) const
+  3) 블록범위 {}
 */
 
-// 1. let
+// 1) let
 // 변수 선언 예약어, 재선언이 불가능
 // let foo = "bar";
 // console.log(foo); // bar
 // let foo = "baz";
-// console.log(foo); // 재선언 불가능(오류)
+// console.log(foo); // 오류 (재선언 불가능)
 
-// 2. const (constant)
+// 2) const
 // 상수, 선언 후 값을 바꿀 수 없다.
 // const foo = "bar";
 // console.log(foo); // bar
+// const foo = "baz";
+// console.log(foo) // 오류 (재선언 불가능)
 
-// 3. 블록 범위 (block scope)
+// 3) 블록범위 {}
 // let과 const는 블록 범위를 가진다.
-// {} (블록)
 // {
-//   var varInBlock = true;
-//   let letInBlock = false;
-//   const constInBlock = false;
+//  var varInBlock = true;
+//  let letInBlock = false;
+//  const constInBlock = false;
 // }
 // console.log(varInBlock); // true (접근 가능)
-// console.log(letInBlock); // 접근 불가
-// console.log(constInBlock); // 접근 불가
+// console.log(letInBlock); // 오류 (접근 불가능)
+// console.log(constInBlock); // 오류 (접근 불가능)
 
 /*
-  ES6 등장한 새로운 메서드
+  2. Array.map, Array.filter, Object.keys
 
-  1. Array.map
-  2. Array.filter
-  3. Object.keys
+  1) Array.map
+  2) Array.filter
+  3) Object.keys, Object.values()
 */
 
-// 1. Array.map
+// 1) Array.map
 // 배열에 특정한 작업을 수행 후 업데이트 된 배열을 리턴한다.
-// 각 item에 10을 곱한 새로운 배열을 만든다.
-// var arr = [10, 20, 30];
+// item(배열의 각 원소), index(배열의 각 원소의 인덱스 번호), self(원본 배열)
+// 각 원소의 10을 곱한 새로운 배열을 만든다.
+// let arr = [10, 20, 30];
 // let updateArr = arr.map(function(item, index, self){
 //   return item * 10;
 // });
 // console.log(updateArr); // 100, 200, 300
 
-// 2. Array.filter
+// 2) Array.filter
 // 배열에 특정한 작업을 수행 후 업데이트 된 배열을 리턴한다.
-// 필터링 작업
-// var ages = [13, 20, 34, 40];
-// var updateAges = ages.filter(function (item) {
-//  // if (item > 18) {
-//  //   return item;
-//  // };
-
-//  // return item > 18; // return + 조건
+// item(배열의 각 원소)
+// 필터링 작업을 한 새로운 배열을 만든다.
+// let ages = [13, 20, 34, 40];
+// let updateAges = ages.filter(function(item){
+//   if(item > 18){
+//     return item;
+//   };
+//
+//   return item > 18; // return + 조건
 // });
 // console.log(updateAges); // 20, 34, 40
 
-// 3. Object.keys
-// 객체의 키를 문자열 배열로 리턴한다.
-// var cat = {
-//   name : "치즈",
-//   home : null,
-//   sound : function(){
+// 3) Object.keys(), Object.values()
+// 객체의 key값을 문자열 배열로 리턴한다.
+// 객체의 value값을 문자열 배열로 리턴한다.
+// let cat = {
+//   name: "치즈",
+//   home: null,
+//   sound: function () {
 //     return "야옹";
-//   }
+//   },
 // };
-// var updatecat = Object.keys(cat);
-// console.log(updatecat);
+// let updateCat = Object.keys(cat);
+// let updateCat = Object.values(cat);
+// console.log(updateCat); // name, home, sound  || 치즈, null, [Function : sound]
 
 // Q. beers 배열을 활용하여 모든 맥주 이름이 대문자인 새로운 배열을 만들어보세요.
-// var beers = ["guinness", "heineken", "budwiser"];
-// var updateBeers = beers.map(function(item, index, self){
+// let beers = ["guinness", "heineken", "budwiser"];
+// let updateBeers = beers.map(function(item, index, self){
 //   return item.toUpperCase();
 // });
-// console.log(updateBeers)
+// console.log(updateBeers); // GUINNESS, HEINEKEN, BUDWISER
 
 // Q. arr 배열을 활용해서 b로 시작하는 아이템만 추출한 새로운 배열을 만들어보세요.
-// var arr = ["foo", "bar", "baz"];
-// var updateArr = arr.filter(function(item){
-//   // return item[0] === "b"
-
-//   // if(item.indexOf("b") > -1){
-//   //   return item
-//   // };
+// let arr = ["foo", "bar", "baz"];
+// let updateArr = arr.filter(function(item){
+//   if(item[0] === "b"){
+//     return item;
+//   };
 // });
-// console.log(updateArr)
+// console.log(updateArr); // bar, baz
 
 /*
-  화살표 함수
+  3. 화살표 함수
 
-  익명함수를 간단하게 표현하기 위한 문법
+  익명함수를 간단하게 표현하는 문법
 
-  1. 콜백에 화살표 함수 사용
-  2. 함수 선언 시 화살표함수 사용
-  3. 더 간단하게 표현하는 방법
+  1) 콜백 화살표 함수
+  2) 함수 선언 시 화살표 함수
+  3) 더욱 간단하게 표현하는 화살표 함수
 */
 
-// 1. 콜백에 화살표 함수 사용
-// function f(cb) {
-//   var foo = "bar";
-//   cb(foo);
+// 1) 콜백 화살표 함수
+// function f(cb){
+//   let foo = "bar";
+//   return cb(foo);
 // };
 
-// 기존의 방법
+// 기존 방법
 // f(function(data){
 //   console.log(data);
-// });
+// }); // foo
 
-// 화살표 함수로 사용
+// 화살표 함수 방법
 // f((data) => {
 //   console.log(data);
-// });
+// }); // foo
 
-// 2. 함수 선언 시 화살표함수 사용
-// 기존의 방법
-// var f = function(){
+// 2) 함수 선언 시 화살표 함수
+// 기존 방법
+// let f = function(){
 //   console.log("foo");
 // };
 
 // f(); // foo
 
-// 화살표 함수 사용
-// var f = () => {
+// 화살표 함수 방법
+// let f = () => {
 //   console.log("foo");
 // };
 
 // f(); // foo
 
-// 3. 더 간단하게 표현하는 방법
-// var f = () => console.log("foo");
+// 3) 더욱 간단하게 표현하는 화살표 함수
+// 화살표 함수 방법
+// let f = () => {
+//   console.log("foo");
+// };
 
-// 인자가 하나일 떄 매개변수의 괄호 생략 가능
-// var f = data => console.log(data);
+// f(); // foo
 
-// f("foo"); //foo
+// 더욱 간단하게 표현하는 화살표 함수
+// let f = () => console.log("foo");
+
+// f(); // foo
+
+// 인자(매개변수)가 하나일 때 더욱 간단하게 표현하는 화살표 함수
+// let f = data => console.log(data);
+
+// f("foo") // fo
 
 /*
-  구조분해할당 (Destructing)
+  4. 구조분해할당
 
-  1. 배열 구조분해할당
-  2. 객체 구조분해할당
-  3. 매개변수 구조분해할당
+  1) 배열 구조분해할당
+  2) 객체 구조분해할당
+  3) 매개변수 구조분해할당
 */
 
-// 1. 배열 구조분해할당
-// 배열의 아이템을 변수에 할당할 수 있다.
-var beers = ["기네스", "하이네켄", "버드와이저"];
+// 1) 배열 구조분해할당
+// 배열의 원소들을 변수에 할당 할 수 있다.
+// let beers = ["기네스", "하이네켄", "버드와이저"];
 
-// 기존의 방법
-var irishBeer = beers[0];
-console.log(irishBeer);
+// 기존 방법
+// let irishBeer = beers[0];
+// let dutchBeer = beers[1];
+// let americanBeer = beers[2];
+// console.log(irishBeer, dutchBeer, americanBeer); // 기네스, 하이네켄, 버드와이저
 
-var dutchBeer = beers[1];
-console.log(dutchBeer);
+// 구조분해할당 방법
+// [irishBeer, dutchBeer, americanBeer] = beers;
+// console.log(irishBeer, dutchBeer, americanBeer); // 기네스, 하이네켄, 버드와이저
 
-var americanBeer = beers[2];
-console.log(americanBeer);
+// 2) 객체 구조분해할당
+// 객체의 원소들을 변수에 할당 할 수 있다.
+// let irishBeer = {
+//   name: "기네스",
+//   origin: "아일랜드",
+//   available: false,
+// };
 
-// 구조분해할당
-var [irishBeer, dutchBeer, americanBeer] = beers;
-console.log(irishBeer, dutchBeer, americanBeer)
+// 기존 방법
+// console.log(irishBeer.name, irishBeer.origin, irishBeer.available); // 기네스, 아일랜드, false
 
-// 2. 객체 구조분해할당
-// 객체의 속성에 접근할 수 있다.
-var irishBeer = {
-  name : "기네스",
-  origin : "아일랜드",
-  available : false
-};
+// 구조분해할당 방법
+// let { name, origin, available } = irishBeer;
+// console.log(name, origin, available); // 기네스, 아일랜드, false
 
-// 기존의 방법
-console.log(irishBeer.name, irishBeer.origin, irishBeer.available);
-
-// 구조분해할당
-var {name, origin, available} = irishBeer;
-console.log(irishBeer.name, irishBeer.origin, irishBeer.available);
-
-// 3. 매개변수 구조분해할당
+// 3) 매개변수 구조분해할당
 // 매개변수에 접근할 수 있다.
-var irishBeer = { name: "기네스", origin: "아일랜드", available: false };
+// let irishBeer = {
+//   name: "기네스",
+//   origin: "아일랜드",
+//   available: false,
+// };
 
-// 기존의 방법
-function f(beer){
-  console.log(beer.name, beer.origin, beer.available);
-};
+// 기존 방법
+// function f(beer){
+//   console.log(beer.name, beer.origin, beer.available);
+// };
 
-f(irishBeer);
+// f(irishBeer); // 기네스, 아일랜드, false
 
 // 구조분해할당
-function f({name, origin, available}){
-  console.log(name, origin, available);
-};
+// function f({name, origin, available}){
+//   console.log(name, origin, available);
+// };
 
-f(irishBeer);
+// f(irishBeer); // 기네스, 아일랜드, false
 
 // Q. 구조분해할당 문법으로 각각의 맥주를 변수에 할당해보세요.
-var asianBeers = ["클라우드", "아사히"];
-
-var [koreanBeer, japaneseBeer] = asianBeers;
-
-console.log(koreanBeer, japaneseBeer);
+// let asianBeers = ["클라우드", "아사히"];
+// let [koreanBeer, japaneseBeer] = asianBeers
+// console.log(koreanBeer, japaneseBeer); // 클라우드, 아사히
 
 // Q. 구조분해할당 문법으로 각각의 객체 속성에 접근해보세요.
-var car = {name : "아반떼", color : "화이트"};
-
-var {name, color} = car;
-
-console.log(name, color);
+// let car = {
+//   name: "아반떼",
+//   color: "화이트",
+// };
+// let { name, color } = car;
+// console.log(name, color); // 아반떼, 화이트
 
 /*
   스프레드 연산자
 
-  1. 배열에서 스프레드 연산자 사용
-  2. 객체에서 스프레드 연산자 사용
+  1) 배열에서 스프레드 연산자 사용
+  2) 객체에서 스프레드 연산자 사용
 */
 
-// 1. 배열에서 스프레드 연산자 사용
+// 1) 배열에서 스프레드 연산자 사용
 // ... 복사할 배열
-// var beers = ["기네스", "하이네켄"];
-// var newBeer = "버드와이저";
+// let beers = ["기네스", "하이네켄"];
+// let newBeer = "버드와이저";
 
-// var updateBeer = [...beers, newBeer];
+// 기존 방법
+// beers.push(newBeer);
+// console.log(beers); // 기네스, 하이네켄, 버드와이저
 
-// console.log(updateBeer); // 기네스, 하이네켄, 버드와이저
+// 스프레드 방법
+// let updateBeers = [...beers, newBeer];
+// console.log(updateBeers); // 기네스, 하이네켄, 버드와이저
 
-var europeanBeers = ["기네스", "하이네켄"];
-var asianBeers = ["아사히", "클라우드"];
+// 추가 예시
+// let europeanBeers = ["기네스", "하이네켄"];
+// let asianBeers = ["아사히", "클라우드"];
 
-var worldBeers = [...europeanBeers, ...asianBeers];
+// let updateBeers = [...europeanBeers, ...asianBeers];
+// console.log(updateBeers); // 기네스, 하이네켄, 아사히, 클라우드
 
-console.log(worldBeers); // 기네스, 하이네켄, 아사히, 클라우드
+// 2) 객체에서 스프레드 연산자 사용
+// ... 복사할 객체
+// let irishBeer = {
+//   name: "기네스",
+//   origin: "아일랜드",
+//   available: false,
+// };
 
-// 2. 객체에서 스프레드 연산자 사용
-// ...복사할 객체
-var irishBeer = {
-  name: "기네스",
-  origin: "아일랜드",
-  available: false
-}
-
-var updatedIrishBeer = {...irishBeer, available : true};
-
-console.log(updatedIrishBeer)
+// let updateBeer = { ...irishBeer, available: true };
+// console.log(updateBeer);
 
 // Q. 스프레드 연산자를 활용하여 두개의 배열을 합친 배열을 만들어보세요.
-var koreanCars = ["현대", "기아"];
-var japaneseBeer = ["도요타", "혼다"];
+// let koreanCars = ["현대", "기아"];
+// let japaneseCars = ["도요타", "혼다"];
 
-var asianCars = [...koreanCars, ...japaneseBeer];
+// let updateCars = [...koreanCars, ...japaneseCars];
+// console.log(updateCars);
 
-console.log(asianCars)
+/*
+  6. 프로미스 객체
+
+  비동기 작업의 성공 및 실패 여부와 그 결과값을 나타낸다.
+  비동기 작업의 가독성을 높이기 위해 사용된다.
+
+  1) 프로미스 구조
+  2) 실제 사용 예시
+  3) asyn / await
+*/
+
+/*
+  1) 프로미스 구조
+
+  1- 프로미스 객체
+  resolve, rejected 두개의 매개변수가 있는 콜백을 가진다.
+  resolve : 비동기 작업이 성공한 경우 호출된다.
+  rejected : 비동기 작업이 실패한 경우 호출된다.
+
+  2- 프로미스 객체의 사태
+  fulfilled : 비동기 작업의 성공
+  rejected : 비동기 작업의 실패
+  pending : 비동기 대기 상태
+
+  3- 프로미스 객체의 메서드
+  then : 성공한 경우 데이터를 처리한다.
+  catch : 실패한 경우 에러를 처리한다.
+  finally : 성공 실패와 관계없이 최종적으로 처리되는 작업 관리
+*/
+// const promise = new Promise((res, rej) => {
+//   // 비동기 작업 성공
+//   res({ foo: "bar" });
+
+//   // 비동기 작업 실패
+//   rej({ bar: "baz" });
+// });
+// console.log(promise); // Promise{ { foo : "bar" } }
+
+// promise
+//   // 데이터를 처리 (성공)
+//   .then((value) => {
+//     console.log(value);
+//   })
+
+//   // 에러를 처리 (실패)
+//   .catch((error) => {
+//     console.log(error);
+//   });
+
+// 비동기 작업인지 확인
+// console.log("다음 작업");
+
+/*
+  2) 실제 사용 예시
+
+  서버에 데이터를 요청하는 예시
+*/
+// function fetchData() {
+//   const promise = new Promise((res, rej) => {
+//     // 비동기 작업 성공
+//     res({ foo: "bar" });
+//     // 비동기 작업 실패
+//     rej({ bar: "baz" });
+//   });
+
+//   return promise;
+// }
+
+// fetchData()
+//   .then((data) => {
+//     console.log("서버에서 전송받은 데이터:", data);
+//   })
+
+//   .catch((error) => {
+//     console.log("서버에서 에러가 발생할 경우", error);
+//   });
+
+/*
+  3) async / await
+
+  프로미스 객체가 결과를 리턴할 때까지 기다린다.
+  프로미스 작업의 가독성을 향상시킨다.
+  try / catch 구문에서 에러를 처리한다.
+*/
+// function fetchData() {
+//   const promise = new Promise((res, rej) => {
+//     // 비동기 작업 성공
+//     res({ foo: "bar" });
+//     // 비동기 작업 실패
+//     rej({ bar: "baz" });
+//   });
+
+//   return promise;
+// };
+
+// async function f() {
+//   try {
+//     // 결과를 반활할 때까지 기다린다.
+//     const data = await fetchData();
+//     // 반환한 결과에 접근한다.
+//     console.log("서버에서 전송받은 데이터", data);
+//   } catch (error) {
+//     console.log(error);
+//   };
+// };
+
+// f();
