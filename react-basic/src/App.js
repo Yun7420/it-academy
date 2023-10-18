@@ -1,204 +1,398 @@
+import { useContext, createContext, useState } from "react";
+
 export default function App() {
   return <Snippet></Snippet>
 };
 
 /*
-  리엑트 튜토리얼
+  6. 리엑트 컴포넌트
+  UI를 구성하는 재사용 가능하고 독립적인 부품
 
-  1. 리엑트 기초
-  2. JSX
-  3. 컴포넌트
-  4. 이벤트 처리
-  5. 뷰 업데이트
-  6. 리엑트 라우터
-  7. 서버 요청
+  1) 컴포넌트 합성
+  2) Props
+  3) children Props
+  4) useContext Hook
 */
 
-/*
-  리엑트 기초
-
-  1. 리엑트
-  UI를 개발하기 위한 자바스크립트 라이브러리
-  페이스북이 개발했고 현재 가장 인기있는 프론트엔드 라이브러리이다.
-
-  2. 특징
-  1) 컴포넌트 기반
-  *컴포넌트 : 뷰를 개발하기 위한 독립적이고 재사용 가능한 부품
-
-  2) 선언적 문법
-  사용하기 쉽다
-
-  3) SPA (Single Page Application) 구조
-  자바스크립트를 이용해서 뷰를 업데이트 한다.
-  속도가 빠르고 화면 전환이 부드럽다.
-*/
-
-/*
-  JSX (Javascript Extention)
-  자바스크립트 확장문법
-  가상트리를 만들기 위해 사용된다.
-  선언적 문법
-
-  1. 가상 엘리먼트란
-  2. JSX 기본 문법
-  3. JSX Fragment
-  4. JSX에서 변수 출력하기
-  5. 조건부 랜더링
-  6. 리스트 랜더링
-*/
-
-// JSX 트리 -> 자바스크립트 객체 -> 실제 엘리먼트 -> 문서로 주입
-// function Snippet(){
-//   return <h1>Hello React</h1>;
+// 1) 컴포넌트 합성
+// function Content() {
+//   return (
+//     <section>
+//       <h2>고양이는 액체일까?</h2>
+//       <img
+//         src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?auto=format&fit=crop&q=80&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=2070"
+//         alt="고양이 이미지"
+//         width="100%"
+//       />
+//     </section>
+//   );
 // };
 
-/*
-  JSX의 기본 문법
-*/
-
-// function Snippet() {
+// function Comments() {
 //   return (
-//     <form>
-//       <h1>Google</h1>
-//       <input type="search" id="search" name="q" className="class1 class2" style={{ outline:"none" }} placeholder="구글 검색" autoComplete="off" />
-//     </form>
-//   )
-// }
-
-/*
-  JSX Fragments
-*/
-
-// 전체가 하나의 태그로 감싸있어야 한다. 필요없다고 느낄떄는 빈태그로 만들어도 된다.
-// function Snippet() {
-//   return (
-//     <>
-//       <h1>JSX Fragments</h1>
+//     <section>
+//       <h2>댓글</h2>
 //       <ul>
 //         <li>list item</li>
 //         <li>list item</li>
 //         <li>list item</li>
 //       </ul>
+//     </section>
+//   );
+// };
+
+// function Suggested() {
+//   return (
+//     <section>
+//       <h2>추천 영상</h2>
+//       <ul>
+//         <li>추천 영상</li>
+//         <li>추천 영상</li>
+//         <li>추천 영상</li>
+//       </ul>
+//     </section>
+//   );
+// };
+
+// function Snippet() {
+//   return (
+//     <>
+//       <header>
+//         <h1>Youtube</h1>
+//       </header>
+
+//       <main>
+//         <Content></Content>
+//         <Comments></Comments>
+//       </main>
+
+//       <aside>
+//         {<Suggested></Suggested>}
+//         {/* {Suggested()} */}
+//       </aside>
 //     </>
 //   )
 // }
 
 /*
-  JSX에서 변수 출력하기
+  Props
+
+  컴포넌트에 전달되는 데이터
 */
 
-// function Snippet(){
-//   const cat = {
-//     name : "치즈",
-//     age : 2,
-//     home : null,
-//     sound : function () {
-//       return "야옹";
-//     }
-//   };
+// function Beer({ beer }) {
+
+//   // props
+//   console.log(beer);
 
 //   return (
 //     <ul>
-//       <li>이름 : {cat.name}</li>
-//       <li>나이 : {cat.age}</li>
-//       <li>집 : {cat.home}</li>
-//       <li>소리 : {cat.sound()}</li>
+//       <li>이름 : {beer.name}</li>
+//       <li>원산지 : {beer.origin}</li>
+//       <li>판매중 : {beer.available ? "예" : "아니요"}</li>
 //     </ul>
 //   );
 // };
 
-/*
-  조건부 랜더링
-
-  1. && (그리고)
-  표현식 1 && 표현식 2
-
-  표현식1이 참이면 표현식 2가 출력된다.
-  표현식1이 거짓이면 아무것도 출력되지 않는다.
-
-  2. || (또는)
-  표현식 1 || 표현식 2
-
-  표현식 1이 참일 경우 표현식 1이 출려된다.
-  표현식 1이 거짓일 경우 표현식2가 출력된다.
-
-  3. ? (삼항연산자)
-  조건 ? 표현식1 : 표현식2
-
-  조건이 참이면 표현식 1이 출려된다
-  조건이 거짓이면 표현식 2가 출려된다.
-*/
-
 // function Snippet() {
+//   // 지역 변수
+//   const irishBeer = {
+//     name: "기네스",
+//     origin: "아일랜드",
+//     available: false
+//   };
+
 //   return (
 //     <>
-//       <h2>조건부 랜더링</h2>
-
-//       <h3>&& (AND)</h3>
-//       <p>{true && "표현식2"}</p>
-//       <p>{false && "표현식2"}</p>
-
-//       <h3>|| (OR)</h3>
-//       <p>{"표현식1" || "표현식2"}</p>
-//       <p>{"" || "표현식2"}</p>
-
-//       <h3>? (삼항연산자)</h3>
-//       <p>{true ? "표현식1" : "표현식2"}</p>
-//       <p>{false ? "표현식1" : "표현식2"}</p>
+//       <h2>Beer</h2>
+//       {/* 매개변수 구조분해할당 */}
+//       <Beer beer={irishBeer}></Beer>
 //     </>
 //   );
 // };
 
 /*
-  리스트 형태 랜더링
+  컴포넌트 합성 & Props 문제
+
+  아래의 데이터와 컴포넌트를 사용하여 뷰를 완성해보세요.
+  (데이터 Snippet내의 지역변수)
+
+  컴포넌트
+  1. Snippet
+  2. Content
+  3. Comments
+  4. Suggested
 */
 
-// function Snippet(){
-//   const beers = [
-//     { name : "하이네켄", origin : "네덜란드"},
-//     { name : "기네스", origin : "아일랜드"},
-//     { name : "버드와이저", origin : "미국"},
+// 영상
+// function Content({ video }) {
+//   return (
+//     <section>
+//       <h2>{video.title}</h2>
+//       <img width="100%" src={video.source} alt=""></img>
+//     </section>
+//   );
+// };
+
+// 댓글
+// function Comments({ comments }) {
+//   let commentsList = comments.map(item => (
+//     <li key={item.id}>{item.content}</li>
+//   ));
+
+//   return (
+//     <section>
+//       <h2>댓글</h2>
+//       <ul>
+//         {commentsList}
+//       </ul>
+//     </section>
+//   );
+// };
+
+// 추천 영상
+// function Suggested({ suggestedVideo }) {
+//   let suggestedVideoList = suggestedVideo.map(suggestedVideo => (
+//     <li key={suggestedVideo.id}>{suggestedVideo.title}</li>
+//   ));
+
+//   return (
+//     <section>
+//       <h2>추천 영상</h2>
+//       <ul>
+//         {suggestedVideoList}
+//       </ul>
+//     </section>
+//   );
+// };
+
+// 메인 컴포넌트
+// function Snippet() {
+//   const video = {
+//     id: "v0",
+//     title: "고양이는 액체일까?",
+//     source: "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?auto=format&fit=crop&q=80&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=2070",
+//   }
+
+//   const comments = [
+//     { id: "c2", content: "댓글03" },
+//     { id: "c1", content: "댓글02" },
+//     { id: "c0", content: "댓글01" },
 //   ]
 
-//   const beerList = beers.map((beer) => (
-//     // key : 리액트의 재조정 알고리즘 떄문에 필요한 값, 고유한 값이어야 한다.
-//     <li key={beer.name}>{beer.name}, {beer.origin}</li>
-//   ))
+//   const suggestedVideo = [
+//     { id: "s2", title: "추천 영상 03" },
+//     { id: "s1", title: "추천 영상 02" },
+//     { id: "s0", title: "추천 영상 01" },
+//   ]
 
 //   return (
 //     <>
-//       <h3>세계 맥주</h3>
-//       <ul>
-//         {beerList}
-//       </ul>
+//       <header>
+//         <h1>Youtube</h1>
+//       </header>
+//       <main>
+//         <Content video={video}></Content>
+//         <Comments comments={comments}></Comments>
+//       </main>
+//       <aside>
+//         <Suggested suggestedVideo={suggestedVideo}></Suggested>
+//       </aside>
+//     </>
+//   );
+// };
+
+/*
+  childerne props
+
+  컴포넌트 트리를 작성할 수 있다.
+*/
+
+// children props (Article 컴포넌트)
+// function Layout({children}){
+
+//   console.log(children);
+
+//   return (
+//     <>
+//       <h1>Instagram</h1>
+//       <nav>
+//         <ul>
+//           <li>Home</li>
+//           <li>Posts</li>
+//           <li>Profile</li>
+//         </ul>
+//       </nav>
+
+//       <main>
+//         {children}
+//       </main>
 //     </>
 //   )
 // }
 
-function Snippet(){
-  const beers = [
-    { name : "하이네켄", origin : "네덜란드", available: false},
-    { name : "기네스", origin : "아일랜드", available: true},
-    { name : "버드와이저", origin : "미국", available: true},
-  ]
+// function Article(){
+//   return (
+//     <section>
+//       <img
+//         src="https://plus.unsplash.com/premium_photo-1677542200557-3c6856cc98b1?auto=format&fit=crop&q=80&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=2072"
+//         alt=""
+//         width="100%"
+//       />
 
-    const beerList = beers.map((beer) => (
-    // key : 리액트의 재조정 알고리즘 떄문에 필요한 값, 고유한 값이어야 한다.
-    <tr>
-      <td key={beer.name}>{beer.name}</td>
-      <td key={beer.origin}>{beer.origin}</td>
-      <td key={beer.available}>{beer.available ?  "예" : "아니요"}</td>
-    </tr>
-  ))
+//       <p>
+//         <b>snoop_dogg</b> 주인 나감
+//       </p>
 
-  return(
-    <table border="1">
-      <tr>
-        <th>이름</th>
-        <th>원산지</th>
-        <th>판매중</th>
-      </tr>
-      {beerList}
-    </table>
-  )
+//       <small>1일 전</small>
+//     </section>
+//   )
+// }
+
+// function Snippet(){
+//   return (
+//     <Layout>
+//       <Article></Article>
+//     </Layout>
+//   )
+// }
+
+/*
+   useContent Hook
+
+   트리구조에서 상위 컴포넌트가 전달한 데이터에 접근할 수 있게 한다.
+*/
+
+// // 프로파이더 컴포넌트
+// const AuthContext = createContext();
+
+// // 레이아웃의 상위 컴포넌트
+// function AuthProvider({ children }) {
+//   // 지역 변수
+//   const value = { username: "bunny" };
+
+//   return (
+//     <AuthContext.Provider value={value}>
+//       {children}
+//     </AuthContext.Provider>
+//   )
+// }
+
+// function Layout({ children }) {
+
+//   // childrem props (Article 컴포넌트)
+//   console.log(children);
+
+//   const auth = useContext(AuthContext);
+
+//   // value 객체
+//   console.log(auth);
+
+//   return (
+//     <>
+//       <h1>Instagram</h1>
+//       <nav>
+//         <ul>
+//           <li>Home</li>
+//           <li>Posts</li>
+//           <li>Profile</li>
+//         </ul>
+//       </nav>
+
+//       <p>안녕하세요, {auth.username}님!</p>
+
+//       <main>
+//         {children}
+//       </main>
+//     </>
+//   )
+// }
+
+// function Article() {
+//   return (
+//     <section>
+//       <img
+//         src="https://plus.unsplash.com/premium_photo-1677542200557-3c6856cc98b1?auto=format&fit=crop&q=80&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=2072"
+//         alt=""
+//         width="100%"
+//       />
+
+//       <p>
+//         <b>snoop_dogg</b> 주인 나감
+//       </p>
+
+//       <small>1일 전</small>
+//     </section>
+//   )
+// }
+
+// function Snippet() {
+//   return (
+//     <AuthProvider>
+//       <Layout>
+//         <Article></Article>
+//       </Layout>
+//     </AuthProvider>
+//   )
+// }
+
+/*
+  JSX에서 이벤트 처리
+
+  onEventName = {eventHandler}
+*/
+
+// function Snippet() {
+//   function handleClick() {
+//     alert("lol")
+//   }
+
+//   return <button onClick={handleClick}>button</button>
+// }
+
+/*
+  뷰 업데이트
+
+  1. useState Hook
+  2. 상위 state 업데이트 하기
+*/
+
+/*
+  useState Hook
+
+  const [state, setState] = useState(initialValue)
+
+  1. state : 변수
+  2. setStatus(newState) : state를 업데이트시키는 함수
+  3. initialValue : state의 초기값
+*/
+
+// function Snippet() {
+//   const [count, setCount] = useState(0);
+
+//   function handleClick() {
+//     setCount(count + 1);
+//   }
+
+//   return (
+//     <>
+//       <p>count : {count}</p>
+//       <button onClick={handleClick}>+</button>
+//     </>
+//   )
+// }
+
+function Snippet() {
+  const [subscribe, unSubscribe] = useState("구독중");
+
+  function handleClick() {
+    unSubscribe(subscribe === "구독중" ? "구독하기" : "구독중")
+  };
+
+  return (
+    <>
+      <h1>SubScribe Button</h1>
+      <button onClick={handleClick}>{subscribe}</button>
+    </>
+  );
 };
