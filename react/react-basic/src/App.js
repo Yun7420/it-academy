@@ -13,7 +13,7 @@ export default function App() {
   react-app(react-app이라는 폴더 생성) > cd react-app(react-app폴더로 이동) > create-react-app .(react-app에 react 개발 환경 구축) > npm run start(실행)
 
   (학원 방법)
-  npx create-react-app react-basic(react-basic이라는 폴더에 react개발 환경 구축) > cd react-app(react-app 폴더로 이동) > npm start(실행)
+  npx create-react-app react-basic(react-basic이라는 폴더에 react개발 환경 구축) > cd react-basic(react-basic 폴더로 이동) > npm start(실행)
 
   (npm run start 명령어로 실행이 안될 경우)
   npm update(npm 업데이트) > npm run start

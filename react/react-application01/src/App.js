@@ -13,7 +13,7 @@ export default function App() {
   react-app(react-app이라는 폴더 생성) > cd react-app(react-app폴더로 이동) > create-react-app .(react-app에 react 개발 환경 구축) > npm run start(실행)
 
   (학원 방법)
-  npx create-react-app react-basic(react-basic이라는 폴더에 react개발 환경 구축) > cd react-app(react-app 폴더로 이동) > npm start(실행)
+  npx create-react-app react-basic(react-basic이라는 폴더에 react개발 환경 구축) > cd react-basic(react-basic 폴더로 이동) > npm start(실행)
 
   (npm run start 명령어로 실행이 안될 경우)
   npm update(npm 업데이트) > npm run start
@@ -219,7 +219,7 @@ export default function App() {
 // }
 
 /*
-  Q. 조건부 랜더링, 리스트 랜더링
+  Q. 조건부 랜더링, 리스트 랜더링 문제
 */
 // function Snippet() {
 //   const beers = [
@@ -640,12 +640,12 @@ export default function App() {
   onEventName = {eventHandler}
 */
 // function ClickEvent() {
-//   return alert("클릭했습니다.");
+//   alert("클릭했습니다.");
 // }
 
 // function Snippet() {
 //   function ClickEvent() {
-//     return alert("클릭했습니다.");
+//     alert("클릭했습니다.");
 //   }
 
 //   return <button onClick={ClickEvent}>Click</button>;
@@ -683,7 +683,7 @@ export default function App() {
 
 //   function OnclickEvent() {
 //     setState(
-//       state.isChecked === true ? 
+//       state.isChecked === true ?
 //       { isChecked: false, text: "구독취소" } : { isChecked: true, text: "구독하기" }
 //     );
 //   }
