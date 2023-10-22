@@ -660,21 +660,33 @@ export default function App() {
   2. setState(newState) : state를 업데이트시키는 함수
   3. initialValue : state의 초기값
 */
-function Snippet() {
-  const [state, setState] = useState(0);
+// function Snippet() {
+//   const [state, setState] = useState(0);
 
-  function OnclickEvent() {
-    setState(state + 1);
-  }
+//   // 버튼을 클릭할 떄 state가 1씩 증가한다.
+//   function OnclickEvent() {
+//     setState(state + 1);
+//   }
 
-  return (
-    <button onClick={OnclickEvent} style={{ padding: "1rem" }}>
-      count : {state}
-    </button>
-  );
-}
+//   return (
+//     <button onClick={OnclickEvent} style={{ padding: "1rem" }}>
+//       count : {state}
+//     </button>
+//   );
+// }
 
 /*
   Q. 클릭 이벤트로 "구독중", "구독취소"를 구현해보세요.
 */
+// function Snippet() {
+//   let [state, setState] = useState({ isChecked: true, text: "구독하기" });
 
+//   function OnclickEvent() {
+//     setState(
+//       state.isChecked === true ? 
+//       { isChecked: false, text: "구독취소" } : { isChecked: true, text: "구독하기" }
+//     );
+//   }
+
+//   return <button onClick={OnclickEvent}>{state.text}</button>;
+// }
