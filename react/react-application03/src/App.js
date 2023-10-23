@@ -1,4 +1,4 @@
-import { useContext, createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 export default function App() {
   return <Snippet></Snippet>;
@@ -80,11 +80,12 @@ export default function App() {
   JSX 트리 > 자바스크립트 객체 > 실제 엘리먼트 > 문서로 주입
 */
 // function Snippet() {
-//   return <h1>Hello React 가상 엘리먼트란?</h1>;
+//   return <h1>가상 엘리먼트란?</h1>;
 // }
 
 /*
   2) JSX 기본 문법
+  속성값들은 카멜 케이스에 준수해서 작성해준다.
 */
 // function Snippet() {
 //   return (
@@ -93,7 +94,7 @@ export default function App() {
 //       <input
 //         id="search"
 //         type="search"
-//         name="q"
+//         name="name"
 //         className="class01 class02"
 //         style={{ outline: "none" }}
 //         placeholder="JSX 기본 문법"
@@ -134,7 +135,7 @@ export default function App() {
 */
 // function Snippet() {
 //   const cat = {
-//     name: "치즈",
+//     name: "cat",
 //     age: 2,
 //     home: null,
 //     sound: function () {
@@ -146,10 +147,10 @@ export default function App() {
 //     <>
 //       <h1>JSX 변수 출력하기</h1>
 //       <ul>
-//         <li>이름 : {cat.name}</li>
-//         <li>나이 : {cat.age}</li>
-//         <li>집 : {cat.home}</li>
-//         <li>소리 : {cat.sound()}</li>
+//         <li key={cat.name}>이름 : {cat.name}</li>
+//         <li key={cat.age}>나이 : {cat.age}</li>
+//         <li key={cat.home}>집 : {cat.home}</li>
+//         <li key={cat.sound}>소리 : {cat.sound()}</li>
 //       </ul>
 //     </>
 //   );
@@ -218,6 +219,29 @@ export default function App() {
 //   );
 // }
 
+// function Snippet() {
+//   const beers = [
+//     { name: "하이네켄", origin: "네덜란드" },
+//     { name: "기네스", origin: "아일랜드" },
+//     { name: "버드와이저", origin: "미국" },
+//   ];
+
+//   return (
+//     <>
+//       <h1>리스트 랜더링</h1>
+//       <ul>
+//         {beers.map((beer) => {
+//           return (
+//             <li key={beer.name}>
+//               {beer.name}, {beer.origin}
+//             </li>
+//           );
+//         })}
+//       </ul>
+//     </>
+//   );
+// }
+
 /*
   Q. 조건부 랜더링, 리스트 랜더링 문제
 */
@@ -258,9 +282,30 @@ export default function App() {
 //       <tbody>{beersList}</tbody>
 //     </table>
 //   );
-// }
 
-// 1000lines...
+//   return (
+//     <table border="1" style={{ borderCollapse: "collapse" }}>
+//       <thead>
+//         <tr>
+//           <th>이름</th>
+//           <th>원산지</th>
+//           <th>판매중</th>
+//         </tr>
+//       </thead>
+//       <tbody>
+//         {beers.map((beer) => {
+//           return (
+//             <tr>
+//               <td key={beer.name}>{beer.name}</td>
+//               <td key={beer.origin}>{beer.origin}</td>
+//               <td key={beer.available}>{beer.available ? "예" : "아니요"}</td>
+//             </tr>
+//           );
+//         })}
+//       </tbody>
+//     </table>
+//   );
+// }
 
 /*
   3. 컴포넌트
@@ -277,43 +322,13 @@ export default function App() {
 /*
   1) 컴포넌트 합성
 */
-// function Header() {
-//   return (
-//     <div
-//       style={{
-//         margin: "0",
-//         padding: "0 2.5rem",
-//         display: "flex",
-//         justifyContent: "space-between",
-//         alignItems: "center",
-//         backgroundColor: "rgba(0, 0, 0, 0.5)",
-//         color: "#fff",
-//       }}
-//     >
-//       <h1>REACT.JS</h1>
-
-//       <ul style={{ display: "flex", gap: "1rem", listStyle: "none" }}>
-//         <li>Ngular</li>
-//         <li>React</li>
-//         <li>Vue</li>
-//       </ul>
-//     </div>
-//   );
-// }
-
 // function Title() {
-//   return (
-//     <h1
-//       style={{ margin: "0", padding: "0", color: "#fff", fontSize: "2.5rem" }}
-//     >
-//       React Component
-//     </h1>
-//   );
+//   return <h1>React.Js</h1>;
 // }
 
 // function Text() {
 //   return (
-//     <p style={{ margin: "0", padding: "0", color: "#fff" }}>
+//     <p>
 //       이러한 예제를 통해서 리액트 컴포넌트 합성에 대해서 <br /> 배울 수 있다.
 //     </p>
 //   );
@@ -321,31 +336,21 @@ export default function App() {
 
 // function Snippet() {
 //   return (
-//     <section
+//     <div
 //       style={{
-//         position: "ralative",
-//         width: "100%",
-//         height: "100vh",
-//         background:
-//           "url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center",
-//         backgroundSize: "cover",
+//         padding: "1.5rem",
+//         position: "absolute",
+//         top: "50%",
+//         left: "50%",
+//         transform: "translate(-50%,-50%)",
+//         border: "1px solid #000",
+//         borderRadius: "1rem",
+//         textAlign: "center",
 //       }}
 //     >
-//       <Header></Header>
-
-//       <div
-//         style={{
-//           position: "absolute",
-//           top: "50%",
-//           left: "50%",
-//           transform: "translate(-50%, -50%)",
-//           textAlign: "center",
-//         }}
-//       >
-//         <Title></Title>
-//         <Text></Text>
-//       </div>
-//     </section>
+//       <Title></Title>
+//       <Text></Text>
+//     </div>
 //   );
 // }
 
@@ -354,7 +359,7 @@ export default function App() {
 
   컴포넌트에 전달되는 데이터
 */
-// function Beer({ beer }) {
+// function Beer({beer}) {
 //   return (
 //     <ul>
 //       <li key={beer.name}>이름 : {beer.name}</li>
@@ -377,104 +382,55 @@ export default function App() {
 //       <Beer beer={irishBeer}></Beer>
 //     </>
 //   );
+
+//   return (
+//     <>
+//       <h1>React Props</h1>
+//       <Beer name={"기네스"} origin={"아일랜드"} available={false}></Beer>
+//     </>
+//   );
 // }
 
 /*
   컴포넌트 합성 & Props 문제
 
   아래의 데이터와 컴포넌트를 사용하여 뷰를 완성해보세요. (데이터 Snippet내의 지역변수)
-
-  컴포넌트
-  1. Header
-  2. Title
-  3. Text
-  4. Snippet
 */
-// function Header({ header }) {
-//   const headerList = header.map((headerItem) => (
-//     <li key={headerItem.id}>{headerItem.text}</li>
-//   ));
+// function Title({ title }) {
+//   return <h1 key={title.id}>{title.content}</h1>;
+// }
+
+// function Text({ text }) {
+//   return <p key={text.id}>{text.content}</p>;
+// }
+
+// function Snippet() {
+//   const titleContent = {
+//     id: "title",
+//     content: "React.Js",
+//   };
+
+//   const textContent = {
+//     id: "text",
+//     content: "이러한 예제를 통해서 리액트 컴포넌트 합성에 대해서 배울 수 있다.",
+//   };
 
 //   return (
 //     <div
 //       style={{
-//         margin: "0",
-//         padding: "0 2.5rem",
-//         display: "flex",
-//         justifyContent: "space-between",
-//         alignItems: "center",
-//         backgroundColor: "rgba(0, 0, 0, 0.5)",
-//         color: "#fff",
+//         padding: "1.5rem",
+//         position: "absolute",
+//         top: "50%",
+//         left: "50%",
+//         transform: "translate(-50%,-50%)",
+//         border: "1px solid #000",
+//         borderRadius: "1rem",
+//         textAlign: "center",
 //       }}
 //     >
-//       <h1>REACT.JS</h1>
-
-//       <ul style={{ display: "flex", gap: "1rem", listStyle: "none" }}>
-//         {headerList}
-//       </ul>
+//       <Title title={titleContent}></Title>
+//       <Text text={textContent}></Text>
 //     </div>
-//   );
-// }
-
-// function Title({ title }) {
-//   return (
-//     <h1
-//       key={title.id}
-//       style={{ margin: "0", padding: "0", color: "#fff", fontSize: "2.5rem" }}
-//     >
-//       {title.text}
-//     </h1>
-//   );
-// }
-
-// function Text({ text }) {
-//   return (
-//     <p key={text.id} style={{ margin: "0", padding: "0", color: "#fff" }}>
-//       {text.text}
-//     </p>
-//   );
-// }
-
-// function Snippet() {
-//   const header = [
-//     { id: "header0", text: "Ngular" },
-//     { id: "header1", text: "React" },
-//     { id: "header2", text: "Vue" },
-//   ];
-
-//   const title = { id: "title1", text: "React Component" };
-
-//   const text = {
-//     id: "text1",
-//     text: "이러한 예제를 통해서 리액트 컴포넌트 합성에 대해서 배울 수 있다.",
-//   };
-
-//   return (
-//     <section
-//       style={{
-//         position: "ralative",
-//         width: "100%",
-//         height: "100vh",
-//         background:
-//           "url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center",
-//         backgroundSize: "cover",
-//       }}
-//     >
-//       <Header header={header}></Header>
-
-//       <div
-//         style={{
-//           position: "absolute",
-//           top: "50%",
-//           left: "50%",
-//           transform: "translate(-50%, -50%)",
-//           textAlign: "center",
-//         }}
-//       >
-//         <Title title={title}></Title>
-//         <Text text={text}></Text>
-//       </div>
-//     </section>
 //   );
 // }
 
@@ -483,100 +439,45 @@ export default function App() {
 
   컴포넌트 트리를 작성할 수 있다.
 */
-// function Section({ children }) {
-//   return (
-//     <section
-//       style={{
-//         position: "ralative",
-//         width: "100%",
-//         height: "100vh",
-//         background:
-//           "url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center",
-//         backgroundSize: "cover",
-//       }}
-//     >
-//       {children}
-//     </section>
-//   );
+// function Layout({ children }) {
+//   const styles = {
+//     padding: "1.5rem",
+//     position: "absolute",
+//     top: "50%",
+//     left: "50%",
+//     transform: "translate(-50%,-50%)",
+//     border: "1px solid #000",
+//     borderRadius: "1rem",
+//     textAlign: "center",
+//   };
+
+//   return <div style={styles}>{children}</div>;
 // }
 
-// function Header({ header }) {
-//   const headerList = header.map((headerItem) => (
-//     <li key={headerItem.id}>{headerItem.text}</li>
-//   ));
-
-//   return (
-//     <div
-//       style={{
-//         margin: "0",
-//         padding: "0 2.5rem",
-//         display: "flex",
-//         justifyContent: "space-between",
-//         alignItems: "center",
-//         backgroundColor: "rgba(0, 0, 0, 0.5)",
-//         color: "#fff",
-//       }}
-//     >
-//       <h1>REACT.JS</h1>
-
-//       <ul style={{ display: "flex", gap: "1rem", listStyle: "none" }}>
-//         {headerList}
-//       </ul>
-//     </div>
-//   );
-// }
-
-// function Title({ title, children }) {
-//   return (
-//     <div
-//       style={{
-//         position: "absolute",
-//         top: "50%",
-//         left: "50%",
-//         transform: "translate(-50%, -50%)",
-//         textAlign: "center",
-//       }}
-//     >
-//       <h1
-//         key={title.id}
-//         style={{ margin: "0", padding: "0", color: "#fff", fontSize: "2.5rem" }}
-//       >
-//         {title.text}
-//       </h1>
-//       {children}
-//     </div>
-//   );
+// function Title({ title }) {
+//   return <h1 key={title.id}>{title.content}</h1>;
 // }
 
 // function Text({ text }) {
-//   return (
-//     <p key={text.id} style={{ margin: "0", padding: "0", color: "#fff" }}>
-//       {text.text}
-//     </p>
-//   );
+//   return <p key={text.id}>{text.content}</p>;
 // }
 
 // function Snippet() {
-//   const header = [
-//     { id: "header0", text: "Ngular" },
-//     { id: "header1", text: "React" },
-//     { id: "header2", text: "Vue" },
-//   ];
+//   const titleContent = {
+//     id: "title",
+//     content: "React.Js",
+//   };
 
-//   const title = { id: "title1", text: "React Component" };
-
-//   const text = {
-//     id: "text1",
-//     text: "이러한 예제를 통해서   children props 컴포넌트 트리를 작성할 수 있다.",
+//   const textContent = {
+//     id: "text",
+//     content: "이러한 예제를 통해서 리액트 컴포넌트 합성에 대해서 배울 수 있다.",
 //   };
 
 //   return (
-//     <Section>
-//       <Header header={header}></Header>
-//       <Title title={title}>
-//         <Text text={text}></Text>
-//       </Title>
-//     </Section>
+//     <Layout>
+//       <Title title={titleContent}></Title>
+//       <Text text={textContent}></Text>
+//     </Layout>
 //   );
 // }
 
@@ -588,17 +489,16 @@ export default function App() {
 // const AuthContext = createContext();
 
 // function AuthProvider({ children }) {
-//   const userValue = { id: "Username" };
+//   const userValue = { id: "userName" };
 
 //   return (
 //     <AuthContext.Provider value={userValue}>{children}</AuthContext.Provider>
 //   );
 // }
 
-// function Layout({ children }) {
-//   // createContext을 통해서 저장하고 useContext을 사용하여 가져오기
+// function Layout() {
+// createContext을 통해서 저장하고 useContext을 사용하여 가져오기
 //   const auth = useContext(AuthContext);
-//   console.log(auth);
 
 //   return (
 //     <div
@@ -611,25 +511,15 @@ export default function App() {
 //       }}
 //     >
 //       <h1>안녕하세요 {auth.id}님:)</h1>
-//       {children}
+//       <p>{auth.id}님 항상 저희 사이트를 방문해주셔서 감사합니다.</p>
 //     </div>
 //   );
-// }
-
-// function Text() {
-//   // createContext을 통해서 저장하고 useContext을 사용하여 가져오기
-//   const auth = useContext(AuthContext);
-//   console.log(auth);
-
-//   return <p>{auth.id}님 항상 저희 사이트를 방문해주셔서 감사합니다.</p>;
 // }
 
 // function Snippet() {
 //   return (
 //     <AuthProvider>
-//       <Layout>
-//         <Text></Text>
-//       </Layout>
+//       <Layout></Layout>
 //     </AuthProvider>
 //   );
 // }
@@ -663,16 +553,13 @@ export default function App() {
 // function Snippet() {
 //   const [state, setState] = useState(0);
 
-//   // 버튼을 클릭할 떄 state가 1씩 증가한다.
-//   function OnclickEvent() {
+//   function OnclickEvent(){
 //     setState(state + 1);
 //   }
 
 //   return (
-//     <button onClick={OnclickEvent} style={{ padding: "1rem" }}>
-//       count : {state}
-//     </button>
-//   );
+//     <button onClick={OnclickEvent}>{state}</button>
+//   )
 // }
 
 /*
