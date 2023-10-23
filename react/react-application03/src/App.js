@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 
 export default function App() {
-  return <Snippet></Snippet>;
+  return <Snippet></Snippet>
 }
 
 // 1000lines...
