@@ -1,41 +1,57 @@
-import { useContext, createContext, useState } from "react";
+// React Import
+import React from "react";
+import { createContext, useContext, useState } from "react";
 
+// 1000lines...
+
+// 컴포넌트 내보내기
 export default function App() {
-  return <Snippet></Snippet>;
+  return <Layout></Layout>;
 }
 
-/*
-  가상 엘리먼트란?
-*/
-// function Snippet() {
-//   return <h1>Hello React 가상 엘리먼트란?</h1>;
+// function App() {
+//   return <Layout></Layout>;
 // }
 
-/*
-  JSX 기본 문법
-*/
-// function Snippet() {
+// export default App;
+
+// 1000lines...
+
+// 가상 엘리먼트
+// function Layout() {
+//   return <h1>가상 엘리먼트란?</h1>;
+// }
+
+// 1000lines...
+
+// JSX 기본 문법
+// function Layout() {
+//   // const styles = {
+//   //   outline: "none",
+//   // };
+
 //   return (
 //     <form>
 //       <h1>JSX 기본 문법</h1>
 //       <input
 //         id="search"
-//         className="class01 class02"
 //         type="search"
-//         name="q"
+//         name="name"
+//         className="class01 class02"
+//         style={{ outline: "none" }} //style={styles}
 //         placeholder="JSX 기본 문법"
 //         autoComplete="off"
-//         style={{ outline: "none" }}
 //       />
 //     </form>
 //   );
 // }
 
-/*
-  JSX Fragment
-*/
-// function Snippet() {
+// 1000lines...
+
+// JSX Fragment
+// function Layout() {
 //   return (
+//     // 빈태그로 감싼 유형
 //     <>
 //       <h1>JSX Fragment</h1>
 //       <ul>
@@ -45,6 +61,7 @@ export default function App() {
 //       </ul>
 //     </>
 
+//     // 일반태그로 감싼 유형
 //     <div>
 //       <h1>JSX Fragment</h1>
 //       <ul>
@@ -56,36 +73,36 @@ export default function App() {
 //   );
 // }
 
-/*
-  JSX 변수 출력하기
-*/
-// function Snippet() {
-//   const cat = {
-//     name: "치즈",
-//     age: 2,
+// 1000lines...
+
+// JSX 변수 출력하기
+// function Layout() {
+//   const dog = {
+//     name: "Dog",
+//     age: 10,
 //     home: null,
 //     sound: function () {
-//       return "야옹";
+//       return "멍멍";
 //     },
-//   }
+//   };
 
-//   return(
+//   return (
 //     <>
 //       <h1>JSX 변수 출력하기</h1>
 //       <ul>
-//         <li>이름 : {cat.name}</li>
-//         <li>나이 : {cat.age}</li>
-//         <li>집 : {cat.home}</li>
-//         <li>소리 : {cat.sound()}</li>
+//         <li key={dog.name}>이름 : {dog.name}</li>
+//         <li key={dog.age}>나이 : {dog.age}</li>
+//         <li key={dog.home}>집 : {dog.home}</li>
+//         <li key={dog.sound}>소리 : {dog.sound()}</li>
 //       </ul>
 //     </>
-//   )
+//   );
 // }
 
-/*
-  조건부 랜더링
-*/
-// function Snippet() {
+// 1000lines...
+
+// JSX 조건부 랜더링
+// function Layout() {
 //   return (
 //     <>
 //       <h1>조건부 랜더링</h1>
@@ -105,55 +122,45 @@ export default function App() {
 //   );
 // }
 
-/*
-  리스트 랜더링
-*/
-// function Snippet() {
-//   const beers = [
-//     { name: "하이네켄", origin: "네덜란드" },
-//     { name: "기네스", origin: "아일랜드" },
-//     { name: "버드와이저", origin: "미국" },
+// 1000lines...
+
+// 리스트 랜더링
+// function Layout() {
+//   const framework = [
+//     { name: "framework01", eName: "Angular", kName: "앵귤러" },
+//     { name: "framework02", eName: "React", kName: "리액트" },
+//     { name: "framework03", eName: "Vue", kName: "뷰" },
 //   ];
 
-//   const beersList = beers.map((beer) => (
-//     <li key={beer.name}>
-//       {beer.name}, {beer.origin}
+//   const frameworkList = framework.map((framework) => (
+//     <li key={framework.name}>
+//       {framework.eName}, {framework.kName}
 //     </li>
 //   ));
 
 //   return (
 //     <>
 //       <h1>리스트 랜더링</h1>
-//       <ul>{beersList}</ul>
+//       <ul>{frameworkList}</ul>
 //     </>
 //   );
 // }
 
-/*
-  Q. 조건부 랜더링, 리스트 랜더링 문제
-*/
-// function Snippet() {
-//   const beers = [
-//     { name: "하이네켄", origin: "네덜란드", available: false },
-//     { name: "기네스", origin: "아일랜드", available: true },
-//     { name: "버드와이저", origin: "미국", available: true },
+// 1000lines...
+
+// Q. 조건부 랜더링, 리스트 랜더링 문제
+// function Layout() {
+//   const framework = [
+//     { name: "framework01", eName: "Angular", kName: "앵귤러", available : true },
+//     { name: "framework02", eName: "React", kName: "리액트", available : false },
+//     { name: "framework03", eName: "Vue", kName: "뷰", available : false },
 //   ];
 
-//   const beersList = beers.map((beer) => {
-//     return (
-//       <tr>
-//         <td key={beer.name}>{beer.name}</td>
-//         <td key={beer.origin}>{beer.origin}</td>
-//         <td key={beer.available}>{beer.available ? "예" : "아니요"}</td>
-//       </tr>
-//     );
-//   });
-
-//   const beersList = beers.map((beer) => (
-//     <tr>
-//       <td key={beer.name}>{beer.name}</td>
-//       <td key={beer.origin}>{beer.origin}</td>
-//       <td key={beer.available}>{beer.available ? "예" : "아니요"}</td>
+//   const frameworkList = framework.map((framework) => (
+//     <tr key={framework.name}>
+//       <td key={framework.eName}>{framework.eName}</td>
+//       <td key={framework.kName}>{framework.kName}</td>
+//       <td key={framework.available}>{framework.available ? "예" : "아니요"}</td>
 //     </tr>
 //   ));
 
@@ -161,19 +168,19 @@ export default function App() {
 //     <table border="1" style={{ borderCollapse: "collapse" }}>
 //       <thead>
 //         <tr>
-//           <th>이름</th>
-//           <th>원산지</th>
-//           <th>판매중</th>
+//           <th>English</th>
+//           <th>Korean</th>
+//           <th>사용중</th>
 //         </tr>
 //       </thead>
-//       <tbody>{beersList}</tbody>
+//       <tbody>{frameworkList}</tbody>
 //     </table>
 //   );
 // }
 
-/*
-  컴포넌트 합성
-*/
+// 1000lines...
+
+// 컴포넌트 합성
 // function Title() {
 //   return <h1>React.Js</h1>;
 // }
@@ -186,57 +193,66 @@ export default function App() {
 //   );
 // }
 
-// function Snippet() {
+// function Layout() {
+//   const styles = {
+//     padding: "1.5rem",
+//     position: "absolute",
+//     top: "50%",
+//     left: "50%",
+//     transform: "translate(-50%,-50%)",
+//     border: "1px solid #000",
+//     borderRadius: "1rem",
+//     textAlign: "center",
+//   };
+
 //   return (
-//     <div
-//       style={{
-//         padding: "1.5rem",
-//         position: "absolute",
-//         top: "50%",
-//         left: "50%",
-//         transform: "translate(-50%,-50%)",
-//         border: "1px solid #000",
-//         borderRadius: "1rem",
-//         textAlign: "center",
-//       }}
-//     >
+//     <div style={styles}>
 //       <Title></Title>
 //       <Text></Text>
 //     </div>
 //   );
 // }
 
-/*
-  Props
-*/
-// function Beer({ beer }) {
+// 1000lines...
+
+// Props
+// function Framework({ props }) {
 //   return (
 //     <ul>
-//       <li key={beer.name}>이름 : {beer.name}</li>
-//       <li key={beer.origin}>원산지 : {beer.origin}</li>
-//       <li key={beer.available}>판매중 : {beer.available ? "예" : "아니요"}</li>
+//       <li key={props.eName}>이름 : {props.eName}</li>
+//       <li key={props.kName}>원산지 : {props.kName}</li>
+//       <li key={props.available}>
+//         사용중 : {props.available ? "예" : "아니요"}
+//       </li>
 //     </ul>
 //   );
 // }
 
-// function Snippet() {
-//   const irishBeer = {
-//     name: "기네스",
-//     origin: "아일랜드",
+// function Layout() {
+//   const framework = {
+//     eName: "React",
+//     kName: "리액트",
 //     available: false,
 //   };
 
 //   return (
 //     <>
 //       <h1>React Props</h1>
-//       <Beer beer={irishBeer}></Beer>
+//       <Framework props={framework}></Framework>
 //     </>
 //   );
+
+//   // return (
+//   //   <>
+//   //     <h1>React Props</h1>
+//   //     <Framework eName={"React"} kName={"리액트"} available={false}></Framework>
+//   //   </>
+//   // );
 // }
 
-/*
-  Q. 컴포넌트 합성 & Props 문제
-*/
+// 1000lines...
+
+// Q. 컴포넌트 합성, Props 문제
 // function Title({ title }) {
 //   return <h1 key={title.id}>{title.content}</h1>;
 // }
@@ -245,7 +261,18 @@ export default function App() {
 //   return <p key={text.id}>{text.content}</p>;
 // }
 
-// function Snippet() {
+// function Layout() {
+//   const styles = {
+//     padding: "1.5rem",
+//     position: "absolute",
+//     top: "50%",
+//     left: "50%",
+//     transform: "translate(-50%,-50%)",
+//     border: "1px solid #000",
+//     borderRadius: "1rem",
+//     textAlign: "center",
+//   };
+
 //   const titleContent = {
 //     id: "title",
 //     content: "React.Js",
@@ -257,42 +284,32 @@ export default function App() {
 //   };
 
 //   return (
-//     <div
-//       style={{
-//         padding: "1.5rem",
-//         position: "absolute",
-//         top: "50%",
-//         left: "50%",
-//         transform: "translate(-50%,-50%)",
-//         border: "1px solid #000",
-//         borderRadius: "1rem",
-//         textAlign: "center",
-//       }}
-//     >
+//     <div style={styles}>
 //       <Title title={titleContent}></Title>
 //       <Text text={textContent}></Text>
 //     </div>
 //   );
 // }
 
-/*
-  children props
-*/
-// function Layout({ children }) {
+// 1000lines...
+
+// children props
+// function Section({ children }) {
+//   const styles = {
+//     padding: "1.5rem",
+//     position: "absolute",
+//     top: "50%",
+//     left: "50%",
+//     transform: "translate(-50%,-50%)",
+//     border: "1px solid #000",
+//     borderRadius: "1rem",
+//     textAlign: "center",
+//   };
+
 //   return (
-//     <div
-//       style={{
-//         padding: "1.5rem",
-//         position: "absolute",
-//         top: "50%",
-//         left: "50%",
-//         transform: "translate(-50%,-50%)",
-//         border: "1px solid #000",
-//         borderRadius: "1rem",
-//         textAlign: "center",
-//       }}
-//     >
-//       {children}
+//     <div style={styles}>
+//       <h1>children props</h1>
+//       <div>{children}</div>
 //     </div>
 //   );
 // }
@@ -305,7 +322,7 @@ export default function App() {
 //   return <p key={text.id}>{text.content}</p>;
 // }
 
-// function Snippet() {
+// function Layout() {
 //   const titleContent = {
 //     id: "title",
 //     content: "React.Js",
@@ -317,17 +334,17 @@ export default function App() {
 //   };
 
 //   return (
-//     <Layout>
+//     <Section>
 //       <Title title={titleContent}></Title>
 //       <Text text={textContent}></Text>
-//     </Layout>
+//     </Section>
 //   );
 // }
 
-/*
-  useContent Hook (https://velog.io/@donggu/%EB%AC%B8%EA%B3%BC%EC%83%9D%EC%9D%B4-%EC%84%A4%EB%AA%85%ED%95%98%EB%8A%94-React-propsproperties-children 참고 사이트)
-*/
-// const AuthContext = createContext();
+// 1000lines...
+
+// useContent Hook (https://velog.io/@donggu/%EB%AC%B8%EA%B3%BC%EC%83%9D%EC%9D%B4-%EC%84%A4%EB%AA%85%ED%95%98%EB%8A%94-React-propsproperties-children 참고 사이트)
+// const AuthContext = createContext(); // createContext을 통해서 변수를 저장
 
 // function AuthProvider({ children }) {
 //   const userValue = { id: "userName" };
@@ -337,74 +354,91 @@ export default function App() {
 //   );
 // }
 
-// function Layout() {
-//   const auth = useContext(AuthContext);
+// function Section() {
+//   const auth = useContext(AuthContext); //useContext을 사용하여 변수를 사용
+
+//   const styles = {
+//     position: "absolute",
+//     top: "50%",
+//     left: "50%",
+//     transform: "translate(-50%,-50%)",
+//     textAlign: "center",
+//   };
 
 //   return (
-//     <div
-//       style={{
-//         position: "absolute",
-//         top: "50%",
-//         left: "50%",
-//         transform: "translate(-50%,-50%)",
-//         textAlign: "center",
-//       }}
-//     >
+//     <div style={styles}>
 //       <h1>안녕하세요 {auth.id}님:)</h1>
 //       <p>{auth.id}님 항상 저희 사이트를 방문해주셔서 감사합니다.</p>
 //     </div>
 //   );
 // }
 
-// function Snippet() {
+// function Layout() {
 //   return (
 //     <AuthProvider>
-//       <Layout></Layout>
+//       <Section></Section>
 //     </AuthProvider>
 //   );
 // }
 
-/*
-  JSX 이벤트 처리
-*/
-// function ClickEvent() {
-//   alert("클릭했습니다.");
-// }
+// 1000lines...
 
-// function Snippet() {
-//   function ClickEvent() {
+// JSX에서 이벤트
+// function Layout() {
+//   function onClickEvent() {
 //     alert("클릭했습니다.");
 //   }
 
-//   return <button onClick={ClickEvent}>Click</button>;
+//   return <button onClick={onClickEvent}>Click</button>;
 // }
 
-/*
-  useState Hook
-*/
-// function Snippet() {
+// 1000lines...
+
+// useState Hook
+// function Layout() {
 //   const [state, setState] = useState(0);
 
-//   function ClickEvent() {
+//   function onClickEvent(){
 //     setState(state + 1);
 //   }
 
-//   return <button onClick={ClickEvent}>{state}</button>;
+//   return (
+//     <button onClick={onClickEvent}>{state}</button>
+//   )
 // }
 
-/*
-  Q. useState Hook 문제
-*/
-// function Snippet() {
-//   const [state, setState] = useState({ isState: false, text: "구독하기" });
+// 1000lines...
 
-//   function ClickEvent() {
-//     setState(
-//       state.isState
-//         ? { isState: false, text: "구독하기" }
-//         : { isState: true, text: "구독취소" }
+// Q. 클릭 이벤트로 "구독하기", "구독취소"를 구현해보세요.
+// function Layout() {
+//   const [subscribe, setSubscribe] = useState({
+//     text: "구독하기",
+//     subscribeState: false,
+//   });
+
+//   function onClickEvent() {
+//     setSubscribe(
+//       subscribe.subscribeState
+//         ? { text: "구독하기", subscribeState: false }
+//         : { text: "구독취소", subscribeState: true }
 //     );
 //   }
 
-//   return <button onClick={ClickEvent}>{state.text}</button>;
+//   return <button onClick={onClickEvent}>{subscribe.text}</button>;
+// }
+
+// function Layout() {
+//   const [subscribe, setSubscribe] = useState(false);
+
+//   function onClickEvent() {
+//     setSubscribe(!subscribe);
+//   }
+
+//   return (
+//     <>
+//       <button onClick={onClickEvent}>
+//         {subscribe ? "구독취소" : "구독하기"}
+//       </button>
+//     </>
+//   );
 // }
