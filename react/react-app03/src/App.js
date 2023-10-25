@@ -18,9 +18,9 @@ export default function App() {
 // 1000lines...
 
 // 가상 엘리먼트
-// function Layout() {
-//   return <h1>가상 엘리먼트란?</h1>;
-// }
+function Layout() {
+  return <h1>가상 엘리먼트란?</h1>;
+}
 
 // 1000lines...
 
