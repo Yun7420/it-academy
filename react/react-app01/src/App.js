@@ -1,21 +1,16 @@
 // React Import
-import React, { useEffect } from "react";
-import { createContext, useContext, useState } from "react";
-import {
-  HashRouter as Router,
-  Routes,
-  Route,
-  Link,
-  useParams,
-} from "react-router-dom";
+import React from "react";
+import { createContext, useContext, useState, useEffect } from "react";
+import { HashRouter as Router, Routes, Route, Link, useParams } from "react-router-dom";
 
 // 1000lines...
 
-// 컴포넌트 내보내기
+// 컴포넌트 내보내기01
 export default function App() {
   return <Layout></Layout>;
 }
 
+// 컴포넌트 내보내기02
 // function App() {
 //   return <Layout></Layout>;
 // }
@@ -452,7 +447,7 @@ export default function App() {
 
 // 1000lines...
 
-// 기본 라우터
+// 기본 Route
 // function Home() {
 //   return <h1>Home</h1>;
 // }
@@ -465,6 +460,7 @@ export default function App() {
 //   return (
 //     <>
 //       <h1>Posts</h1>
+
 //       <ul>
 //         <li>
 //           <Link to="/Posts/Post01">Post01</Link>
@@ -478,15 +474,14 @@ export default function App() {
 // }
 
 // function Post() {
+//   // 상위 컴포넌트에 있는 url을 받아온다.
 //   const { postId } = useParams();
 
 //   return <h1>{postId}</h1>;
 // }
 
-// function Error() {
-//   return (
-//     <h1>Error</h1>
-//   )
+// function NotFound() {
+//   return <h1>NotFound</h1>
 // }
 
 // function Layout() {
@@ -509,13 +504,15 @@ export default function App() {
 //         <Route path="/About" element={<About></About>}></Route>
 //         <Route path="/Posts" element={<Posts></Posts>}></Route>
 //         <Route path="/Posts/:postId" element={<Post></Post>}></Route>
-//         <Route path="*" element={<Error></Error>}></Route>
+//         <Route path="*" element={<NotFound></NotFound>}></Route>
 //       </Routes>
 //     </Router>
 //   );
 // }
 
-// 인증이 적용된 라우터
+// 1000lines...
+
+// 인증이 필요한 Route
 // const AuthContext = createContext();
 
 // function AuthProvider({ children }) {
@@ -525,35 +522,34 @@ export default function App() {
 //   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 // }
 
-// function Loginstate() {
+// function LoginState() {
 //   const { user, setUser } = useContext(AuthContext);
 
-//   return user ? (
-//     <div>
-//       <p>안녕하세요 {user}님</p>
-//       <button onClick={() => setUser(null)}>로그아웃</button>
-//     </div>
+//   // null값의 부정은 true값 = 처음 화면은 로그인하세요.를 보여준다.
+//   return !user ? (
+//     <h1>로그인하세요</h1>
 //   ) : (
-//     <p>로그인하세요.</p>
+//     <>
+//       <h1>안녕하세요:) {user}님</h1>
+//       <button type="button" onClick={() => setUser(null)}>
+//         로그아웃
+//       </button>
+//     </>
 //   );
 // }
 
 // function Login({ children }) {
 //   const { user, setUser } = useContext(AuthContext);
-//   const [userName, setUsername] = useState(null);
+//   const [inputUser, setInputUser] = useState(null);
 
-//   return user ? (
-//     <>{children}</>
-//   ) : (
-//     <form onSubmit={() => setUser(userName)}>
-//       <h1>Login</h1>
-//       <input
-//         onChange={(e) => setUsername(e.target.value)}
-//         type="text"
-//         placeholder="아이디를 입력하세요"
-//       />
-//       <button>제출</button>
+//   // null값의 부정은 true값 = 처음 화면은 form을 보여준다. 
+//   return !user ? (
+//     <form onSubmit={() => setUser(inputUser)}>
+//       <input type="text" placeholder="아이디를 입력하세요"onChange={(e) => setInputUser(e.target.value)}/>
+//       <button type="submit">제출</button>
 //     </form>
+//   ) : (
+//     <>{children}</>
 //   );
 // }
 
@@ -567,7 +563,7 @@ export default function App() {
 
 // function Posts() {
 //   return (
-//     <div>
+//     <>
 //       <h1>Posts</h1>
 
 //       <ul>
@@ -578,7 +574,7 @@ export default function App() {
 //           <Link to="/Posts/Post02">Post02</Link>
 //         </li>
 //       </ul>
-//     </div>
+//     </>
 //   );
 // }
 
@@ -586,6 +582,10 @@ export default function App() {
 //   const { postId } = useParams();
 
 //   return <h1>{postId}</h1>;
+// }
+
+// function NotFound() {
+//   return <h1>NotFound</h1>
 // }
 
 // function Layout() {
@@ -604,84 +604,100 @@ export default function App() {
 //           </li>
 //         </ul>
 
-//         <Loginstate></Loginstate>
+//         <LoginState></LoginState>
 
 //         <Routes>
 //           <Route path="/Home" element={<Home></Home>}></Route>
 //           <Route path="/About" element={<About></About>}></Route>
 //           <Route path="/Posts" element={<Posts></Posts>}></Route>
-//           <Route
-//             path="/Posts/:postId"
-//             element={
-//               <Login>
-//                 <Post></Post>
-//               </Login>
-//             }
-//           ></Route>
+//           <Route path="/Posts/:postId" element={<Login><Post></Post></Login>}></Route>
+//           <Route path="*" element={<NotFound></NotFound>}></Route>
 //         </Routes>
 //       </AuthProvider>
 //     </Router>
 //   );
 // }
 
-// useEffect Hook
+// 1000lines...
+
+// useEffect
 // function Layout() {
+//   // onClick이벤트가 실행될 때마다 effect가 실행된다.
+//   useEffect(() => {
+//     console.log("시간 랜더링 : ", new Date().toLocaleTimeString());
+//   })
+
+//   // 최초 랜더링 시 effect가 실행된다.
+//   useEffect(() => {
+//     console.log("시간 랜더링 : ", new Date().toLocaleTimeString());
+//   }, [])
+
 //   const [state, setState] = useState(0);
 
-//   function onClickEvent() {
-//     setState(state + 1);
-//   }
-
-//   useEffect(() => {
-//     console.log("날짜 랜더링 : ", new Date().toLocaleTimeString());
-//   }, []);
-
-//   return <button onClick={onClickEvent}>{state}</button>;
+//   return <button onClick={() => setState(state + 1)}>{state}</button>;
 // }
 
-// 데이터 요청하기 예시
-function fetchData() {
-  const data = {
-    src:
-      "https://images.unsplash.com/photo-1682672440006-22b34584de97?auto=format&fit=crop&q=80&w=1887&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  };
+// 1000lines...
 
-  const promise = new Promise((res, rej) => {
-    setTimeout(() => {
-      res(data);
-    }, 2000);
-  });
+// useEffect를 활용해 데이터를 가져오는 함수만들기
+// 실행 시 2초 뒤에 데이터값을 반환 합니다.
+// function fetchData() {
+//   const data = {
+//     source : "https://images.unsplash.com/photo-1682687980918-3c2149a8f110?auto=format&fit=crop&q=80&w=2071&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+//     alt : "자연 이미지입니다."
+//   }
 
-  return promise;
-}
+//   const promise = new Promise((res,rej) => {
+//     setTimeout(() => {
+//       res(data)
+//     }, 2000)
+//   })
 
-function Layout() {
-  const [error, setError] = useState(null);
-  const [load, setLoad] = useState(false);
-  const [profile, setProfile] = useState(null);
+//   return promise;
+// }
 
-  useEffect(() => {
-    fetchData()
-      .then((data) => {
-        setProfile(data);
-      })
+// function Layout() {
+//   // 이미지를 담는 변수 선언
+//   const [image, setImage] = useState(null);
+//   // 에러를 담는 변수 선언
+//   const [error, setError] = useState(null);
+//   // 로딩을 상태를 담는 변수 선언
+//   const [load, setLoad] = useState(true);
 
-      .catch((error) => {
-        setError(error);
-      })
+//   // 로딩 시 fetchData 함수를 실행합니다.
+//   useEffect(() => {
+//     // fetchData 함수 실행 시 2초 뒤에 데이터값을 반환 합니다.
+//     fetchData()
+//       // then(성공) : 데이터 값을 setImage에 넣어준다.
+//       .then((data) => {
+//         setImage(data); // image : source, alt값을 담은 객체
+//       })
 
-      .finally(() => {
-        setLoad(true);
-      });
-  }, []);
+//       // catch(실패) : 에러 값을 setError에 넣어준다.
+//       .catch((error) => {
+//         setError(error);  // error : null (if문 통과)
+//       })
 
-  if (error) {
-    return <p>error</p>;
-  }
+//       // finally(성공 실패 상관 없이) : setLoad에 false값을 넣어준다.
+//       .finally(() => {
+//         setLoad(false) // load : false (if문 통과)
+//       })
+//   }, [])
 
-  if (!load) {
-    return <p>load ...</p>;
-  } else {
-    return <img src={profile.src} alt="" />;
-  }
-}
+//   // if문을 모두 통과 시킨 후 return 값을 반환한다.
+//   if(error) {
+//     return (
+//       <p>로드 중 error 발생했습니다.</p>
+//     )
+//   }
+
+//   if(load) {
+//     return (
+//       <p>로드 중입니다. 잠시만 기다려주세요.</p>
+//     )
+//   }
+
+//   return (
+//     <img src={image.source} alt={image.alt} />
+//   )
+// }

@@ -1,14 +1,16 @@
 // React Import
 import React from "react";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
+import { HashRouter as Router, Routes, Route, Link, useParams } from "react-router-dom";
 
 // 1000lines...
 
-// 컴포넌트 내보내기
+// 컴포넌트 내보내기01
 export default function App() {
   return <Layout></Layout>;
 }
 
+// 컴포넌트 내보내기02
 // function App() {
 //   return <Layout></Layout>;
 // }
@@ -18,9 +20,9 @@ export default function App() {
 // 1000lines...
 
 // 가상 엘리먼트
-function Layout() {
-  return <h1>가상 엘리먼트란?</h1>;
-}
+// function Layout() {
+//   return <h1>가상 엘리먼트란?</h1>;
+// }
 
 // 1000lines...
 
@@ -441,4 +443,220 @@ function Layout() {
 //       </button>
 //     </>
 //   );
+// }
+
+// 1000lines...
+
+// 기본 Router
+// function Home() {
+//   return <h1>Home</h1>;
+// }
+
+// function About() {
+//   return <h1>About</h1>;
+// }
+
+// function Posts() {
+//   return (
+//     <>
+//       <h1>Posts</h1>
+
+//       <ul>
+//         <li>
+//           <Link to="/Posts/post01">post01</Link>
+//         </li>
+//         <li>
+//           <Link to="/Posts/post02">post02</Link>
+//         </li>
+//       </ul>
+//     </>
+//   );
+// }
+
+// function Post() {
+//   const { postsId } = useParams();
+
+//   return (
+//     <h1>{postsId}</h1>
+//   )
+// }
+
+// function Layout() {
+//   return (
+//     <Router>
+//       <ul>
+//         <li>
+//           <Link to="/Home">Home</Link>
+//         </li>
+//         <li>
+//           <Link to="/About">About</Link>
+//         </li>
+//         <li>
+//           <Link to="/Posts">Posts</Link>
+//         </li>
+//       </ul>
+
+//       <Routes>
+//         <Route path="/Home" element={<Home></Home>}></Route>
+//         <Route path="/About" element={<About></About>}></Route>
+//         <Route path="/Posts" element={<Posts></Posts>}></Route>
+//         <Route path="/Posts/:postsId" element={<Post></Post>}></Route>
+//       </Routes>
+//     </Router>
+//   );
+// }
+
+// 인증이 필요한 Router
+// const AuthContext = createContext();
+
+// function AuthProvider({ children }) {
+//   const [user, setUser] = useState(null);
+//   const value = { user, setUser };
+
+//   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+// }
+
+// function LoginState() {
+//   const { user, setUser } = useContext(AuthContext);
+
+//   return user ? (
+//     <>
+//       <h1>안녕하세요: {user}님</h1>
+//       <button onClick={() => setUser(null)}>로그아웃</button>
+//     </>
+//   ) : (
+//     <h1>로그인하세요</h1>
+//   );
+// }
+
+// function Login({ children }) {
+//   const { user, setUser } = useContext(AuthContext);
+//   const [inputUser, setInputUser] = useState(null);
+
+//   return user ? (
+//     <>{children}</>
+//   ) : (
+//     <form onSubmit={() => setUser(inputUser)}>
+//       <input type="search" placeholder="아이디를 입력하세요" onChange={(e) => setInputUser(e.target.value)}/>
+//       <button type="submit">제출</button>
+//     </form>
+//   );
+// }
+
+// function Home() {
+//   return <h1>Home</h1>;
+// }
+
+// function About() {
+//   return <h1>About</h1>;
+// }
+
+// function Posts() {
+//   return (
+//     <>
+//       <h1>Posts</h1>
+
+//       <ul>
+//         <li>
+//           <Link to="/Posts/post01">post01</Link>
+//         </li>
+//         <li>
+//           <Link to="/Posts/post02">post02</Link>
+//         </li>
+//       </ul>
+//     </>
+//   );
+// }
+
+// function Post() {
+//   const { postsId } = useParams();
+
+//   return <h1>{postsId}</h1>;
+// }
+
+// function Layout() {
+//   return (
+//     <Router>
+//       <AuthProvider>
+//         <ul>
+//           <li>
+//             <Link to="/Home">Home</Link>
+//           </li>
+//           <li>
+//             <Link to="/About">About</Link>
+//           </li>
+//           <li>
+//             <Link to="/Posts">Posts</Link>
+//           </li>
+//         </ul>
+
+//         <LoginState></LoginState>
+
+//         <Routes>
+//           <Route path="/Home" element={<Home></Home>}></Route>
+//           <Route path="/About" element={<About></About>}></Route>
+//           <Route path="/Posts" element={<Posts></Posts>}></Route>
+//           <Route path="/Posts/:postsId" element={<Login><Post></Post></Login>}></Route>
+//         </Routes>
+//       </AuthProvider>
+//     </Router>
+//   );
+// }
+
+// useEffect
+// function Layout() {
+//   useEffect(() => {
+//     console.log("시간 랜더링", new Date().toLocaleTimeString());
+//   }, []);
+
+//   const [state, setState] = useState(0);
+
+//   return <button onClick={() => setState(state + 1)}>{state}</button>;
+// }
+
+// useEffect로 데이터 가지고 오기
+// function fetchData() {
+//   const data = {
+//     src: "https://images.unsplash.com/photo-1680866514940-6383e638270e?auto=format&fit=crop&q=80&w=1932&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+//     alt: "자연이미지",
+//   };
+
+//   const promise = new Promise((res, rej) => {
+//     setTimeout(() => {
+//       res(data);
+//     }, 2000);
+//   });
+
+//   return promise;
+// }
+
+// function Layout() {
+//   const [error, setError] = useState(null);
+//   const [load, setLoad] = useState(true);
+//   const [image, setImage] = useState(null);
+
+//   useEffect(() => {
+//     fetchData()
+//       .then((data) => {
+//         setImage(data);
+//       })
+
+//       .catch((error) => {
+//         setError(error);
+//       })
+
+//       .finally(() => {
+//         setLoad(false);
+//       });
+//   });
+
+//   if (error) {
+//     return <h1>error...</h1>;
+//   }
+
+//   if (load) {
+//     return <h1>load ...</h1>;
+//   }
+
+//   return <img src={image.src} alt={image.alt} />;
 // }
